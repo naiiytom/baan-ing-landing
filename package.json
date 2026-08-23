@@ -10,7 +10,7 @@
     "deploy": "npm run build && wrangler pages deploy dist"
   },
   "devDependencies": {
-    "vite": "^5.4.11",
+    "vite": "^8.2.2",
     "wrangler": "^4.125.0"
   }
 }
