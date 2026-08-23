@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Data Security & IP Protection - BAAN/ING</title>
+    <meta name="description" content="Overview of BAAN/ING's architectural cloud security infrastructure, encryption, and IP protection standards.">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fdf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-surface-variant": "#444748",
+                        "outline-variant": "#c4c7c7",
+                        "primary": "#000000",
+                        "charcoal": "#262626",
+                        "architectural-blue": "#0057FF",
+                        "glass-bg": "rgba(255, 255, 255, 0.7)",
+                        "drafting-grid": "#E5E7EB"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "headline-lg": ["Manrope", "sans-serif"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"],
+                        "data-mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid-pattern {
+            background-size: 8px 8px;
+            background-image: linear-gradient(to right, theme('colors.drafting-grid') 1px, transparent 1px),
+                              linear-gradient(to bottom, theme('colors.drafting-grid') 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen relative antialiased bg-grid-pattern">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-outline-variant/30 px-8 h-16 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-2 font-display-lg text-xl font-bold tracking-tight text-primary">
+            <span class="text-architectural-blue">BAAN</span><span class="text-on-surface-variant font-normal">/</span>ING
+        </a>
+        <a href="/" class="font-data-mono text-xs text-architectural-blue hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+            Back to Home
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 max-w-4xl mx-auto px-6">
+        <div class="bg-surface-container-lowest border border-outline-variant/30 p-8 sm:p-12 rounded-lg shadow-sm space-y-8">
+            <div>
+                <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-wider mb-2">SECURITY & ARCHITECTURE</div>
+                <h1 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Data Security & IP Protection</h1>
+                <p class="font-data-mono text-xs text-on-surface-variant mt-2">Enterprise-Grade Security For Architectural Intellectual Property</p>
+            </div>
+
+            <hr class="border-outline-variant/30">
+
+            <section class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-surface-container-low p-6 rounded border border-outline-variant/30 space-y-2">
+                    <span class="material-symbols-outlined text-[32px] text-architectural-blue">lock</span>
+                    <h3 class="font-headline-lg text-lg font-bold text-primary">AES-256 Encryption</h3>
+                    <p class="font-body-md text-xs text-on-surface-variant">All CAD files, blueprints, and render outputs are encrypted at rest using AES-256 keys.</p>
+                </div>
+                <div class="bg-surface-container-low p-6 rounded border border-outline-variant/30 space-y-2">
+                    <span class="material-symbols-outlined text-[32px] text-architectural-blue">shield</span>
+                    <span class="font-headline-lg text-lg font-bold text-primary block">Cloudflare Edge</span>
+                    <p class="font-body-md text-xs text-on-surface-variant">Protected by Cloudflare Web Application Firewall (WAF) and automated DDoS mitigation.</p>
+                </div>
+                <div class="bg-surface-container-low p-6 rounded border border-outline-variant/30 space-y-2">
+                    <span class="material-symbols-outlined text-[32px] text-architectural-blue">vpn_key</span>
+                    <h3 class="font-headline-lg text-lg font-bold text-primary">Isolated Tenants</h3>
+                    <p class="font-body-md text-xs text-on-surface-variant">Studio project databases are logically isolated to prevent cross-tenant data leakage.</p>
+                </div>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">1. Architectural Blueprint Sovereignty</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    Architectural designs contain confidential client layouts, structural specs, and proprietary firm assets. BAAN/ING enforces strict tenant isolation ensures that your raw vector floorplans and private BOQ cost sheets never leave your encrypted workspace sandbox.
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">2. Security Incident Response</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    Our infrastructure is monitored 24/7. To report a security vulnerability or security concern, contact our dedicated security team at <code class="font-data-mono text-xs text-architectural-blue bg-surface-container-low px-2 py-1 rounded">security@baan.ing</code>.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-outline-variant/30 bg-surface-container-lowest py-6 text-center font-data-mono text-xs text-on-surface-variant">
+        © 2026 BAAN/ING. Smart design. Real spaces. All rights reserved.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>BAAN/ING - Smart Design. Real Spaces. (Coming Soon)</title>
+    <meta name="description" content="Smart architectural design platform for Thai spaces. From technical floorplans to photorealistic 4K renders—built with 1:1 retail accuracy and professional structural integrity. Coming soon.">
+    <link rel="canonical" href="https://baan.ing/">
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://baan.ing/">
+    <meta property="og:title" content="BAAN/ING - Smart Design. Real Spaces.">
+    <meta property="og:description" content="Smart architectural design platform for Thai spaces. From technical floorplans to photorealistic 4K renders.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E">
+
+    <!-- Fonts & Material Symbols -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fdf8f8",
+                        "surface-dim": "#ddd9d8",
+                        "surface-bright": "#fdf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f7f3f2",
+                        "surface-container": "#f1edec",
+                        "surface-container-high": "#ebe7e6",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "on-surface-variant": "#444748",
+                        "inverse-surface": "#313030",
+                        "inverse-on-surface": "#f4f0ef",
+                        "outline": "#747878",
+                        "outline-variant": "#c4c7c7",
+                        "surface-tint": "#5f5e5e",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1c1b1b",
+                        "on-primary-container": "#858383",
+                        "inverse-primary": "#c8c6c5",
+                        "secondary": "#5a5f64",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#dce0e6",
+                        "on-secondary-container": "#5e6368",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#1c1b1a",
+                        "on-tertiary-container": "#868382",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "background": "#fdf8f8",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "warm-gray": "#F5F5F4",
+                        "charcoal": "#262626",
+                        "architectural-blue": "#0057FF",
+                        "thai-gold-accent": "#C5A059",
+                        "glass-bg": "rgba(255, 255, 255, 0.7)",
+                        "drafting-grid": "#E5E7EB"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", // 4px per DESIGN.md
+                        "sm": "0.125rem",      // 2px
+                        "md": "0.375rem",     // 6px
+                        "lg": "0.5rem",        // 8px floating cards
+                        "xl": "0.75rem",       // 12px
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "inspector-width": "320px",
+                        "toolbar-width": "64px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "headline-lg": ["Manrope", "sans-serif"],
+                        "headline-md": ["Manrope", "sans-serif"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"],
+                        "data-mono": ["JetBrains Mono", "monospace"],
+                        "label-sm": ["Hanken Grotesk", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid-pattern {
+            background-size: 8px 8px;
+            background-image: linear-gradient(to right, theme('colors.drafting-grid') 1px, transparent 1px),
+                              linear-gradient(to bottom, theme('colors.drafting-grid') 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative overflow-x-hidden antialiased bg-grid-pattern">
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-xl border-b border-outline-variant/30 px-margin-desktop h-16 flex justify-between items-center shadow-sm">
+        <div class="flex items-center gap-8">
+            <a href="https://baan.ing" class="flex items-center">
+                <img src="https://lh3.googleusercontent.com/aida/AEtjO1UBMRaLb4zFmOsLRBpcmD2jSHlaBcF7pv-HWJ3CVYB5bIBVQG8r37uNanFD7zLR4aUXnGXYkQDGQMMPKHaeKhpOft8ReglvmJgxQ-8qsSUcz4foQPqhvdFqZIdglMZH1OraylyKYIHQ-Gebwt5P_b8_nHWPOPc5k-9O4Jwy2EN6SDXDjNc_V6T_LC6NFQSvQgdIbJQdFt0EvbmkkAqODS1MFIDnwV-Tuw-yWEwknyLw4SxreabBrr175sl3" alt="BAAN/ING" class="h-8 object-contain">
+            </a>
+            
+            <nav class="hidden md:flex gap-6 items-center">
+                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#features">Capabilities</a>
+                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#calculator">BOQ Estimator</a>
+                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#showcase">Showcase</a>
+                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#pricing">Pricing</a>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://app.baan.ing" class="hidden sm:inline-block font-data-mono text-data-mono text-on-surface-variant hover:text-primary px-3 py-1.5 transition-colors">
+                Sign In
+            </a>
+            <button onclick="openLeadModal('Nav Join Waitlist')" class="font-data-mono text-data-mono bg-charcoal text-white px-4 py-2 rounded hover:opacity-90 transition-opacity shadow-sm flex items-center gap-1.5">
+                <span>Join Waitlist</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <main class="pt-24 pb-20 px-margin-desktop max-w-7xl mx-auto">
+        
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] py-8">
+            <div class="space-y-6 z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-thai-gold-accent/10 border border-thai-gold-accent/30 text-thai-gold-accent font-data-mono text-label-sm uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-thai-gold-accent animate-ping"></span>
+                    Coming Soon • Join Early Access Waitlist
+                </div>
+
+                <h1 class="font-display-lg text-display-lg text-primary md:text-[64px] leading-tight">
+                    Drafting the Future.<br>Defined by Precision.
+                </h1>
+                
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Smart architectural design for Thai spaces. From technical floorplans to photorealistic 4K renders—built with 1:1 retail accuracy and professional structural integrity.
+                </p>
+
+                <!-- High-Converting Waitlist Form -->
+                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-4 rounded-lg shadow-md max-w-lg">
+                    <form onsubmit="handleHeroSubmit(event)" class="flex flex-col sm:flex-row gap-2.5">
+                        <div class="relative flex-1">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">mail</span>
+                            <input type="email" id="hero-email" required placeholder="Enter work email for early access..." class="w-full pl-9 pr-3 py-2.5 bg-surface-container-lowest border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue">
+                        </div>
+                        <button type="submit" class="bg-charcoal text-white font-data-mono text-data-mono px-5 py-2.5 rounded hover:opacity-90 transition-opacity shadow flex items-center justify-center gap-1.5 whitespace-nowrap">
+                            <span>Request Access</span>
+                            <span class="material-symbols-outlined text-[16px]">flash_on</span>
+                        </button>
+                    </form>
+                    <div class="flex items-center gap-6 mt-3 px-1 font-label-sm text-label-sm text-on-surface-variant">
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">info</span>
+                            <span>Limited Early Cohort Invites</span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">lock</span>
+                            <span>No Spam Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Guarantees / Highlights -->
+                <div class="pt-2 flex flex-wrap gap-4 text-on-surface-variant font-data-mono text-label-sm">
+                    <div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-architectural-blue text-[16px]">verified</span>
+                        <span>Engineered for Thai Building Codes</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-architectural-blue text-[16px]">bolt</span>
+                        <span>Zero Local GPU Required</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Visual Preview Card -->
+            <div class="relative h-[600px] w-full bg-surface-container-lowest/50 border border-outline-variant/30 rounded-xl overflow-hidden shadow-lg backdrop-blur-sm group">
+                <img alt="BAANING UI with Thai Floor Planning" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E">
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+                
+                <div class="absolute top-4 left-4 bg-thai-gold-accent text-white font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider shadow">
+                    Coming Soon • Beta Preview
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specs Banner -->
+        <section class="py-12 border-y border-outline-variant/30 bg-surface-container-lowest/40 backdrop-blur-sm my-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="font-headline-lg text-headline-lg text-primary">Vector CAD</div>
+                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">Engine Architecture</div>
+                </div>
+                <div>
+                    <div class="font-headline-lg text-headline-lg text-architectural-blue">99.4%</div>
+                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">Metric Grid Accuracy</div>
+                </div>
+                <div>
+                    <div class="font-headline-lg text-headline-lg text-primary">&lt; 60s</div>
+                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">4K Raytracing Speed</div>
+                </div>
+                <div>
+                    <div class="font-headline-lg text-headline-lg text-thai-gold-accent">100%</div>
+                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">Thai BOQ Standard</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features" class="py-24">
+            <div class="flex justify-between items-end mb-12 border-b border-outline-variant/30 pb-4">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Core Capabilities</h2>
+                    <p class="font-body-md text-on-surface-variant mt-1">Features currently in development for our initial launch.</p>
+                </div>
+                <span class="font-data-mono text-label-sm text-thai-gold-accent uppercase tracking-widest font-bold">In Development</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 font-data-mono text-[80px] leading-none select-none">01</div>
+                    <span class="material-symbols-outlined text-[48px] text-architectural-blue mb-6 block" style="font-variation-settings: 'FILL' 0;">architecture</span>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-3">Vector Floorplan Scanner</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Transform rough sketches into CAD-ready plans instantly. Our engine reads dimensions and walls, adhering strictly to technical snap-grids.
+                    </p>
+                    <button onclick="openLeadModal('Feature Waitlist: Vector Scan')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:gap-2 transition-all">
+                        Join Feature Waitlist <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 font-data-mono text-[80px] leading-none select-none">02</div>
+                    <span class="material-symbols-outlined text-[48px] text-architectural-blue mb-6 block" style="font-variation-settings: 'FILL' 0;">chair</span>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-3">1:1 Retail Integration</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Design with real furniture from premium brands. Real dimensions, real textures, and automated BOQ generation mapped to Thai Baht.
+                    </p>
+                    <button onclick="openLeadModal('Feature Waitlist: Retail BOQ')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:gap-2 transition-all">
+                        Join Feature Waitlist <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 font-data-mono text-[80px] leading-none select-none">03</div>
+                    <span class="material-symbols-outlined text-[48px] text-architectural-blue mb-6 block" style="font-variation-settings: 'FILL' 0;">view_in_ar</span>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-3">4K Cloud Rendering</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Achieve photorealistic visualization at the click of a button. Leverage event-driven microservices for high-performance, low-latency raytracing.
+                    </p>
+                    <button onclick="openLeadModal('Feature Waitlist: 4K Render')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:gap-2 transition-all">
+                        Join Feature Waitlist <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive BOQ Calculator -->
+        <section id="calculator" class="py-16">
+            <div class="bg-glass-bg backdrop-blur-md p-8 sm:p-12 rounded-xl border border-outline-variant/30 shadow-lg relative">
+                <div class="absolute top-4 right-4 bg-architectural-blue/10 text-architectural-blue font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider font-bold">
+                    Beta Preview
+                </div>
+                <div class="max-w-3xl">
+                    <div class="font-data-mono text-data-mono text-architectural-blue uppercase mb-2">INTERACTIVE_ESTIMATOR</div>
+                    <h3 class="font-headline-lg text-headline-lg text-primary mb-4">Calculate Time & Cost Saved On Your Next Project</h3>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Select your project parameters to estimate instant drafting speedup with BAAN/ING.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label class="block font-data-mono text-label-sm text-primary uppercase mb-2">Space Size (sq.m)</label>
+                            <input type="range" id="sqm-slider" min="50" max="1000" value="250" oninput="updateCalculator()" class="w-full accent-architectural-blue cursor-pointer">
+                            <div class="flex justify-between font-data-mono text-data-mono text-primary mt-1">
+                                <span>50 sq.m</span>
+                                <span id="sqm-val" class="text-architectural-blue font-bold">250 sq.m</span>
+                                <span>1000 sq.m</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-data-mono text-label-sm text-primary uppercase mb-2">Project Type</label>
+                            <select id="project-type" onchange="updateCalculator()" class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded px-4 py-2 font-body-md text-sm focus:outline-none focus:border-architectural-blue">
+                                <option value="residential">Residential Villa / House</option>
+                                <option value="condo">Modern Condominium Interior</option>
+                                <option value="commercial">Commercial / Retail Shop</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Calculated Output Card -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 p-5 bg-surface-container-lowest rounded border border-outline-variant/30 mb-8">
+                        <div>
+                            <div class="font-data-mono text-label-sm text-on-surface-variant">MANUAL DRAFTING</div>
+                            <div id="manual-hours" class="font-headline-md text-headline-md text-on-surface-variant mt-1">45 Hours</div>
+                        </div>
+                        <div>
+                            <div class="font-data-mono text-label-sm text-architectural-blue font-bold">WITH BAAN/ING</div>
+                            <div id="baaning-hours" class="font-headline-md text-headline-md text-architectural-blue mt-1">2.5 Hours</div>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <div class="font-data-mono text-label-sm text-thai-gold-accent font-bold">EST. BOQ COST RANGE</div>
+                            <div id="boq-estimate" class="font-headline-md text-headline-md text-thai-gold-accent mt-1">฿3.5M - ฿4.2M</div>
+                        </div>
+                    </div>
+
+                    <button onclick="openLeadModal('Calculator Conversion')" class="bg-charcoal text-white font-data-mono text-data-mono px-8 py-3.5 rounded hover:opacity-90 transition-opacity shadow-md flex items-center gap-2">
+                        <span>Get Early Access For This Project</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Showcase Bento Grid -->
+        <section id="showcase" class="py-24">
+            <div class="flex justify-between items-end mb-12 border-b border-outline-variant/30 pb-4">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Community Showcase</h2>
+                    <p class="font-body-md text-on-surface-variant mt-1">Concept renders generated during engine development.</p>
+                </div>
+                <button onclick="openLeadModal('Showcase View Gallery')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:opacity-80">
+                    View Gallery <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[600px]">
+                <!-- Large Feature -->
+                <div class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group border border-outline-variant/20 shadow-sm bg-surface-container">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Minimalist Teak Villa">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div class="text-white">
+                            <div class="font-data-mono text-[12px] opacity-80 mb-1">RENDER_01 :: TROPICAL MODERN</div>
+                            <div class="font-headline-md text-[20px]">Minimalist Teak Villa | Bangkok</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Top Right -->
+                <div class="md:col-span-2 md:row-span-1 relative rounded-xl overflow-hidden group border border-outline-variant/20 shadow-sm bg-surface-container">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ZCa0bs3667YX-iHb6qWnhYJfODjWbeZyE_bGtz62YCy4zuQRV2eRlG0dIZtCedk7v3-gxNvDEJUvqfOCinA0Kmm9rC_lfDriMhFnEKMlavHRq6iYFimyVvw2hsFUIf0jZO7YVhIfXM1kKNQBHg06lxaSFK_Ueg_pl_qjoUep-m-1a7E4LeqmOsgrdV_Hhc8rGUW9Glab8KxTZp7gjN-ftEQcyP0IJELRnHASlVmjm1qF_cSvBR9xbA" alt="Modern Loft Workspace">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <div class="text-white">
+                            <div class="font-data-mono text-[10px] opacity-80">RENDER_02 :: EXTERIOR</div>
+                            <div class="font-headline-md text-[16px]">Modern Loft Workspace | Chiang Mai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Bottom Right 1 -->
+                <div class="md:col-span-1 md:row-span-1 relative rounded-xl overflow-hidden group border border-outline-variant/20 shadow-sm bg-surface-container">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHvw9lbb61D2DTBtAoZ_PayHHn529r8n3VEsQRtQGJy2Kv5CUPgpF0y1hkzk0-1svmnZd9c4aLTuUk-Zk7E-UFkFmCs7S_RIYPb_Crcc0up-8NvMO-gMcGFDXZe7CotdKsBNEYKoyPUl95A4d8uWGyC9y8F5Heibh2_2Wn8sKqRb3DsMO6uHN3uACDMCITyK-3kR4kxZGKOieBpFaZ_PyZ0QEU9tbKN-0_UDS8rzJpaz7hQodiDv0EbA" alt="Architectural Detail">
+                </div>
+
+                <!-- Small Bottom Right 2 -->
+                <div onclick="openLeadModal('Showcase Submit')" class="md:col-span-1 md:row-span-1 relative rounded-xl overflow-hidden flex flex-col items-center justify-center bg-architectural-blue/5 border border-architectural-blue/20 cursor-pointer hover:bg-architectural-blue/10 transition-colors group">
+                    <span class="material-symbols-outlined text-[40px] text-architectural-blue mb-2 group-hover:scale-110 transition-transform">add_circle</span>
+                    <span class="font-data-mono text-data-mono text-architectural-blue">Join Beta Creator List</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Plans (4 Tiers: Free Tier, Creator, Professional, Enterprise) -->
+        <section id="pricing" class="py-16 border-t border-outline-variant/30">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-thai-gold-accent/15 text-thai-gold-accent font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider font-bold mb-3">
+                    Launching Soon
+                </div>
+                <h2 class="font-headline-lg text-headline-lg text-primary text-center mb-4">Planned Pricing Tiers</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant text-center max-w-2xl mx-auto">Select the plan tailored for your architectural practice. Join the waitlist for early-bird discounts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                <!-- Tier 1: Free Tier -->
+                <div class="bg-glass-bg backdrop-blur-md p-6 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="font-data-mono text-label-sm text-on-surface-variant uppercase mb-2">Starter / Student</div>
+                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Free Tier</h4>
+                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">฿0 <span class="font-body-md text-xs text-on-surface-variant">/ forever</span></div>
+                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Up to 3 Active Projects</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>2D CAD Floorplan Exporter</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Standard Component Catalog</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openLeadModal('Pricing Waitlist: Free Tier')" class="w-full bg-glass-bg border border-outline-variant/40 hover:bg-surface-container-low font-data-mono text-data-mono text-primary py-2.5 rounded transition-colors text-xs">
+                        Join Waitlist Free
+                    </button>
+                </div>
+
+                <!-- Tier 2: Creator -->
+                <div class="bg-glass-bg backdrop-blur-md p-6 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="font-data-mono text-label-sm text-on-surface-variant uppercase mb-2">Individual Designers</div>
+                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Creator</h4>
+                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">฿490 <span class="font-body-md text-xs text-on-surface-variant">/ month</span></div>
+                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Up to 10 Active Projects</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Vector Floorplan Scanner (10/mo)</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>3D Isometric Workspace</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openLeadModal('Pricing Waitlist: Creator')" class="w-full bg-glass-bg border border-outline-variant/40 hover:bg-surface-container-low font-data-mono text-data-mono text-primary py-2.5 rounded transition-colors text-xs">
+                        Reserve Creator Tier
+                    </button>
+                </div>
+
+                <!-- Tier 3: Professional (Highlighted) -->
+                <div class="bg-surface-container-lowest p-6 rounded-lg border-2 border-architectural-blue shadow-xl flex flex-col justify-between relative scale-105 z-10">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-architectural-blue text-white font-data-mono text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap">
+                        Most Popular For Architects
+                    </div>
+                    <div>
+                        <div class="font-data-mono text-label-sm text-architectural-blue uppercase mb-2">Architects & Firms</div>
+                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Professional</h4>
+                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">฿1,490 <span class="font-body-md text-xs text-on-surface-variant">/ month</span></div>
+                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
+                            <li class="flex items-center gap-1.5 font-bold text-primary">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Unlimited Active Projects</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Unlimited Vector Floorplan Scanner</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Automated Thai BOQ (THB + VAT)</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>4K Cloud Raytracing Renders</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openLeadModal('Pricing Waitlist: Professional')" class="w-full bg-charcoal text-white font-data-mono text-data-mono py-2.5 rounded hover:opacity-90 transition-opacity shadow text-xs">
+                        Reserve Pro Discount
+                    </button>
+                </div>
+
+                <!-- Tier 4: Enterprise -->
+                <div class="bg-glass-bg backdrop-blur-md p-6 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="font-data-mono text-label-sm text-on-surface-variant uppercase mb-2">Studios & Developers</div>
+                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Enterprise</h4>
+                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">Custom</div>
+                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Multi-seat Team Licenses</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Custom Material Catalog Import</span>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                                <span>Dedicated Cloud Render Queue</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openLeadModal('Pricing Waitlist: Enterprise')" class="w-full bg-glass-bg border border-outline-variant/40 hover:bg-surface-container-low font-data-mono text-data-mono text-primary py-2.5 rounded transition-colors text-xs">
+                        Inquire Enterprise Access
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner -->
+        <section class="py-12">
+            <div class="bg-charcoal text-white rounded-lg p-10 sm:p-16 text-center space-y-6 shadow-xl relative overflow-hidden">
+                <div class="inline-block bg-white/10 text-thai-gold-accent font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider font-bold">
+                    Launching Soon
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-white max-w-2xl mx-auto">Be First to Experience Next-Gen Architectural Design</h3>
+                <p class="font-body-lg text-body-lg text-outline-variant max-w-xl mx-auto">Join our early access waitlist today and get notified as soon as BAAN/ING launches.</p>
+                <div class="pt-4 flex justify-center">
+                    <button onclick="openLeadModal('Bottom Waitlist CTA')" class="bg-architectural-blue text-white font-data-mono text-data-mono px-8 py-4 rounded hover:bg-opacity-90 transition-all shadow-lg flex items-center gap-2">
+                        <span>Join Early Access Waitlist</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Telemetry Status Bar Footer -->
+    <footer class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-8 bg-surface-container-lowest/80 backdrop-blur-sm border-t border-outline-variant/10 cursor-default select-none">
+        <div class="flex items-center gap-4">
+            <img src="https://lh3.googleusercontent.com/aida/AEtjO1UBMRaLb4zFmOsLRBpcmD2jSHlaBcF7pv-HWJ3CVYB5bIBVQG8r37uNanFD7zLR4aUXnGXYkQDGQMMPKHaeKhpOft8ReglvmJgxQ-8qsSUcz4foQPqhvdFqZIdglMZH1OraylyKYIHQ-Gebwt5P_b8_nHWPOPc5k-9O4Jwy2EN6SDXDjNc_V6T_LC6NFQSvQgdIbJQdFt0EvbmkkAqODS1MFIDnwV-Tuw-yWEwknyLw4SxreabBrr175sl3" alt="BAAN/ING" class="h-4 object-contain">
+            <span class="font-data-mono text-label-sm text-on-surface-variant hidden md:inline">© 2026 BAAN/ING. Smart design. Real spaces.</span>
+        </div>
+        <div class="flex gap-6 items-center">
+            <a href="/privacy.html" class="font-data-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="/terms.html" class="font-data-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors">Terms of Service</a>
+            <a href="/security.html" class="font-data-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors">Data Security</a>
+            <span class="font-data-mono text-label-sm text-architectural-blue">Metric</span>
+        </div>
+    </footer>
+
+    <!-- Lead Capture Modal (Waitlist Focus) -->
+    <div id="lead-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-surface-container-lowest max-w-md w-full p-8 rounded-lg shadow-2xl relative border border-outline-variant/30">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary">
+                <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+            
+            <div class="space-y-3 mb-6">
+                <div class="w-10 h-10 rounded bg-architectural-blue/10 flex items-center justify-center text-architectural-blue">
+                    <span class="material-symbols-outlined text-[24px]">rocket_launch</span>
+                </div>
+                <h4 class="font-headline-md text-headline-md text-primary">Join Early Access Waitlist</h4>
+                <p class="font-body-md text-sm text-on-surface-variant">Be among the first architects and interior designers invited to test BAAN/ING.</p>
+            </div>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block font-data-mono text-label-sm text-primary uppercase mb-1">Full Name</label>
+                    <input type="text" required placeholder="e.g. Niti Somchai" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue">
+                </div>
+                <div>
+                    <label class="block font-data-mono text-label-sm text-primary uppercase mb-1">Work Email</label>
+                    <input type="email" required placeholder="niti@studio-niti.co.th" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue">
+                </div>
+                <button type="submit" class="w-full bg-charcoal text-white font-data-mono text-data-mono py-3 rounded shadow hover:opacity-90 transition-opacity">
+                    Request Priority Invite
+                </button>
+            </form>
+
+            <div id="modal-success" class="hidden text-center py-6 space-y-3">
+                <span class="material-symbols-outlined text-[48px] text-emerald-600">check_circle</span>
+                <h5 class="font-headline-md text-headline-md text-primary">You're On The List!</h5>
+                <p class="font-data-mono text-label-sm text-on-surface-variant">We'll email you as soon as early access cohort opens.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        function openLeadModal(source) {
+            console.log('Lead modal opened from:', source);
+            document.getElementById('lead-modal').classList.remove('hidden');
+            document.getElementById('lead-modal').classList.add('flex');
+        }
+
+        function closeLeadModal() {
+            document.getElementById('lead-modal').classList.add('hidden');
+            document.getElementById('lead-modal').classList.remove('flex');
+        }
+
+        function handleHeroSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('hero-email').value;
+            if (email) {
+                openLeadModal('Hero Form: ' + email);
+            }
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            document.querySelector('#lead-modal form').classList.add('hidden');
+            document.getElementById('modal-success').classList.remove('hidden');
+            setTimeout(() => {
+                closeLeadModal();
+                alert('Thank you! You are registered on the BAAN/ING Early Access Waitlist.');
+                document.querySelector('#lead-modal form').classList.remove('hidden');
+                document.getElementById('modal-success').classList.add('hidden');
+            }, 1800);
+        }
+
+        function updateCalculator() {
+            const sqm = parseInt(document.getElementById('sqm-slider').value);
+            const type = document.getElementById('project-type').value;
+
+            document.getElementById('sqm-val').innerText = sqm + ' sq.m';
+
+            let ratePerSqm = 12000;
+            let manualHoursPerSqm = 0.18;
+
+            if (type === 'condo') {
+                ratePerSqm = 15000;
+                manualHoursPerSqm = 0.22;
+            } else if (type === 'commercial') {
+                ratePerSqm = 18000;
+                manualHoursPerSqm = 0.25;
+            }
+
+            const manualHours = Math.round(sqm * manualHoursPerSqm);
+            const baaningHours = (manualHours * 0.05).toFixed(1);
+            
+            const minCost = (sqm * ratePerSqm / 1000000).toFixed(1);
+            const maxCost = (sqm * ratePerSqm * 1.25 / 1000000).toFixed(1);
+
+            document.getElementById('manual-hours').innerText = manualHours + ' Hours';
+            document.getElementById('baaning-hours').innerText = baaningHours + ' Hours';
+            document.getElementById('boq-estimate').innerText = '฿' + minCost + 'M - ฿' + maxCost + 'M';
+        }
+    </script>
+</body>
+</html>

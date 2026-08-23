@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Terms of Service - BAAN/ING</title>
+    <meta name="description" content="BAAN/ING Terms of Service agreement governing the use of our architectural platform.">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fdf8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-surface-variant": "#444748",
+                        "outline-variant": "#c4c7c7",
+                        "primary": "#000000",
+                        "charcoal": "#262626",
+                        "architectural-blue": "#0057FF",
+                        "glass-bg": "rgba(255, 255, 255, 0.7)",
+                        "drafting-grid": "#E5E7EB"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Manrope", "sans-serif"],
+                        "headline-lg": ["Manrope", "sans-serif"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"],
+                        "data-mono": ["JetBrains Mono", "monospace"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid-pattern {
+            background-size: 8px 8px;
+            background-image: linear-gradient(to right, theme('colors.drafting-grid') 1px, transparent 1px),
+                              linear-gradient(to bottom, theme('colors.drafting-grid') 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen relative antialiased bg-grid-pattern">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-md border-b border-outline-variant/30 px-8 h-16 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-2 font-display-lg text-xl font-bold tracking-tight text-primary">
+            <span class="text-architectural-blue">BAAN</span><span class="text-on-surface-variant font-normal">/</span>ING
+        </a>
+        <a href="/" class="font-data-mono text-xs text-architectural-blue hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+            Back to Home
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20 max-w-4xl mx-auto px-6">
+        <div class="bg-surface-container-lowest border border-outline-variant/30 p-8 sm:p-12 rounded-lg shadow-sm space-y-8">
+            <div>
+                <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-wider mb-2">TERMS & CONDITIONS</div>
+                <h1 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Terms of Service</h1>
+                <p class="font-data-mono text-xs text-on-surface-variant mt-2">Last Updated: August 23, 2026</p>
+            </div>
+
+            <hr class="border-outline-variant/30">
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">1. Acceptance of Terms</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    By registering for or using the BAAN/ING platform, software, or services, you agree to be bound by these Terms of Service. If you are entering into this agreement on behalf of a company or architectural studio, you represent that you have authority to bind such entity.
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">2. Platform Usage & License</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    BAAN/ING grants you a non-exclusive, non-transferable, revocable license to access our cloud-based drafting tools, 4K raytracing engines, and BOQ estimation calculators according to your selected subscription tier.
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">3. Professional Disclaimer</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    While BAAN/ING's floorplan engine provides metric grid accuracy and 1:1 retail BOQ calculations, generated plans must be reviewed and stamped by a licensed professional architect or structural engineer prior to construction or permit submission.
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">4. Subscription & Billing</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    Subscriptions (Free Tier, Creator, Professional, Enterprise) are billed on a recurring monthly or annual basis. You may upgrade, downgrade, or cancel your plan at any time through your studio dashboard.
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <h2 class="font-headline-lg text-xl font-bold text-primary">5. Termination & Inquiries</h2>
+                <p class="font-body-md text-on-surface-variant">
+                    For questions regarding these Terms of Service, please reach out to our legal team at:
+                </p>
+                <div class="font-data-mono text-xs bg-surface-container-low p-4 rounded border border-outline-variant/30">
+                    Email: legal@baan.ing<br>
+                    Address: BAAN/ING Legal Department, Bangkok, Thailand
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-outline-variant/30 bg-surface-container-lowest py-6 text-center font-data-mono text-xs text-on-surface-variant">
+        © 2026 BAAN/ING. Smart design. Real spaces. All rights reserved.
+    </footer>
+</body>
+</html>

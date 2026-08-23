@@ -1,0 +1,16 @@
+{
+  "name": "baan-ing-landing",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "wrangler pages deploy dist"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11",
+    "wrangler": "^3.91.0"
+  }
+}
