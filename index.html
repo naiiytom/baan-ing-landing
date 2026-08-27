@@ -937,11 +937,11 @@
 
                 <!-- Billing Cycle Toggle -->
                 <div class="pt-4 flex items-center justify-center gap-3 font-data-mono text-xs">
-                    <span class="text-primary font-semibold" id="label-monthly">Monthly</span>
+                    <span class="text-primary font-semibold transition-colors" id="label-monthly">Monthly</span>
                     <button onclick="toggleBillingCycle()" type="button" class="w-12 h-6 bg-charcoal rounded-full p-1 transition-colors relative flex items-center" id="billing-toggle" aria-label="Toggle annual billing">
                         <div class="w-4 h-4 rounded-full bg-white transition-transform transform translate-x-0" id="billing-toggle-knob"></div>
                     </button>
-                    <span class="text-on-surface-variant" id="label-annual">Annual <span class="text-thai-gold-text font-bold">(2 Months Free)</span></span>
+                    <span class="text-on-surface-variant font-medium transition-colors" id="label-annual">Annually</span>
                 </div>
             </div>
 
@@ -953,8 +953,13 @@
                     <div>
                         <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">STUDENTS & PROSUMERS</div>
                         <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Free</h3>
-                        <div class="font-display-lg text-2xl font-extrabold text-primary mb-4">
-                            ฿0 <span class="font-data-mono text-[10px] font-normal text-on-surface-variant">/ forever</span>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                ฿0 <span class="font-data-mono text-[10px] font-normal text-on-surface-variant">/ forever</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4">
+                                Free forever
+                            </div>
                         </div>
                         <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
                             <li class="flex items-start gap-1.5">
@@ -985,8 +990,13 @@
                     <div>
                         <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">INDIVIDUAL CREATORS</div>
                         <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Creator</h3>
-                        <div class="font-display-lg text-2xl font-extrabold text-primary mb-4">
-                            <span id="price-creator">฿490</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-creator">/ mo</span>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                <span id="price-creator">฿490</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-creator">/ mo</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4" id="sub-creator">
+                                Billed monthly
+                            </div>
                         </div>
                         <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
                             <li class="flex items-start gap-1.5">
@@ -1020,8 +1030,13 @@
                     <div>
                         <div class="font-data-mono text-[10px] text-architectural-blue font-semibold uppercase mb-1">SOLO ARCHITECTS</div>
                         <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Professional</h3>
-                        <div class="font-display-lg text-2xl font-extrabold text-primary mb-4">
-                            <span id="price-pro">฿1,490</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-pro">/ seat/mo</span>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                <span id="price-pro">฿1,490</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-pro">/ seat/mo</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4" id="sub-pro">
+                                Billed monthly
+                            </div>
                         </div>
                         <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
                             <li class="flex items-start gap-1.5 font-semibold text-primary">
@@ -1056,8 +1071,13 @@
                     <div>
                         <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">DESIGN STUDIOS</div>
                         <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Team</h3>
-                        <div class="font-display-lg text-2xl font-extrabold text-primary mb-4">
-                            <span id="price-team">฿2,990</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-team">/ mo (5 seats)</span>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                <span id="price-team">฿2,990</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-team">/ mo (5 seats)</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4" id="sub-team">
+                                Billed monthly
+                            </div>
                         </div>
                         <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
                             <li class="flex items-start gap-1.5 font-semibold text-primary">
@@ -1092,8 +1112,13 @@
                     <div>
                         <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">DEVELOPERS & FIRMS</div>
                         <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Enterprise</h3>
-                        <div class="font-display-lg text-2xl font-extrabold text-primary mb-4">
-                            Custom <span class="font-data-mono text-[10px] font-normal text-on-surface-variant">/ firm</span>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                Custom <span class="font-data-mono text-[10px] font-normal text-on-surface-variant">/ firm</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4">
+                                Annual custom agreement
+                            </div>
                         </div>
                         <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
                             <li class="flex items-start gap-1.5">
@@ -1545,28 +1570,66 @@
             const lblM = document.getElementById('label-monthly');
             const lblA = document.getElementById('label-annual');
 
+            const priceCreator = document.getElementById('price-creator');
+            const periodCreator = document.getElementById('period-creator');
+            const subCreator = document.getElementById('sub-creator');
+
+            const pricePro = document.getElementById('price-pro');
+            const periodPro = document.getElementById('period-pro');
+            const subPro = document.getElementById('sub-pro');
+
+            const priceTeam = document.getElementById('price-team');
+            const periodTeam = document.getElementById('period-team');
+            const subTeam = document.getElementById('sub-team');
+
             if (isAnnual) {
                 knob.classList.add('translate-x-6');
                 knob.classList.remove('translate-x-0');
-                document.getElementById('price-creator').innerText = '฿4,900';
-                document.getElementById('period-creator').innerText = '/ yr';
-                document.getElementById('price-pro').innerText = '฿14,900';
-                document.getElementById('period-pro').innerText = '/ seat/yr';
-                document.getElementById('price-team').innerText = '฿29,900';
-                document.getElementById('period-team').innerText = '/ yr (5 seats)';
-                lblA.classList.add('text-primary', 'font-bold');
-                lblM.classList.remove('text-primary', 'font-bold');
+
+                if (priceCreator) priceCreator.innerText = '฿408';
+                if (periodCreator) periodCreator.innerText = '/ mo';
+                if (subCreator) subCreator.innerText = '฿4,900 / yr (billed annually)';
+
+                if (pricePro) pricePro.innerText = '฿1,242';
+                if (periodPro) periodPro.innerText = '/ seat/mo';
+                if (subPro) subPro.innerText = '฿14,900 / seat/yr (billed annually)';
+
+                if (priceTeam) priceTeam.innerText = '฿2,492';
+                if (periodTeam) periodTeam.innerText = '/ mo';
+                if (subTeam) subTeam.innerText = '฿29,900 / yr (billed annually)';
+
+                if (lblA) {
+                    lblA.classList.add('text-primary', 'font-bold');
+                    lblA.classList.remove('text-on-surface-variant');
+                }
+                if (lblM) {
+                    lblM.classList.remove('text-primary', 'font-bold');
+                    lblM.classList.add('text-on-surface-variant');
+                }
             } else {
                 knob.classList.remove('translate-x-6');
                 knob.classList.add('translate-x-0');
-                document.getElementById('price-creator').innerText = '฿490';
-                document.getElementById('period-creator').innerText = '/ mo';
-                document.getElementById('price-pro').innerText = '฿1,490';
-                document.getElementById('period-pro').innerText = '/ seat/mo';
-                document.getElementById('price-team').innerText = '฿2,990';
-                document.getElementById('period-team').innerText = '/ mo (5 seats)';
-                lblM.classList.add('text-primary', 'font-bold');
-                lblA.classList.remove('text-primary', 'font-bold');
+
+                if (priceCreator) priceCreator.innerText = '฿490';
+                if (periodCreator) periodCreator.innerText = '/ mo';
+                if (subCreator) subCreator.innerText = 'Billed monthly';
+
+                if (pricePro) pricePro.innerText = '฿1,490';
+                if (periodPro) periodPro.innerText = '/ seat/mo';
+                if (subPro) subPro.innerText = 'Billed monthly';
+
+                if (priceTeam) priceTeam.innerText = '฿2,990';
+                if (periodTeam) periodTeam.innerText = '/ mo (5 seats)';
+                if (subTeam) subTeam.innerText = 'Billed monthly';
+
+                if (lblM) {
+                    lblM.classList.add('text-primary', 'font-bold');
+                    lblM.classList.remove('text-on-surface-variant');
+                }
+                if (lblA) {
+                    lblA.classList.remove('text-primary', 'font-bold');
+                    lblA.classList.add('text-on-surface-variant');
+                }
             }
         }
 
