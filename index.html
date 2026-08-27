@@ -187,6 +187,7 @@
             <nav class="hidden md:flex gap-1 lg:gap-2 items-center text-sm font-medium">
                 <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#studio-viewport">Studio Canvas</a>
                 <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#capabilities">Capabilities</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#furniture">3D Models</a>
                 <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#showcase">Showcase</a>
                 <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#pricing">Pricing</a>
                 <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#faq">FAQ</a>
@@ -830,6 +831,394 @@
                             <span>Instant multi-angle camera batch queues</span>
                         </li>
                     </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 3D SPATIAL FURNITURE & FIXTURES SHOWCASE -->
+        <!-- ========================================================================= -->
+        <section id="furniture" class="py-16 border-t border-outline-variant/30">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 border-b border-outline-variant/30 pb-4 gap-4">
+                <div>
+                    <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold mb-1">1:1 VERIFIED RETAIL ASSETS</div>
+                    <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Parametric 3D Spatial Furniture Models</h2>
+                </div>
+                <div class="font-data-mono text-xs text-on-surface-variant flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>DRACO GLB &le; 1.5MB &bull; 1:1 METRIC SPEC</span>
+                </div>
+            </div>
+
+            <p class="font-body-md text-on-surface-variant max-w-3xl mb-8 leading-relaxed">
+                Every 3D model in BAAN/ING is measured to exact partner spec-sheet millimeters. Complete with spatial clearance envelopes, physically-based rendering (PBR) shaders, and collision detection for flawless architectural drafting.
+            </p>
+
+            <!-- Interactive 3D Furniture Studio Stage -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left 3D Interactive Model Stage (7 cols) -->
+                <div class="lg:col-span-7 glass-panel-elevated rounded-lg overflow-hidden border border-outline-variant/40 shadow-xl">
+                    
+                    <!-- Stage Titlebar -->
+                    <div class="bg-surface-container-highest/80 border-b border-outline-variant/30 px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs font-data-mono">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-architectural-blue animate-pulse"></span>
+                            <span class="font-semibold text-primary" id="f-stage-title">SÖDERHAMN 3-Seat Modular Sofa</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant border border-outline-variant/30" id="f-stage-brand">IKEA Thailand</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold" id="f-stage-badge">1:1 VERIFIED SPEC</span>
+                        </div>
+                    </div>
+
+                    <!-- 3D Axonometric Canvas Area -->
+                    <div class="relative aspect-[4/3] bg-drafting-canvas flex items-center justify-center p-6 select-none overflow-hidden" id="furniture-canvas">
+                        
+                        <!-- ================= SVG MODEL 1: SOFA ================= -->
+                        <div id="f-svg-sofa" class="w-full h-full flex flex-col items-center justify-center">
+                            <svg viewBox="0 0 500 360" class="w-full h-full max-w-[440px]" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(250, 180)">
+                                    <!-- Clearance Envelope Floor Plane (600mm front buffer) -->
+                                    <polygon id="f-clearance-sofa" points="-140,40 140,40 190,95 -90,95" fill="rgba(0, 87, 255, 0.08)" stroke="#0057FF" stroke-width="1.2" stroke-dasharray="4,4"/>
+                                    <text id="f-clearance-text-sofa" x="50" y="85" font-family="JetBrains Mono" font-size="8" fill="#0057FF" text-anchor="middle">FRONT CLEARANCE: 600 mm</text>
+
+                                    <!-- Sofa Base Frame Isometric -->
+                                    <polygon points="-130,-10 130,-10 100,50 -160,50" fill="#E5E2E1" stroke="#262626" stroke-width="1.2"/>
+                                    <polygon points="-160,50 100,50 100,65 -160,65" fill="#C4C7C7" stroke="#262626" stroke-width="1.2"/>
+                                    <polygon points="100,50 130,-10 130,5 100,65" fill="#DDD9D8" stroke="#262626" stroke-width="1.2"/>
+
+                                    <!-- 3 Seat Cushions -->
+                                    <!-- Cushion 1 -->
+                                    <polygon points="-155,45 -70,45 -50,-5 -135,-5" fill="#FDF8F8" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="-155,45 -70,45 -70,30 -155,30" fill="#E5E2E1" stroke="#262626" stroke-width="0.8"/>
+                                    <!-- Cushion 2 -->
+                                    <polygon points="-65,45 15,45 35,-5 -45,-5" fill="#FDF8F8" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="-65,45 15,45 15,30 -65,30" fill="#E5E2E1" stroke="#262626" stroke-width="0.8"/>
+                                    <!-- Cushion 3 -->
+                                    <polygon points="20,45 95,45 125,-5 40,-5" fill="#FDF8F8" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="20,45 95,45 95,30 20,30" fill="#E5E2E1" stroke="#262626" stroke-width="0.8"/>
+
+                                    <!-- Backrest Cushions -->
+                                    <polygon points="-130,-10 130,-10 130,-55 -130,-55" fill="#ECE9E8" stroke="#262626" stroke-width="1.2"/>
+                                    <polygon points="-130,-55 130,-55 120,-65 -140,-65" fill="#FFFFFF" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="-140,-65 -130,-55 -130,-10 -140,-20" fill="#DDD9D8" stroke="#262626" stroke-width="1"/>
+
+                                    <!-- Left & Right Armrests -->
+                                    <polygon points="-165,45 -135,45 -115,-30 -145,-30" fill="#F1EDEC" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="95,45 125,45 145,-30 115,-30" fill="#F1EDEC" stroke="#262626" stroke-width="1"/>
+
+                                    <!-- Metal Legs -->
+                                    <line x1="-150" y1="65" x2="-150" y2="80" stroke="#747878" stroke-width="2.5"/>
+                                    <line x1="90" y1="65" x2="90" y2="80" stroke="#747878" stroke-width="2.5"/>
+                                    <line x1="120" y1="5" x2="120" y2="20" stroke="#747878" stroke-width="2.5"/>
+                                    <line x1="-120" y1="-10" x2="-120" y2="5" stroke="#747878" stroke-width="2.5"/>
+
+                                    <!-- Dimension Ticks (Width, Depth, Height) -->
+                                    <g id="f-dims-sofa" font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <!-- Width 1980mm -->
+                                        <line x1="-165" y1="105" x2="125" y2="105" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <line x1="-165" y1="100" x2="-165" y2="110" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <line x1="125" y1="100" x2="125" y2="110" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <text x="-20" y="120" text-anchor="middle">WIDTH: 1,980 mm</text>
+
+                                        <!-- Height 830mm -->
+                                        <line x1="155" y1="-65" x2="155" y2="80" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <line x1="150" y1="-65" x2="160" y2="-65" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <line x1="150" y1="80" x2="160" y2="80" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <text x="165" y="10" transform="rotate(90 165 10)" text-anchor="middle">HEIGHT: 830 mm</text>
+
+                                        <!-- Depth 990mm -->
+                                        <line x1="-175" y1="45" x2="-145" y2="-30" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <text x="-190" y="5" text-anchor="middle">DEPTH: 990 mm</text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- ================= SVG MODEL 2: TABLE ================= -->
+                        <div id="f-svg-table" class="w-full h-full hidden flex-col items-center justify-center">
+                            <svg viewBox="0 0 500 360" class="w-full h-full max-w-[440px]" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(250, 180)">
+                                    <!-- Clearance Zone -->
+                                    <polygon id="f-clearance-table" points="-140,50 140,50 170,-40 -110,-40" fill="rgba(0, 87, 255, 0.08)" stroke="#0057FF" stroke-width="1.2" stroke-dasharray="4,4"/>
+                                    
+                                    <!-- Smoked Oak Tabletop Slab -->
+                                    <polygon points="-110,-10 90,-10 70,35 -130,35" fill="#8A6A28" fill-opacity="0.85" stroke="#262626" stroke-width="1.2"/>
+                                    <polygon points="-130,35 70,35 70,45 -130,45" fill="#5E4717" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="70,35 90,-10 90,0 70,45" fill="#42320E" stroke="#262626" stroke-width="1"/>
+
+                                    <!-- Steel Runner Base -->
+                                    <polyline points="-120,45 -120,80 -40,80 -40,45" fill="none" stroke="#262626" stroke-width="2.5"/>
+                                    <polyline points="50,45 50,80 80,45" fill="none" stroke="#262626" stroke-width="2.5"/>
+
+                                    <!-- Dims -->
+                                    <g id="f-dims-table" font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <line x1="-130" y1="100" x2="70" y2="100" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <line x1="-130" y1="95" x2="-130" y2="105" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <line x1="70" y1="95" x2="70" y2="105" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <text x="-30" y="115" text-anchor="middle">WIDTH: 1,200 mm</text>
+
+                                        <line x1="110" y1="-10" x2="110" y2="80" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <text x="120" y="40">H: 400 mm</text>
+                                        <text x="-160" y="10">DEPTH: 600 mm</text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- ================= SVG MODEL 3: WARDROBE ================= -->
+                        <div id="f-svg-wardrobe" class="w-full h-full hidden flex-col items-center justify-center">
+                            <svg viewBox="0 0 500 360" class="w-full h-full max-w-[440px]" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(250, 180)">
+                                    <!-- Door Swing Clearance (760mm) -->
+                                    <path id="f-clearance-wardrobe" d="M -90,60 A 70 70 0 0 0 -20,115 L 50,115 A 70 70 0 0 0 110,60 Z" fill="rgba(0, 87, 255, 0.08)" stroke="#0057FF" stroke-width="1.2" stroke-dasharray="4,4"/>
+                                    <text id="f-clearance-text-wardrobe" x="10" y="105" font-family="JetBrains Mono" font-size="8" fill="#0057FF" text-anchor="middle">760 mm DOOR SWING ENVELOPE</text>
+
+                                    <!-- Tall 2.2m Wardrobe Frame -->
+                                    <polygon points="-90,-110 70,-110 110,-70 110,60 50,60 -90,60" fill="#262626" stroke="#1C1B1B" stroke-width="1.5"/>
+                                    
+                                    <!-- Fluted Glass Doors -->
+                                    <polygon points="-85,-105 -15,-105 -15,55 -85,55" fill="rgba(224, 242, 254, 0.6)" stroke="#747878" stroke-width="1"/>
+                                    <polygon points="-10,-105 60,-105 60,55 -10,55" fill="rgba(224, 242, 254, 0.6)" stroke="#747878" stroke-width="1"/>
+
+                                    <!-- Brass Pulls -->
+                                    <line x1="-20" y1="-30" x2="-20" y2="10" stroke="#C5A059" stroke-width="2"/>
+                                    <line x1="-5" y1="-30" x2="-5" y2="10" stroke="#C5A059" stroke-width="2"/>
+
+                                    <!-- Dims -->
+                                    <g id="f-dims-wardrobe" font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <line x1="130" y1="-110" x2="130" y2="60" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <text x="140" y="-20">H: 2,200 mm</text>
+                                        <text x="-15" y="-120" text-anchor="middle">WIDTH: 2,100 mm</text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- ================= SVG MODEL 4: LAMP ================= -->
+                        <div id="f-svg-lamp" class="w-full h-full hidden flex-col items-center justify-center">
+                            <svg viewBox="0 0 500 360" class="w-full h-full max-w-[440px]" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(250, 180)">
+                                    <!-- Radial Photometric Cone -->
+                                    <polygon id="f-clearance-lamp" points="-10,-50 -100,90 100,90 10,-50" fill="rgba(197, 160, 89, 0.15)" stroke="#C5A059" stroke-width="1" stroke-dasharray="4,4"/>
+                                    <text id="f-clearance-text-lamp" x="0" y="80" font-family="JetBrains Mono" font-size="8" fill="#8A6A28" text-anchor="middle">3000K WARM AMBIENT RADIUS</text>
+
+                                    <!-- Base -->
+                                    <ellipse cx="0" cy="70" rx="35" ry="15" fill="#C5A059" stroke="#262626" stroke-width="1.2"/>
+                                    
+                                    <!-- Stem -->
+                                    <line x1="0" y1="70" x2="0" y2="-70" stroke="#C5A059" stroke-width="3"/>
+
+                                    <!-- Conical Shade -->
+                                    <polygon points="-30,-45 30,-45 15,-75 -15,-75" fill="#FFFFFF" stroke="#262626" stroke-width="1.2"/>
+
+                                    <!-- Dims -->
+                                    <g id="f-dims-lamp" font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <line x1="50" y1="-75" x2="50" y2="70" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <text x="60" y="0">H: 1,600 mm</text>
+                                        <text x="0" y="105" text-anchor="middle">FOOTPRINT: 350 &times; 350 mm</text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- ================= SVG MODEL 5: BENCH ================= -->
+                        <div id="f-svg-bench" class="w-full h-full hidden flex-col items-center justify-center">
+                            <svg viewBox="0 0 500 360" class="w-full h-full max-w-[440px]" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(250, 180)">
+                                    <!-- Clearance -->
+                                    <polygon id="f-clearance-bench" points="-140,50 140,50 160,-20 -120,-20" fill="rgba(0, 87, 255, 0.08)" stroke="#0057FF" stroke-width="1.2" stroke-dasharray="4,4"/>
+
+                                    <!-- Solid Teak Planks Bench -->
+                                    <polygon points="-120,-5 100,-5 80,30 -140,30" fill="#C5A059" stroke="#262626" stroke-width="1.2"/>
+                                    <polygon points="-140,30 80,30 80,40 -140,40" fill="#8A6A28" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="80,30 100,-5 100,5 80,40" fill="#5E4717" stroke="#262626" stroke-width="1"/>
+
+                                    <!-- Slats grooves -->
+                                    <line x1="-125" y1="18" x2="87" y2="18" stroke="#5E4717" stroke-width="0.8"/>
+                                    <line x1="-132" y1="6" x2="94" y2="6" stroke="#5E4717" stroke-width="0.8"/>
+
+                                    <!-- Legs -->
+                                    <polygon points="-130,40 -115,40 -115,80 -130,80" fill="#8A6A28" stroke="#262626" stroke-width="1"/>
+                                    <polygon points="65,40 80,40 80,80 65,80" fill="#8A6A28" stroke="#262626" stroke-width="1"/>
+
+                                    <!-- Dims -->
+                                    <g id="f-dims-bench" font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <line x1="-140" y1="95" x2="80" y2="95" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <text x="-30" y="110" text-anchor="middle">WIDTH: 1,400 mm</text>
+                                        <text x="105" y="60">H: 450 mm</text>
+                                        <text x="-160" y="0">D: 420 mm</text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- ================= SVG MODEL 6: TUB ================= -->
+                        <div id="f-svg-tub" class="w-full h-full hidden flex-col items-center justify-center">
+                            <svg viewBox="0 0 500 360" class="w-full h-full max-w-[440px]" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(250, 180)">
+                                    <!-- Wet Clearance Buffer -->
+                                    <ellipse id="f-clearance-tub" cx="-10" cy="20" rx="145" ry="65" fill="rgba(0, 87, 255, 0.08)" stroke="#0057FF" stroke-width="1.2" stroke-dasharray="4,4"/>
+                                    <text id="f-clearance-text-tub" x="-10" y="75" font-family="JetBrains Mono" font-size="8" fill="#0057FF" text-anchor="middle">500 mm WET ZONE CLEARANCE</text>
+
+                                    <!-- Freestanding Tub Outer Rim -->
+                                    <ellipse cx="-10" cy="0" rx="120" ry="45" fill="#FFFFFF" stroke="#262626" stroke-width="1.5"/>
+                                    
+                                    <!-- Inner Basin -->
+                                    <ellipse cx="-10" cy="3" rx="100" ry="35" fill="#E0F2FE" stroke="#747878" stroke-width="0.8"/>
+
+                                    <!-- Water & Drain -->
+                                    <circle cx="50" cy="8" r="4" fill="#747878"/>
+
+                                    <!-- Tub Body Shading -->
+                                    <path d="M -130,0 C -130,50 -70,60 -10,60 C 50,60 110,50 110,0" fill="none" stroke="#262626" stroke-width="1.5"/>
+                                    
+                                    <!-- Chrome Faucet Tower -->
+                                    <line x1="85" y1="0" x2="85" y2="-45" stroke="#747878" stroke-width="2.5"/>
+                                    <path d="M 85,-45 C 85,-55 70,-55 70,-45" fill="none" stroke="#747878" stroke-width="2.5"/>
+
+                                    <!-- Dims -->
+                                    <g id="f-dims-tub" font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <line x1="-130" y1="90" x2="110" y2="90" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <text x="-10" y="105" text-anchor="middle">LENGTH: 1,700 mm</text>
+                                        <text x="125" y="25">H: 580 mm</text>
+                                        <text x="-160" y="-10">W: 800 mm</text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+
+                    </div>
+
+                    <!-- Stage Controls & Technical Telemetry Footer -->
+                    <div class="bg-surface-container-lowest p-4 border-t border-outline-variant/30 font-data-mono text-xs flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-4 text-on-surface-variant text-[11px]">
+                            <label class="flex items-center gap-1.5 cursor-pointer">
+                                <input type="checkbox" id="chk-furniture-dims" checked onchange="toggleFurnitureDimensions()" class="rounded text-architectural-blue focus:ring-0 w-3.5 h-3.5">
+                                <span>Bounding Dims</span>
+                            </label>
+                            <label class="flex items-center gap-1.5 cursor-pointer">
+                                <input type="checkbox" id="chk-furniture-clearance" checked onchange="toggleFurnitureClearance()" class="rounded text-architectural-blue focus:ring-0 w-3.5 h-3.5">
+                                <span>Clearance Envelope</span>
+                            </label>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-on-surface-variant text-[11px]" id="f-stage-mesh">11,480 Tris &bull; 1.1 MB GLB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Model Selector & Specification Sheet (5 cols) -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Selected Spec Card -->
+                    <div class="glass-panel p-5 rounded-lg border border-outline-variant/30 space-y-4 font-data-mono text-xs">
+                        <div class="flex justify-between items-start border-b border-outline-variant/20 pb-3">
+                            <div>
+                                <span class="text-[10px] text-architectural-blue uppercase font-bold tracking-wider" id="f-spec-category">Living / Seating</span>
+                                <h3 class="font-display-lg text-lg font-bold text-primary mt-0.5" id="f-spec-name">SÖDERHAMN 3-Seat Modular Sofa</h3>
+                                <div class="text-[11px] text-on-surface-variant" id="f-spec-th">โซฟา 3 ที่นั่ง ปรับเปลี่ยนได้</div>
+                            </div>
+                            <span class="px-2 py-1 bg-surface-container-low rounded border border-outline-variant/30 text-[10px] text-on-surface-variant font-bold" id="f-spec-brand">IKEA</span>
+                        </div>
+
+                        <!-- Technical Grid -->
+                        <div class="space-y-2 text-[11px]">
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Metric Bounding Box:</span>
+                                <strong class="text-primary" id="f-spec-dims">1,980 &times; 990 &times; 830 mm</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Required Spatial Clearance:</span>
+                                <strong class="text-architectural-blue font-semibold" id="f-spec-clearance">600 mm (Front Buffer)</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Material Shading:</span>
+                                <strong class="text-primary text-right" id="f-spec-mat">Finnsta Linen Blend &amp; Steel Legs</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">PBR Pipeline:</span>
+                                <span class="text-primary text-right" id="f-spec-pbr">Subsurface Scattering &bull; 2K Diffuse</span>
+                            </div>
+                        </div>
+
+                        <p class="font-body-md text-xs text-on-surface-variant leading-relaxed pt-1" id="f-spec-desc">
+                            Modular low-profile deep seating engineered for tropical living. Tested and verified directly against official IKEA Thailand partner specifications.
+                        </p>
+                    </div>
+
+                    <!-- Interactive 6-Item Quick Selector Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 font-data-mono text-[11px]">
+                        
+                        <!-- Model 1 -->
+                        <button onclick="selectFurnitureModel('sofa')" id="btn-f-sofa" class="p-2.5 rounded-lg border-2 border-architectural-blue bg-white shadow-sm text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-architectural-blue font-bold uppercase">IKEA</span>
+                                <div class="font-bold text-primary truncate">SÖDERHAMN</div>
+                                <div class="text-[10px] text-on-surface-variant">3-Seat Sofa</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">1980&times;990 mm</div>
+                        </button>
+
+                        <!-- Model 2 -->
+                        <button onclick="selectFurnitureModel('table')" id="btn-f-table" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">Modernform</span>
+                                <div class="font-bold text-primary truncate">Vela Table</div>
+                                <div class="text-[10px] text-on-surface-variant">Coffee Table</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">1200&times;600 mm</div>
+                        </button>
+
+                        <!-- Model 3 -->
+                        <button onclick="selectFurnitureModel('wardrobe')" id="btn-f-wardrobe" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">Modernform</span>
+                                <div class="font-bold text-primary truncate">Loft Wardrobe</div>
+                                <div class="text-[10px] text-on-surface-variant">2.2m Storage</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">2100&times;600 mm</div>
+                        </button>
+
+                        <!-- Model 4 -->
+                        <button onclick="selectFurnitureModel('lamp')" id="btn-f-lamp" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">HomePro</span>
+                                <div class="font-bold text-primary truncate">Ostara Lamp</div>
+                                <div class="text-[10px] text-on-surface-variant">Floor Lamp</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">350&times;1600 mm</div>
+                        </button>
+
+                        <!-- Model 5 -->
+                        <button onclick="selectFurnitureModel('bench')" id="btn-f-bench" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-thai-gold-text uppercase font-semibold">Thai Teak</span>
+                                <div class="font-bold text-primary truncate">Teak Bench</div>
+                                <div class="text-[10px] text-on-surface-variant">Solid Teak</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">1400&times;420 mm</div>
+                        </button>
+
+                        <!-- Model 6 -->
+                        <button onclick="selectFurnitureModel('tub')" id="btn-f-tub" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">COTTO</span>
+                                <div class="font-bold text-primary truncate">Spa Tub</div>
+                                <div class="text-[10px] text-on-surface-variant">Acrylic Tub</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">1700&times;800 mm</div>
+                        </button>
+
+                    </div>
+
+                    <!-- Direct CAD Placement Action -->
+                    <button onclick="openLeadModal('3D Furniture Catalog CTA')" class="w-full bg-charcoal hover:bg-black text-white py-3 rounded font-data-mono text-xs transition-colors flex items-center justify-center gap-2 shadow">
+                        <span>Access Complete 3D Retail Catalog (Beta)</span>
+                        <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                    </button>
                 </div>
 
             </div>
@@ -1631,6 +2020,170 @@
                     lblA.classList.add('text-on-surface-variant');
                 }
             }
+        }
+
+        // --- 4b. 3D Spatial Furniture Models Controller ---
+        const furnitureData = {
+            sofa: {
+                sku: "IKEA_SODERHAMN_3S",
+                brand: "IKEA Thailand",
+                name: "SÖDERHAMN 3-Seat Modular Sofa",
+                nameTh: "โซฟา 3 ที่นั่ง ปรับเปลี่ยนได้",
+                category: "Living / Seating",
+                dims: "1,980 × 990 × 830 mm",
+                clearance: "600 mm (Front Buffer)",
+                material: "Finnsta Linen Blend & Steel Legs",
+                pbr: "Subsurface Scattering • 2K Diffuse/Roughness",
+                meshStats: "11,480 Tris • 1.1 MB Draco GLB",
+                badge: "1:1 VERIFIED SPEC",
+                desc: "Modular low-profile deep seating engineered for tropical living. Tested and verified directly against official IKEA Thailand partner specifications."
+            },
+            table: {
+                sku: "MF_TBL_0221",
+                brand: "Modernform",
+                name: "Vela Minimalist Coffee Table",
+                nameTh: "โต๊ะกลางลอฟท์ไม้วีเนียร์",
+                category: "Living / Tables",
+                dims: "1,200 × 600 × 400 mm",
+                clearance: "400 mm (Perimeter Clearance)",
+                material: "Smoked Natural Oak Veneer & Steel Base",
+                pbr: "Anisotropic Wood Shading • 2K Roughness",
+                meshStats: "4,820 Tris • 480 KB Draco GLB",
+                badge: "1:1 VERIFIED SPEC",
+                desc: "Low-slung minimalist coffee table with architectural chamfered edges and anti-scratch matte powder-coated steel sled legs."
+            },
+            wardrobe: {
+                sku: "MF_WRD_0389",
+                brand: "Modernform",
+                name: "Loft Modular Wardrobe Compact",
+                nameTh: "ตู้เสื้อผ้าคอมแพกต์ กระจกลอน",
+                category: "Bedroom / Storage",
+                dims: "2,100 × 600 × 2,200 mm",
+                clearance: "760 mm (Door Swing Envelope)",
+                material: "Fluted Tempered Glass & Dark Walnut",
+                pbr: "Transmission Glass Shader • Integrated LED Glow",
+                meshStats: "8,940 Tris • 920 KB Draco GLB",
+                badge: "1:1 VERIFIED SPEC",
+                desc: "Full-height wardrobe system featuring automated 760mm door swing clearance bounding check to prevent collision with circulation paths."
+            },
+            lamp: {
+                sku: "HP_LGT_4471",
+                brand: "HomePro",
+                name: "Ostara Architectural Floor Lamp",
+                nameTh: "โคมไฟตั้งพื้นดีไซน์มินิมอล",
+                category: "Lighting / Floor",
+                dims: "350 × 350 × 1,600 mm",
+                clearance: "500 mm (Radial Ambient Zone)",
+                material: "Spun Brushed Brass & Opal Acrylic Diffuser",
+                pbr: "3000K Photometric IES Radiant Light Profile",
+                meshStats: "3,260 Tris • 310 KB Draco GLB",
+                badge: "1:1 VERIFIED SPEC",
+                desc: "Slender brass vertical lighting fixture with calibrated 3000K warm photometric distribution for nocturnal ambient illumination in living suites."
+            },
+            bench: {
+                sku: "CM_0912",
+                brand: "Thai Craft Teak",
+                name: "Northern Solid Teak Slatted Bench",
+                nameTh: "ม้านั่งไม้สักทองเชียงใหม่แท้",
+                category: "Living / Teak Seating",
+                dims: "1,400 × 420 × 450 mm",
+                clearance: "300 mm (Circulation Buffer)",
+                material: "100% Solid Plantation Golden Teak (FSC)",
+                pbr: "PBR Natural Teak Grain • Outdoor UV Coat",
+                meshStats: "6,150 Tris • 640 KB Draco GLB",
+                badge: "1:1 VERIFIED SPEC",
+                desc: "Handcrafted mortise-and-tenon solid teak bench sourced from sustainable Chiang Mai timber plantations with natural moisture resistance."
+            },
+            tub: {
+                sku: "COTTO_SPA_88",
+                brand: "COTTO Thailand",
+                name: "Freestanding Oval Spa Bathtub",
+                nameTh: "อ่างอาบน้ำอะคริลิกทรงรี",
+                category: "Sanitary / Wet Area",
+                dims: "1,700 × 800 × 580 mm",
+                clearance: "500 mm (Maintenance Clearance)",
+                material: "High-Gloss Lucite Cast Acrylic & Chrome Trim",
+                pbr: "Specular Spec Gloss Shader • 240L Volume",
+                meshStats: "7,840 Tris • 810 KB Draco GLB",
+                badge: "1:1 VERIFIED SPEC",
+                desc: "Ergonomic double-ended freestanding acrylic spa bathtub with pop-up drain assembly and pre-configured MEP plumbing connection nodes."
+            }
+        };
+
+        function selectFurnitureModel(key) {
+            const data = furnitureData[key];
+            if (!data) return;
+
+            // Update Header & Spec Card
+            const titleEl = document.getElementById('f-stage-title');
+            const brandEl = document.getElementById('f-stage-brand');
+            const meshEl = document.getElementById('f-stage-mesh');
+            
+            const specCat = document.getElementById('f-spec-category');
+            const specName = document.getElementById('f-spec-name');
+            const specTh = document.getElementById('f-spec-th');
+            const specBrand = document.getElementById('f-spec-brand');
+            const specDims = document.getElementById('f-spec-dims');
+            const specClear = document.getElementById('f-spec-clearance');
+            const specMat = document.getElementById('f-spec-mat');
+            const specPbr = document.getElementById('f-spec-pbr');
+            const specDesc = document.getElementById('f-spec-desc');
+
+            if (titleEl) titleEl.innerText = data.name;
+            if (brandEl) brandEl.innerText = data.brand;
+            if (meshEl) meshEl.innerText = data.meshStats;
+
+            if (specCat) specCat.innerText = data.category;
+            if (specName) specName.innerText = data.name;
+            if (specTh) specTh.innerText = data.nameTh;
+            if (specBrand) specBrand.innerText = data.brand;
+            if (specDims) specDims.innerHTML = data.dims.replace(/×/g, '&times;');
+            if (specClear) specClear.innerText = data.clearance;
+            if (specMat) specMat.innerText = data.material;
+            if (specPbr) specPbr.innerText = data.pbr;
+            if (specDesc) specDesc.innerText = data.desc;
+
+            // Toggle SVG Model Displays
+            ['sofa', 'table', 'wardrobe', 'lamp', 'bench', 'tub'].forEach(k => {
+                const svgBox = document.getElementById('f-svg-' + k);
+                const btnBox = document.getElementById('btn-f-' + k);
+                if (svgBox) {
+                    if (k === key) {
+                        svgBox.classList.remove('hidden');
+                        svgBox.classList.add('flex');
+                    } else {
+                        svgBox.classList.add('hidden');
+                        svgBox.classList.remove('flex');
+                    }
+                }
+                if (btnBox) {
+                    if (k === key) {
+                        btnBox.className = "p-2.5 rounded-lg border-2 border-architectural-blue bg-white shadow-sm text-left transition-all flex flex-col justify-between group";
+                    } else {
+                        btnBox.className = "p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group";
+                    }
+                }
+            });
+        }
+
+        function toggleFurnitureDimensions() {
+            const isChecked = document.getElementById('chk-furniture-dims').checked;
+            ['sofa', 'table', 'wardrobe', 'lamp', 'bench', 'tub'].forEach(k => {
+                const el = document.getElementById('f-dims-' + k);
+                if (el) {
+                    el.style.display = isChecked ? 'block' : 'none';
+                }
+            });
+        }
+
+        function toggleFurnitureClearance() {
+            const isChecked = document.getElementById('chk-furniture-clearance').checked;
+            ['sofa', 'table', 'wardrobe', 'lamp', 'bench', 'tub'].forEach(k => {
+                const el = document.getElementById('f-clearance-' + k);
+                const textEl = document.getElementById('f-clearance-text-' + k);
+                if (el) el.style.display = isChecked ? 'block' : 'none';
+                if (textEl) textEl.style.display = isChecked ? 'block' : 'none';
+            });
         }
 
         // --- 5. FAQ Accordion ---
