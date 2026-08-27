@@ -73,20 +73,55 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md min-h-screen relative antialiased bg-page-grid selection:bg-architectural-blue selection:text-white">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-outline-variant/30 px-4 sm:px-8 h-16 flex justify-between items-center">
-        <a href="/" class="flex items-center gap-3 group">
-            <div class="w-8 h-8 bg-charcoal rounded flex items-center justify-center text-white font-data-mono font-bold text-sm tracking-tighter border border-outline/30 group-hover:bg-architectural-blue transition-colors">
-                <span>B/I</span>
+    <!-- Top Fixed Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-outline-variant/30 px-4 sm:px-8 h-16 flex justify-between items-center transition-all">
+        <div class="flex items-center gap-6 lg:gap-10">
+            <!-- Brand Logo Mark -->
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 bg-charcoal rounded flex items-center justify-center text-white font-data-mono font-bold text-sm tracking-tighter border border-outline/30 group-hover:bg-architectural-blue transition-colors">
+                    <span>B/I</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display-lg font-bold text-base tracking-tight text-primary leading-none">
+                        BAAN<span class="text-architectural-blue font-normal">/</span>ING
+                    </span>
+                    <span class="font-data-mono text-[9px] text-on-surface-variant tracking-wider uppercase leading-tight mt-0.5">
+                        Architectural Precision
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Telemetry Indicator -->
+            <div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-data-mono text-[11px] text-on-surface-variant">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>ENGINE: v0.9.4</span>
+                <span class="text-outline-variant">|</span>
+                <span class="text-architectural-blue">1:50 METRIC</span>
+                <span class="text-outline-variant">|</span>
+                <span>BANGKOK 13.7°N</span>
             </div>
-            <span class="font-display-lg font-bold text-base tracking-tight text-primary">
-                BAAN<span class="text-architectural-blue font-normal">/</span>ING
-            </span>
-        </a>
-        <a href="/" class="font-data-mono text-xs text-architectural-blue hover:underline flex items-center gap-1">
-            <span class="material-symbols-outlined text-[16px]">arrow_back</span>
-            Back to Studio
-        </a>
+
+            <!-- Primary Nav Anchors -->
+            <nav class="hidden md:flex gap-1 lg:gap-2 items-center text-sm font-medium">
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="/#studio-viewport">Studio Canvas</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="/#capabilities">Capabilities</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="/#furniture">3D Models</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="/#showcase">Showcase</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="/#pricing">Pricing</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="/#faq">FAQ</a>
+            </nav>
+        </div>
+
+        <!-- Right Action Hub -->
+        <div class="flex items-center gap-3">
+            <a href="https://app.baan.ing" class="hidden sm:inline-flex items-center font-data-mono text-xs text-on-surface-variant hover:text-primary px-3 py-2 transition-colors">
+                Sign In
+            </a>
+            <a href="/#studio-viewport" class="bg-charcoal text-white font-data-mono text-xs px-4 py-2 rounded hover:bg-black transition-all shadow-sm flex items-center gap-2 active:scale-95">
+                <span>Launch Studio</span>
+                <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+            </a>
+        </div>
     </header>
 
     <!-- Main Content -->
