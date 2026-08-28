@@ -59,7 +59,7 @@ Thank you for your interest in contributing to **BAAN/ING**! We welcome contribu
   backdrop-filter: blur(18px);
   border: 1px solid rgba(196, 199, 199, 0.30);
   ```
-- **Contrast**: On the light page surfaces, text in gold tones must use `thai-gold-text` (`#8A6A28`, 4.78:1) rather than accent gold (`#C5A059`, 2.34:1) to pass WCAG AA. **On charcoal (`#262626`) this inverts** — use `#C5A059` (6.16:1); `#8A6A28` is only 3.01:1 there and fails. See `plan/decisions.md` **D30**.
+- **Contrast**: On the light page surfaces, text in gold tones must use `thai-gold-text` (`#8A6A28`, 4.78:1) rather than accent gold (`#C5A059`, 2.34:1) to pass WCAG AA. **On charcoal (`#262626`) this inverts** — use `#C5A059` (6.16:1); `#8A6A28` is only 3.01:1 there and fails. See `plan/decisions.md` **D37**.
 - **Typography**:
   - `font-display-lg` / `Manrope` for display headers.
   - `font-body-md` / `Hanken Grotesk` for prose and descriptions.
