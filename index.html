@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>BAAN/ING — Smart Design. Real Spaces. | Architectural CAD & Cloud Raytracing</title>
-    <meta name="description" content="The architectural platform engineered for Thai spaces. Transform conceptual layouts into structural 2D CAD floorplans, 1:1 retail material specifications, and photorealistic 4K renders with zero local GPU required.">
+    <meta name="description" content="The architectural platform engineered for Thai spaces. Structural 2D CAD floorplanning, retail material specifications and cloud rendering, built for Thai building codes and the tropical climate. In development — join the early access waitlist.">
     <link rel="canonical" href="https://baan.ing/">
     
     <!-- Favicon & Social -->
@@ -13,8 +13,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baan.ing/">
-    <meta property="og:title" content="BAAN/ING — Architectural Precision. Real-Time Spatial Intelligence.">
-    <meta property="og:description" content="Smart architectural design platform for Thai spaces. From technical floorplans to photorealistic 4K renders with 1:1 retail accuracy.">
+    <meta property="og:title" content="BAAN/ING — Architectural precision for Thai spaces. In development.">
+    <meta property="og:description" content="Smart architectural design platform for Thai spaces. Technical floorplanning, retail material specification and cloud rendering. In development — join the early access waitlist.">
     <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E">
 
     <!-- Fonts & Icons -->
@@ -131,11 +131,18 @@
             box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
         }
 
+        /* Blur-only helper for surfaces that set their own background but must
+           still match the one canonical glass blur (DESIGN.md: 18px, not 12px). */
+        .glass-blur {
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
         .glass-panel-elevated {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(196, 199, 199, 0.45);
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(196, 199, 199, 0.30);
             box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
         }
 
@@ -214,11 +221,11 @@
 
             <h1 class="font-display-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight leading-[1.08]">
                 Drafting Thai Spaces with<br>
-                <span class="text-architectural-blue">Sub-Millimeter</span> Precision.
+                <span class="text-architectural-blue">Millimetre</span> Precision.
             </h1>
             
             <p class="font-body-lg text-lg sm:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-                Transform rough conceptual floorplans into structural 2D CAD layouts, 1:1 retail material specifications, and 4K photorealistic raytraced renders—engineered specifically for Thai building codes and tropical climate.
+                Turn rough conceptual floorplans into structural 2D CAD layouts, retail material specifications and photorealistic cloud renders — engineered specifically for Thai building codes and the tropical climate. Currently in development.
             </p>
 
             <!-- Quick Lead Capture Bar -->
@@ -236,16 +243,16 @@
 
                 <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-3 font-data-mono text-[11px] text-on-surface-variant">
                     <span class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">verified</span>
-                        BMA Building Code Compliant
+                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                        BMA Building Code Checks &mdash; In Development
                     </span>
                     <span class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">bolt</span>
-                        Sub-60s 4K Cloud Raytracing
+                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                        Cloud Raytracing &mdash; In Development
                     </span>
                     <span class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">category</span>
-                        1:1 Retail Material Integration
+                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                        Retail Material Integration &mdash; In Development
                     </span>
                 </div>
             </div>
@@ -294,7 +301,7 @@
                         </button>
                         <button onclick="setStudioMode('raytrace')" id="btn-mode-raytrace" class="px-2.5 py-1 rounded text-[11px] font-semibold text-on-surface-variant hover:text-primary transition-all flex items-center gap-1">
                             <span class="material-symbols-outlined text-[13px]">photo_camera</span>
-                            <span>4K Raytrace</span>
+                            <span>Raytrace</span>
                         </button>
                         <button onclick="setStudioMode('materials')" id="btn-mode-materials" class="px-2.5 py-1 rounded text-[11px] font-semibold text-on-surface-variant hover:text-primary transition-all flex items-center gap-1">
                             <span class="material-symbols-outlined text-[13px]">category</span>
@@ -306,7 +313,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-12 relative min-h-[540px] bg-warm-gray">
                     
                     <!-- Left Floating CAD Toolbar -->
-                    <div class="hidden md:flex md:col-span-1 border-r border-outline-variant/30 flex-col items-center py-4 gap-2 bg-surface-container-lowest/60 backdrop-blur-md z-10">
+                    <div class="hidden md:flex md:col-span-1 border-r border-outline-variant/30 flex-col items-center py-4 gap-2 bg-surface-container-lowest/60 glass-blur z-10">
                         <button onclick="selectTool('select')" id="tool-select" title="Select (V)" class="w-10 h-10 rounded flex items-center justify-center bg-architectural-blue text-white shadow-sm transition-all">
                             <span class="material-symbols-outlined text-[18px]">near_me</span>
                         </button>
@@ -326,7 +333,7 @@
                             <span class="material-symbols-outlined text-[18px]">sunny</span>
                         </button>
                         <div class="w-6 h-px bg-outline-variant/40 my-1"></div>
-                        <button onclick="triggerQuickRender()" title="Render 4K Preview (R)" class="w-10 h-10 rounded flex items-center justify-center text-thai-gold-text hover:bg-thai-gold-accent/15 transition-all">
+                        <button onclick="triggerQuickRender()" title="Render Preview (R)" class="w-10 h-10 rounded flex items-center justify-center text-thai-gold-text hover:bg-thai-gold-accent/15 transition-all">
                             <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
                         </button>
                         <button onclick="openLeadModal('Studio Export DXF')" title="Export DXF / DWG" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
@@ -546,13 +553,13 @@
                             </div>
                         </div>
 
-                        <!-- ================= MODE 3: 4K RAYTRACE BEFORE / AFTER SLIDER ================= -->
+                        <!-- ================= MODE 3: RAYTRACE BEFORE / AFTER SLIDER ================= -->
                         <div id="viewport-raytrace" class="w-full h-full hidden flex-col items-center justify-center">
                             <div class="relative w-full max-w-[620px] aspect-[4/3] rounded overflow-hidden shadow-lg border border-outline-variant/40 select-none group" id="slider-container">
-                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="4K Photorealistic Teak Villa Render" class="absolute inset-0 w-full h-full object-cover">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Illustrative concept image of a teak villa interior" class="absolute inset-0 w-full h-full object-cover">
                                 
                                 <div id="slider-clipper" class="absolute inset-0 overflow-hidden" style="width: 50%;">
-                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E" alt="CAD Wireframe Floorplan" class="absolute inset-0 w-[620px] h-full object-cover max-w-none filter invert grayscale">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E" alt="Illustrative wireframe-style treatment of the same concept image" class="absolute inset-0 w-[620px] h-full object-cover max-w-none filter invert grayscale">
                                     <div class="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
                                     <div class="absolute top-3 left-3 bg-charcoal/90 text-white font-data-mono text-[10px] px-2.5 py-1 rounded">
                                         2D CAD WIREFRAME
@@ -560,7 +567,7 @@
                                 </div>
 
                                 <div class="absolute top-3 right-3 bg-thai-gold-accent text-charcoal font-data-mono text-[10px] font-bold px-2.5 py-1 rounded shadow">
-                                    4K CLOUD RAYTRACE (42s)
+                                    CLOUD RAYTRACE &mdash; IN DEVELOPMENT
                                 </div>
 
                                 <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize flex items-center justify-center shadow-lg" style="left: 50%;">
@@ -569,8 +576,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <span class="font-data-mono text-[11px] text-on-surface-variant mt-2">
-                                Drag slider to compare Vector Wireframe vs 4K Cloud Raytracing
+                            <span class="font-data-mono text-[11px] text-on-surface-variant mt-2 text-center max-w-[620px]">
+                                Illustrative concept images, not renders produced by the engine. Cloud raytracing is in development.
                             </span>
                         </div>
 
@@ -578,8 +585,8 @@
                         <div id="viewport-materials" class="w-full h-full hidden flex-col items-center justify-center">
                             <div class="w-full max-w-[620px] bg-white border border-outline-variant/50 rounded shadow-md p-4 text-xs font-data-mono overflow-x-auto max-h-[380px]">
                                 <div class="flex justify-between items-center pb-2 mb-2 border-b border-outline-variant/30">
-                                    <span class="font-bold text-primary text-sm">1:1 RETAIL MATERIAL SPECIFICATION</span>
-                                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px]">SCG / TOA / HAFELE INTEGRATED</span>
+                                    <span class="font-bold text-primary text-sm">RETAIL MATERIAL SPECIFICATION</span>
+                                    <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[10px]">IN DEVELOPMENT</span>
                                 </div>
                                 <table class="w-full text-left border-collapse">
                                     <thead>
@@ -624,18 +631,23 @@
                                     </tbody>
                                     <tfoot>
                                         <tr class="border-t-2 border-outline/30 bg-surface-container-low font-bold">
-                                            <td colspan="3" class="p-2 text-primary">MANUFACTURER SPECIFICATIONS:</td>
-                                            <td class="p-2 text-right text-architectural-blue">5 VERIFIED SKUs</td>
+                                            <td colspan="3" class="p-2 text-primary">ILLUSTRATIVE EXAMPLE &mdash; NOT A PARTNER CATALOG</td>
+                                            <td class="p-2 text-right text-on-surface-variant">5 EXAMPLE LINES</td>
                                         </tr>
                                     </tfoot>
                                 </table>
+                                <p class="mt-2 pt-2 border-t border-outline-variant/30 text-[10px] text-on-surface-variant font-body-md leading-relaxed">
+                                    Brand and product names above are illustrative examples of the specification format only. They do not
+                                    represent a commercial partnership, an integration, or dimensionally verified catalog data. Verified 1:1
+                                    retail catalog integration is in development.
+                                </p>
                             </div>
                         </div>
 
                     </div>
 
                     <!-- Right Floating CAD Inspector Panel (320px) -->
-                    <div class="md:col-span-3 lg:col-span-3 border-l border-outline-variant/30 p-4 bg-surface-container-lowest/80 backdrop-blur-md flex flex-col justify-between font-data-mono text-xs z-10 space-y-4">
+                    <div class="md:col-span-3 lg:col-span-3 border-l border-outline-variant/30 p-4 bg-surface-container-lowest/80 glass-blur flex flex-col justify-between font-data-mono text-xs z-10 space-y-4">
                         <div class="space-y-3">
                             <div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
                                 <span class="font-semibold text-primary uppercase tracking-wider text-[11px]">SPATIAL INSPECTOR</span>
@@ -665,14 +677,14 @@
                                 </div>
                                 <div class="flex justify-between py-1 border-b border-outline-variant/15">
                                     <span class="text-on-surface-variant">BMA Code Compliance:</span>
-                                    <span class="text-emerald-700 font-semibold flex items-center gap-0.5">
-                                        <span class="material-symbols-outlined text-[13px]">check_circle</span>
-                                        100% Passed
+                                    <span class="text-on-surface-variant font-semibold flex items-center gap-0.5">
+                                        <span class="material-symbols-outlined text-[13px]">schedule</span>
+                                        In Development
                                     </span>
                                 </div>
                                 <div class="flex justify-between py-1 border-b border-outline-variant/15">
                                     <span class="text-on-surface-variant">Ventilation Ratio:</span>
-                                    <strong class="text-primary">18.5% (Min 10% Req)</strong>
+                                    <strong class="text-on-surface-variant">In Development</strong>
                                 </div>
                             </div>
                         </div>
@@ -695,24 +707,27 @@
             </div>
         </section>
 
-        <!-- Technical Telemetry Strip -->
+        <!-- Design Goals Strip -->
         <section class="py-8 my-4 border-y border-outline-variant/30 bg-surface-container-lowest/60 glass-panel rounded-lg">
+            <div class="text-center font-data-mono text-[11px] text-on-surface-variant uppercase tracking-widest mb-5">
+                What We Are Building Toward
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div class="p-2">
-                    <div class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">&lt; 1.0 mm</div>
-                    <div class="font-data-mono text-xs text-on-surface-variant mt-1">Vector CAD Snap Precision</div>
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-primary">Millimetre<br>Precision</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Integer-millimetre vector snapping</div>
                 </div>
                 <div class="p-2 border-l border-outline-variant/30">
-                    <div class="font-display-lg text-3xl sm:text-4xl font-bold text-architectural-blue">&lt; 60s</div>
-                    <div class="font-data-mono text-xs text-on-surface-variant mt-1">4K Cloud Raytracing Pipeline</div>
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-architectural-blue">Cloud<br>Rendering</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Raytracing without a local GPU</div>
                 </div>
                 <div class="p-2 border-l border-outline-variant/30">
-                    <div class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">1:1 Real SKUs</div>
-                    <div class="font-data-mono text-xs text-on-surface-variant mt-1">Thai Material Specifications</div>
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-primary">Thai Retail<br>Catalog</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Real supplier material specifications</div>
                 </div>
                 <div class="p-2 border-l border-outline-variant/30">
-                    <div class="font-display-lg text-3xl sm:text-4xl font-bold text-emerald-700">0 GB</div>
-                    <div class="font-data-mono text-xs text-on-surface-variant mt-1">Local GPU Hardware Required</div>
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-primary">Thai Building<br>Codes</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Code-aware drafting from the start</div>
                 </div>
             </div>
         </section>
@@ -743,16 +758,16 @@
                     </div>
                     <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Continuous Vector Snap Engine</h3>
                     <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
-                        Draft floorplans with sub-millimeter precision. Our engine enforces continuous Bezier wall geometry, parametric thickness (100mm/200mm), and automatic alignment to standard architectural grid lines.
+                        Draft floorplans with high precision. The engine enforces continuous wall geometry, parametric thickness (100mm/200mm), and automatic alignment to standard architectural grid lines.
                     </p>
                     <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">check</span>
-                            <span>Auto-snapping to structural columns & grids</span>
+                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                            <span>Planned: auto-snapping to structural columns & grids</span>
                         </li>
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">check</span>
-                            <span>DXF, DWG, and IFC 4.3 BIM export format</span>
+                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                            <span>Planned: DXF, DWG and IFC 4.3 BIM export</span>
                         </li>
                     </ul>
                 </div>
@@ -765,18 +780,18 @@
                         </div>
                         <span class="font-data-mono text-2xl font-bold text-outline-variant/40">02</span>
                     </div>
-                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">1:1 Retail Material Catalog</h3>
+                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Retail Material Catalog</h3>
                     <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
-                        Every material specification is linked to verified manufacturer product catalogs. Seamlessly populate teak flooring, anodized aluminum frames, and low-E double glazing from leading Thai suppliers.
+                        The plan is to link every material specification to verified manufacturer product catalogs, so teak flooring, anodized aluminum frames and low-E double glazing can be populated from leading Thai suppliers. Supplier partnerships are not yet in place.
                     </p>
                     <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-thai-gold-text text-[14px]">check</span>
-                            <span>Direct catalog link: SCG, COTTO, Hafele, TOA</span>
+                            <span class="material-symbols-outlined text-thai-gold-text text-[14px]">schedule</span>
+                            <span>Planned: dimensionally verified supplier catalog data</span>
                         </li>
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-thai-gold-text text-[14px]">check</span>
-                            <span>Accurate physical PBR texture & lighting parameters</span>
+                            <span class="material-symbols-outlined text-thai-gold-text text-[14px]">schedule</span>
+                            <span>Planned: physical PBR texture & lighting parameters</span>
                         </li>
                     </ul>
                 </div>
@@ -791,16 +806,16 @@
                     </div>
                     <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Tropical Climate & Solar Path Simulator</h3>
                     <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
-                        Designed from the ground up for Southeast Asian latitudes. Simulate accurate sun-shadow angles (13.7°N Bangkok), monsoon wind cross-ventilation corridors, and overhang eave depth efficiency.
+                        Designed from the ground up for Southeast Asian latitudes. The simulator will model sun-shadow angles at Bangkok's latitude (13.7°N), monsoon wind cross-ventilation corridors, and overhang eave depth.
                     </p>
                     <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-emerald-700 text-[14px]">check</span>
-                            <span>Hour-by-hour solar azimuth & daylight penetration</span>
+                            <span class="material-symbols-outlined text-emerald-700 text-[14px]">schedule</span>
+                            <span>Planned: hour-by-hour solar azimuth & daylight penetration</span>
                         </li>
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-emerald-700 text-[14px]">check</span>
-                            <span>BMA natural light & ventilation ratio verification</span>
+                            <span class="material-symbols-outlined text-emerald-700 text-[14px]">schedule</span>
+                            <span>Planned: BMA natural light & ventilation ratio checks</span>
                         </li>
                     </ul>
                 </div>
@@ -813,18 +828,18 @@
                         </div>
                         <span class="font-data-mono text-2xl font-bold text-outline-variant/40">04</span>
                     </div>
-                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Zero-GPU Cloud Raytracing Pipeline</h3>
+                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Cloud Raytracing Pipeline</h3>
                     <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
-                        Experience photorealistic 4K lighting and material shaders without heating up your drafting laptop. Our serverless edge GPU cluster handles complex global illumination raytracing in under 60 seconds.
+                        Photorealistic lighting and material shaders without heating up your drafting laptop. A serverless GPU cluster will handle global illumination raytracing so nothing renders locally.
                     </p>
                     <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
                         <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-primary text-[14px]">check</span>
-                            <span>Physically-based rendering (PBR) of Teak, Marble, Low-E Glass</span>
+                            <span class="material-symbols-outlined text-primary text-[14px]">schedule</span>
+                            <span>Planned: physically-based rendering (PBR) of Teak, Marble, Low-E Glass</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-primary text-[14px]">check</span>
-                            <span>Instant multi-angle camera batch queues</span>
+                            <span>Planned: multi-angle camera batch queues</span>
                         </li>
                     </ul>
                 </div>
@@ -842,13 +857,13 @@
                     <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Live 3D Furniture &amp; Spatial Models</h2>
                 </div>
                 <div class="font-data-mono text-xs text-on-surface-variant flex items-center gap-2">
-                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>360° WEBGL ORBIT &bull; 1:1 METRIC SPEC</span>
+                    <span class="inline-block w-2 h-2 rounded-full bg-outline-variant"></span>
+                    <span>360° WEBGL ORBIT &bull; PLACEHOLDER GEOMETRY</span>
                 </div>
             </div>
 
             <p class="font-body-md text-on-surface-variant max-w-3xl mb-8 leading-relaxed">
-                Interact with authentic 3D spatial models directly in your browser. Rotate 360°, zoom, and inspect physically-based rendering (PBR) materiality and exact millimeter bounding dimensions.
+                Rotate, zoom and inspect 3D models directly in your browser. These are <strong>placeholder assets used to demonstrate the viewer</strong>, not catalog products: the geometry is third-party, its licensing is unconfirmed, and the dimensions below are read from the mesh rather than from a manufacturer specification.
             </p>
 
             <!-- Interactive 3D Furniture Studio Stage -->
@@ -865,7 +880,7 @@
                             <span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant border border-outline-variant/30" id="f-stage-brand">Living / Seating</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold" id="f-stage-badge">3D GLB LOADED</span>
+                            <span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant border border-outline-variant/30 text-[10px] font-bold" id="f-stage-badge">PLACEHOLDER ASSET</span>
                         </div>
                     </div>
 
@@ -949,7 +964,7 @@
                         <!-- Technical Grid -->
                         <div class="space-y-2 text-[11px]">
                             <div class="flex justify-between py-1 border-b border-outline-variant/15">
-                                <span class="text-on-surface-variant">Metric Bounding Box:</span>
+                                <span class="text-on-surface-variant">Mesh Bounding Box:</span>
                                 <strong class="text-primary" id="f-spec-dims">668 &times; 1,003 &times; 874 mm</strong>
                             </div>
                             <div class="flex justify-between py-1 border-b border-outline-variant/15">
@@ -967,7 +982,13 @@
                         </div>
 
                         <p class="font-body-md text-xs text-on-surface-variant leading-relaxed pt-1" id="f-spec-desc">
-                            Contemporary ergonomic rocking chair with molded sculptural plywood runners and durable architectural finish.
+                            Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification.
+                        </p>
+
+                        <p class="font-body-md text-[10px] text-on-surface-variant leading-relaxed pt-3 border-t border-outline-variant/30">
+                            <strong>Asset provenance:</strong> third-party geometry, licence unconfirmed and pending review. Not
+                            licensed for redistribution or reuse. Dimensions are derived from the mesh bounding box, carry no
+                            manufacturer warranty, and must not be used for procurement or construction.
                         </p>
                     </div>
 
@@ -1052,8 +1073,9 @@
         <section id="showcase" class="py-16">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 border-b border-outline-variant/30 pb-4 gap-4">
                 <div>
-                    <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold mb-1">PROTOTYPE SPOTLIGHT</div>
-                    <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Case Studies in Tropical Precision</h2>
+                    <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold mb-1">ILLUSTRATIVE CONCEPTS</div>
+                    <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Design Concepts in Tropical Precision</h2>
+                    <p class="font-body-md text-sm text-on-surface-variant mt-2 max-w-2xl">Hypothetical briefs illustrating the kinds of project BAAN/ING is being built for. These are not delivered projects, client work, or renders produced by the engine.</p>
                 </div>
                 <!-- Case Tabs -->
                 <div class="flex gap-2 font-data-mono text-xs">
@@ -1074,10 +1096,10 @@
                 
                 <!-- Left Visual Image Display -->
                 <div class="lg:col-span-7 relative h-[380px] lg:h-auto bg-surface-container overflow-hidden group">
-                    <img id="case-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Case Study Render" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img id="case-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Illustrative concept image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
                         <div class="text-white space-y-1">
-                            <span class="font-data-mono text-[10px] px-2 py-0.5 rounded bg-white/20 uppercase tracking-wider backdrop-blur-sm" id="case-badge">
+                            <span class="font-data-mono text-[10px] px-2 py-0.5 rounded bg-black/40 uppercase tracking-wider" id="case-badge">
                                 RESIDENTIAL ARCHITECTURE • 340 M²
                             </span>
                             <h3 class="font-display-lg text-2xl font-bold" id="case-title">Baan Sukhumvit 49</h3>
@@ -1090,7 +1112,7 @@
                 <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-surface-container-lowest font-data-mono text-xs">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
-                            <span class="text-outline uppercase text-[11px]">PROJECT TELEMETRY</span>
+                            <span class="text-outline uppercase text-[11px]">ILLUSTRATIVE BRIEF</span>
                             <span class="text-architectural-blue font-bold" id="case-id">PROJ-2026-BKK</span>
                         </div>
 
@@ -1108,12 +1130,8 @@
                                 <strong class="text-primary" id="case-mat">FSC Teak & Fair-Faced RC</strong>
                             </div>
                             <div class="flex justify-between py-1 border-b border-outline-variant/15">
-                                <span class="text-on-surface-variant">Cloud Render Duration:</span>
-                                <strong class="text-architectural-blue" id="case-render-speed">42 Seconds (4K HDR)</strong>
-                            </div>
-                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
                                 <span class="text-on-surface-variant">Passive Shading Depth:</span>
-                                <strong class="text-emerald-700 font-bold">2.40 m Cantilever Eaves</strong>
+                                <strong class="text-primary">2.40 m Cantilever Eaves</strong>
                             </div>
                         </div>
 
@@ -1124,7 +1142,7 @@
 
                     <div class="pt-4 border-t border-outline-variant/30">
                         <button onclick="openLeadModal('Showcase Case Study CTA')" class="w-full bg-charcoal text-white hover:bg-black py-3 rounded font-data-mono text-xs transition-colors flex items-center justify-center gap-2 shadow">
-                            <span>Inspect Project Blueprints & 3D Model</span>
+                            <span>Join the Early Access Waitlist</span>
                             <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
                         </button>
                     </div>
@@ -1224,7 +1242,7 @@
                             </li>
                             <li class="flex items-start gap-1.5">
                                 <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
-                                <span>1:1 Material Catalog Integration</span>
+                                <span>Material Catalog Integration</span>
                             </li>
                         </ul>
                     </div>
@@ -1376,7 +1394,7 @@
                         <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-1">expand_more</span>
                     </button>
                     <div id="faq-content-1" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
-                        <p>BAAN/ING incorporates structural rule algorithms aligned with Thailand's Building Control Act (พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522) and Bangkok Metropolitan Administration (BMA) municipal bylaws. When you draft, the system automatically checks minimum ceiling clearance heights, setback distances from property boundaries, and minimum natural light/ventilation aperture ratios (min 10% of floor area for habitable rooms).</p>
+                        <p>BAAN/ING is being built around structural rule algorithms aligned with Thailand's Building Control Act (พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522) and Bangkok Metropolitan Administration (BMA) municipal bylaws. The planned checks cover minimum ceiling clearance heights, setback distances from property boundaries, and minimum natural light/ventilation aperture ratios (min 10% of floor area for habitable rooms). Automated code checking is in development and is not yet available.</p>
                     </div>
                 </div>
 
@@ -1394,22 +1412,22 @@
                 <!-- FAQ 3 -->
                 <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
                     <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
-                        <span>How does the 1:1 retail material catalog work?</span>
+                        <span>How will the retail material catalog work?</span>
                         <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-3">expand_more</span>
                     </button>
                     <div id="faq-content-3" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
-                        <p>Our material catalog integrates physically-verified SKUs from major Thai construction and interior suppliers (SCG, TOA, Hafele, COTTO). Every material comes with accurate physical rendering properties (diffuse, roughness, normal maps) and precise dimensional constraints.</p>
+                        <p>The material catalog is in development. The goal is dimensionally verified SKUs from major Thai construction and interior suppliers, each carrying physical rendering properties (diffuse, roughness, normal maps) and precise dimensional constraints. No supplier partnership or catalog integration is in place yet, and any brand names shown elsewhere on this page are illustrative examples of the specification format.</p>
                     </div>
                 </div>
 
                 <!-- FAQ 4 -->
                 <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
                     <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
-                        <span>Do I need an expensive dedicated workstation GPU to generate 4K raytraced renders?</span>
+                        <span>Do I need an expensive dedicated workstation GPU to generate raytraced renders?</span>
                         <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-4">expand_more</span>
                     </button>
                     <div id="faq-content-4" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
-                        <p>No. All 4K photorealistic lighting calculations, global illumination, and texture baking are executed on BAAN/ING's distributed serverless edge GPU microservices. You can run the entire drafting studio smoothly on a lightweight MacBook Air, iPad, or standard office laptop.</p>
+                        <p>No. Photorealistic lighting calculations, global illumination and texture baking are designed to run on BAAN/ING's cloud GPU infrastructure rather than your machine, so the drafting studio is intended to run on a lightweight MacBook Air, iPad or standard office laptop. Cloud rendering is in development.</p>
                     </div>
                 </div>
 
@@ -1432,12 +1450,13 @@
             <div class="bg-charcoal text-white rounded-lg p-8 sm:p-14 text-center space-y-6 shadow-2xl relative overflow-hidden">
                 <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-architectural-blue/20 filter blur-3xl pointer-events-none"></div>
                 
+                <!-- Gold type on charcoal: #C5A059 is 6.16:1 here and passes AA; #8A6A28 would be 3.01:1 and fail. See plan/decisions.md D30. -->
                 <div class="inline-block bg-white/10 text-thai-gold-accent font-data-mono text-xs px-3 py-1 rounded uppercase tracking-wider font-bold">
                     CLOSED BETA BATCH 01
                 </div>
                 
                 <h2 class="font-display-lg text-3xl sm:text-4xl font-extrabold max-w-2xl mx-auto leading-tight">
-                    Ready to Experience Next-Generation Architectural Precision?
+                    Ready to Draft with Architectural Precision?
                 </h2>
                 
                 <p class="font-body-lg text-base sm:text-lg text-outline-variant max-w-xl mx-auto">
@@ -1476,7 +1495,7 @@
     <!-- ========================================================================= -->
     <!-- BESPOKE ARCHITECTURAL PRIORITY PASS MODAL -->
     <!-- ========================================================================= -->
-    <div id="lead-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div id="lead-modal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
         <div class="glass-panel-elevated max-w-lg w-full p-6 sm:p-8 rounded-lg shadow-2xl relative border border-outline-variant/40">
             
             <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors">
@@ -1536,6 +1555,7 @@
             <div id="modal-success" class="hidden text-center py-4 space-y-4">
                 <div class="p-4 bg-charcoal text-white rounded-lg text-left font-data-mono text-xs space-y-3 border border-white/20 shadow-xl">
                     <div class="flex justify-between items-center border-b border-white/15 pb-2">
+                        <!-- Gold type on charcoal: see plan/decisions.md D30. -->
                         <span class="text-thai-gold-accent font-bold">BAAN/ING PRIORITY CAD PASS</span>
                         <span class="text-[10px] text-outline-variant">BATCH 01</span>
                     </div>
@@ -1717,7 +1737,6 @@
                 loc: "Sukhumvit, Bangkok",
                 area: "340.00 m² (2-Story)",
                 mat: "FSC Teak & Fair-Faced RC",
-                speed: "42 Seconds (4K HDR)",
                 desc: "Designed with 2.4m cantilever eaves to deflect tropical afternoon monsoon downpours while maintaining unobstructed daylight into the central double-height living room.",
                 image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ"
             },
@@ -1729,7 +1748,6 @@
                 loc: "Nimmanhaemin, Chiang Mai",
                 area: "180.00 m² (Mezzanine Loft)",
                 mat: "Salvaged Teak & Steel Framing",
-                speed: "38 Seconds (4K HDR)",
                 desc: "An adaptive transformation of a traditional 1980s Chiang Mai commercial shophouse into an open-plan acoustic architectural studio featuring integrated high-lux natural daylight shafts.",
                 image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB7ZCa0bs3667YX-iHb6qWnhYJfODjWbeZyE_bGtz62YCy4zuQRV2eRlG0dIZtCedk7v3-gxNvDEJUvqfOCinA0Kmm9rC_lfDriMhFnEKMlavHRq6iYFimyVvw2hsFUIf0jZO7YVhIfXM1kKNQBHg06lxaSFK_Ueg_pl_qjoUep-m-1a7E4LeqmOsgrdV_Hhc8rGUW9Glab8KxTZp7gjN-ftEQcyP0IJELRnHASlVmjm1qF_cSvBR9xbA"
             },
@@ -1741,7 +1759,6 @@
                 loc: "Cape Yamu, Phuket",
                 area: "520.00 m² (Single Level)",
                 mat: "Marine Anodized Aluminum & Travertine",
-                speed: "58 Seconds (4K HDR)",
                 desc: "Maximizes panoramic Andaman sea views with 6.5m frameless structural glass panels engineered for coastal tropical storm wind loads and zero salt-corrosion degradation.",
                 image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDHvw9lbb61D2DTBtAoZ_PayHHn529r8n3VEsQRtQGJy2Kv5CUPgpF0y1hkzk0-1svmnZd9c4aLTuUk-Zk7E-UFkFmCs7S_RIYPb_Crcc0up-8NvMO-gMcGFDXZe7CotdKsBNEYKoyPUl95A4d8uWGyC9y8F5Heibh2_2Wn8sKqRb3DsMO6uHN3uACDMCITyK-3kR4kxZGKOieBpFaZ_PyZ0QEU9tbKN-0_UDS8rzJpaz7hQodiDv0EbA"
             }
@@ -1757,7 +1774,6 @@
             document.getElementById('case-loc').innerText = c.loc;
             document.getElementById('case-area').innerText = c.area;
             document.getElementById('case-mat').innerText = c.mat;
-            document.getElementById('case-render-speed').innerText = c.speed;
             document.getElementById('case-desc').innerText = c.desc;
             document.getElementById('case-image').src = c.image;
 
@@ -1857,7 +1873,7 @@
                 clearance: "600 mm (Rocking Radius Buffer)",
                 material: "Molded Birch Plywood & Powder-Coated Steel",
                 mesh: "201,520 Vertices • WebGL PBR",
-                desc: "Contemporary ergonomic rocking chair with molded sculptural plywood runners and durable architectural finish."
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
             },
             bed: {
                 file: "Scalloped Upholstered Bed 3D Model.glb",
@@ -1870,7 +1886,7 @@
                 clearance: "700 mm (Bedside Circulation Buffer)",
                 material: "Textured Velvet & Solid Oak Internal Frame",
                 mesh: "204,104 Vertices • High PBR Textures",
-                desc: "Architectural platform bed frame featuring custom scalloped headboard geometry with soft ambient shadow response."
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
             },
             fridge: {
                 file: "Fridge.glb",
@@ -1883,7 +1899,7 @@
                 clearance: "600 mm (Door Swing & Vent Clearance)",
                 material: "Brushed Stainless Steel & Internal LED",
                 mesh: "10,628 Vertices • Lightweight Draco",
-                desc: "Compact modular under-counter refrigerator engineered with sub-millimeter ventilation gap compliance."
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
             },
             plant: {
                 file: "Tropical Rattan Plant 3D Model.glb",
@@ -1896,7 +1912,7 @@
                 clearance: "450 mm (Perimeter Growth Buffer)",
                 material: "Handwoven Natural Rattan Basket & Tropical Foliage",
                 mesh: "290,809 Vertices • WebGL PBR",
-                desc: "Architectural indoor tropical palm planter in handcrafted natural wicker rattan basket for biophilic microclimate enhancement."
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
             },
             bookshelf: {
                 file: "Natural Wood Ladder Bookshelf 3D Model.glb",
@@ -1909,7 +1925,7 @@
                 clearance: "400 mm (Front Buffer)",
                 material: "Solid Plantation Teak / Natural Oak",
                 mesh: "178,780 Vertices • WebGL PBR",
-                desc: "Leaning ladder bookcase optimized for compact vertical display and living room reading nooks."
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
             }
         };
 

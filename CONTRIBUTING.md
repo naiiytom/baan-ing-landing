@@ -9,10 +9,15 @@ Thank you for your interest in contributing to **BAAN/ING**! We welcome contribu
 1. **Measured, Never Approximated**:
    - All spatial dimensions must be mathematically and architecturally accurate.
    - Design tokens must strictly adhere to [`DESIGN.md`](../DESIGN.md).
-2. **Sub-150ms Performance**:
-   - The landing page is engineered for instant load times on edge networks (Cloudflare Pages).
-   - Keep assets optimized. Compress 3D `.glb` models and textures according to the $\le 1.5\text{ MB}$ Draco asset budget where possible.
-3. **Strict Zero-BOQ Policy**:
+2. **No Unverified Claims**:
+   - Never state a performance figure, render time, or accuracy percentage the product cannot currently demonstrate. Fabricated figures are why the interactive BOQ estimator was removed.
+   - Features that have not shipped are presented as **Coming Soon** / **In Development**, never in the present tense.
+   - Never imply a supplier, catalog, or partner relationship that does not exist, and never label third-party geometry as `1:1` or dimensionally verified.
+3. **Performance**:
+   - The landing page targets fast loads on edge networks (Cloudflare Pages).
+   - Keep assets optimized. Compress 3D `.glb` models and textures aggressively.
+   - ⚠ The `≤ 1.5 MB` Draco budget in [`docs/asset-sourcing.md`](../docs/asset-sourcing.md) governs the **application's** asset pipeline. The placeholder models in `public/assets/` predate that gate being enforced here and exceed it substantially; they are demo-only and are not catalog assets.
+4. **Strict Zero-BOQ Policy**:
    - Do **not** introduce any mentions of "BOQ" or "Bill of Quantities" into landing or marketing copy.
 
 ---
@@ -54,7 +59,7 @@ Thank you for your interest in contributing to **BAAN/ING**! We welcome contribu
   backdrop-filter: blur(18px);
   border: 1px solid rgba(196, 199, 199, 0.30);
   ```
-- **Contrast**: Text in gold tones must use `thai-gold-text` (`#8A6A28`) rather than accent gold (`#C5A059`) to pass WCAG AA 4.5:1 contrast requirements.
+- **Contrast**: On the light page surfaces, text in gold tones must use `thai-gold-text` (`#8A6A28`, 4.78:1) rather than accent gold (`#C5A059`, 2.34:1) to pass WCAG AA. **On charcoal (`#262626`) this inverts** — use `#C5A059` (6.16:1); `#8A6A28` is only 3.01:1 there and fails. See `plan/decisions.md` **D30**.
 - **Typography**:
   - `font-display-lg` / `Manrope` for display headers.
   - `font-body-md` / `Hanken Grotesk` for prose and descriptions.
