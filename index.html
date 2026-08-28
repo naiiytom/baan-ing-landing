@@ -3,21 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>BAAN/ING - Smart Design. Real Spaces. (Coming Soon)</title>
-    <meta name="description" content="Smart architectural design platform for Thai spaces. From technical floorplans to photorealistic 4K renders—built with 1:1 retail accuracy and professional structural integrity. Coming soon.">
+    <title>BAAN/ING — Smart Design. Real Spaces. | Architectural CAD & Cloud Raytracing</title>
+    <meta name="description" content="The architectural platform engineered for Thai spaces. Structural 2D CAD floorplanning, retail material specifications and cloud rendering, built for Thai building codes and the tropical climate. In development — join the early access waitlist.">
     <link rel="canonical" href="https://baan.ing/">
     
-    <!-- Open Graph / SEO -->
+    <!-- Favicon & Social -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baan.ing/">
-    <meta property="og:title" content="BAAN/ING - Smart Design. Real Spaces.">
-    <meta property="og:description" content="Smart architectural design platform for Thai spaces. From technical floorplans to photorealistic 4K renders.">
+    <meta property="og:title" content="BAAN/ING — Architectural precision for Thai spaces. In development.">
+    <meta property="og:description" content="Smart architectural design platform for Thai spaces. Technical floorplanning, retail material specification and cloud rendering. In development — join the early access waitlist.">
     <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E">
 
-    <!-- Fonts & Material Symbols -->
+    <!-- Fonts & Icons -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    
+    <!-- 3D WebGL Model Viewer Component -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
     
     <script id="tailwind-config">
         tailwind.config = {
@@ -64,15 +72,16 @@
                         "charcoal": "#262626",
                         "architectural-blue": "#0057FF",
                         "thai-gold-accent": "#C5A059",
-                        "glass-bg": "rgba(255, 255, 255, 0.7)",
+                        "thai-gold-text": "#8A6A28",
+                        "glass-bg": "rgba(255, 255, 255, 0.72)",
                         "drafting-grid": "#E5E7EB"
                     },
                     borderRadius: {
-                        "DEFAULT": "0.25rem", // 4px per DESIGN.md
-                        "sm": "0.125rem",      // 2px
-                        "md": "0.375rem",     // 6px
-                        "lg": "0.5rem",        // 8px floating cards
-                        "xl": "0.75rem",       // 12px
+                        "DEFAULT": "0.25rem",
+                        "sm": "0.125rem",
+                        "md": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
                         "full": "9999px"
                     },
                     spacing: {
@@ -91,380 +100,1373 @@
                         "body-md": ["Hanken Grotesk", "sans-serif"],
                         "data-mono": ["JetBrains Mono", "monospace"],
                         "label-sm": ["Hanken Grotesk", "sans-serif"]
-                    },
-                    fontSize: {
-                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
-                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "data-mono": ["14px", { "lineHeight": "1.4", "fontWeight": "500" }],
-                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "600" }]
                     }
                 }
             }
         }
     </script>
     <style>
-        .bg-grid-pattern {
-            background-size: 8px 8px;
-            background-image: linear-gradient(to right, theme('colors.drafting-grid') 1px, transparent 1px),
-                              linear-gradient(to bottom, theme('colors.drafting-grid') 1px, transparent 1px);
+        .bg-drafting-canvas {
+            background-color: #F5F5F4;
+            background-size: 16px 16px, 64px 64px;
+            background-image: 
+                linear-gradient(to right, rgba(196, 199, 199, 0.25) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(196, 199, 199, 0.25) 1px, transparent 1px),
+                linear-gradient(to right, rgba(116, 120, 120, 0.25) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(116, 120, 120, 0.25) 1px, transparent 1px);
+        }
+
+        .bg-page-grid {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(196, 199, 199, 0.18) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(196, 199, 199, 0.18) 1px, transparent 1px);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(196, 199, 199, 0.30);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Blur-only helper for surfaces that set their own background but must
+           still match the one canonical glass blur (DESIGN.md: 18px, not 12px). */
+        .glass-blur {
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .glass-panel-elevated {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(196, 199, 199, 0.30);
+            box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+        }
+
+        .cad-crosshair {
+            cursor: crosshair;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1EDEC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C4C7C7;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #747878;
         }
     </style>
 </head>
-<body class="bg-background text-on-background font-body-md min-h-screen relative overflow-x-hidden antialiased bg-grid-pattern">
+<body class="bg-surface text-on-surface font-body-md min-h-screen relative overflow-x-hidden antialiased bg-page-grid selection:bg-architectural-blue selection:text-white">
 
-    <!-- Top Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-glass-bg backdrop-blur-xl border-b border-outline-variant/30 px-margin-desktop h-16 flex justify-between items-center shadow-sm">
-        <div class="flex items-center gap-8">
-            <a href="https://baan.ing" class="flex items-center">
-                <img src="https://lh3.googleusercontent.com/aida/AEtjO1UBMRaLb4zFmOsLRBpcmD2jSHlaBcF7pv-HWJ3CVYB5bIBVQG8r37uNanFD7zLR4aUXnGXYkQDGQMMPKHaeKhpOft8ReglvmJgxQ-8qsSUcz4foQPqhvdFqZIdglMZH1OraylyKYIHQ-Gebwt5P_b8_nHWPOPc5k-9O4Jwy2EN6SDXDjNc_V6T_LC6NFQSvQgdIbJQdFt0EvbmkkAqODS1MFIDnwV-Tuw-yWEwknyLw4SxreabBrr175sl3" alt="BAAN/ING" class="h-8 object-contain">
+    <!-- Top Fixed Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-outline-variant/30 px-4 sm:px-8 h-16 flex justify-between items-center transition-all">
+        <div class="flex items-center gap-6 lg:gap-10">
+            <!-- Brand Logo Mark -->
+            <a href="/" class="flex items-center gap-2 group">
+                <img src="./logo-v2-transparent.png" alt="BAAN/ING" class="h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]">
             </a>
             
-            <nav class="hidden md:flex gap-6 items-center">
-                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#features">Capabilities</a>
-                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#showcase">Showcase</a>
-                <a class="text-on-surface-variant font-headline-md text-[16px] hover:bg-surface-container-low transition-colors px-2.5 py-1 rounded" href="#pricing">Pricing</a>
+            <!-- Telemetry Indicator -->
+            <div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-data-mono text-[11px] text-on-surface-variant">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>ENGINE: v0.9.4</span>
+                <span class="text-outline-variant">|</span>
+                <span class="text-architectural-blue">1:50 METRIC</span>
+                <span class="text-outline-variant">|</span>
+                <span>BANGKOK 13.7°N</span>
+            </div>
+
+            <!-- Primary Nav Anchors -->
+            <nav class="hidden md:flex gap-1 lg:gap-2 items-center text-sm font-medium">
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#studio-viewport">Studio Canvas</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#capabilities">Capabilities</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#furniture">3D Models</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#showcase">Showcase</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#pricing">Pricing</a>
+                <a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors px-3 py-1.5 rounded" href="#faq">FAQ</a>
             </nav>
         </div>
 
-        <div class="flex items-center gap-4">
-            <a href="https://app.baan.ing" class="hidden sm:inline-block font-data-mono text-data-mono text-on-surface-variant hover:text-primary px-3 py-1.5 transition-colors">
+        <!-- Right Action Hub -->
+        <div class="flex items-center gap-3">
+            <a href="https://app.baan.ing" class="hidden sm:inline-flex items-center font-data-mono text-xs text-on-surface-variant hover:text-primary px-3 py-2 transition-colors">
                 Sign In
             </a>
-            <button onclick="openLeadModal('Nav Join Waitlist')" class="font-data-mono text-data-mono bg-charcoal text-white px-4 py-2 rounded hover:opacity-90 transition-opacity shadow-sm flex items-center gap-1.5">
-                <span>Join Waitlist</span>
-                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <button onclick="openLeadModal('Nav Header')" class="bg-charcoal text-white font-data-mono text-xs px-4 py-2 rounded hover:bg-black transition-all shadow-sm flex items-center gap-2 active:scale-95">
+                <span>Join Priority Waitlist</span>
+                <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
             </button>
         </div>
     </header>
 
-    <!-- Main Content Canvas -->
-    <main class="pt-24 pb-20 px-margin-desktop max-w-7xl mx-auto">
+    <!-- Main Container -->
+    <main class="pt-24 pb-20 px-4 sm:px-8 max-w-7xl mx-auto">
         
-        <!-- Hero Section -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[70vh] py-8">
-            <div class="space-y-6 z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-thai-gold-accent/10 border border-thai-gold-accent/30 text-thai-gold-accent font-data-mono text-label-sm uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-thai-gold-accent animate-ping"></span>
-                    Coming Soon • Join Early Access Waitlist
+        <!-- Hero Introduction Section -->
+        <section class="pt-8 pb-12 text-center max-w-4xl mx-auto space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-thai-gold-accent/15 border border-thai-gold-accent/40 font-data-mono text-xs uppercase tracking-wider text-thai-gold-text">
+                <span class="w-2 h-2 rounded-full bg-thai-gold-accent animate-ping"></span>
+                <span>Thai Architectural CAD & Cloud Raytracing Platform</span>
+            </div>
+
+            <h1 class="font-display-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight leading-[1.08]">
+                Drafting Thai Spaces with<br>
+                <span class="text-architectural-blue">Millimetre</span> Precision.
+            </h1>
+            
+            <p class="font-body-lg text-lg sm:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                Turn rough conceptual floorplans into structural 2D CAD layouts, retail material specifications and photorealistic cloud renders — engineered specifically for Thai building codes and the tropical climate. Currently in development.
+            </p>
+
+            <!-- Quick Lead Capture Bar -->
+            <div class="pt-2 max-w-xl mx-auto">
+                <form onsubmit="handleHeroSubmit(event)" class="glass-panel p-2 rounded-lg flex flex-col sm:flex-row gap-2 shadow-md">
+                    <div class="relative flex-1">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">draft</span>
+                        <input type="email" id="hero-email" required placeholder="Enter professional or studio email..." class="w-full pl-9 pr-3 py-2.5 bg-surface-container-lowest border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue text-on-surface placeholder:text-outline">
+                    </div>
+                    <button type="submit" class="bg-charcoal text-white font-data-mono text-xs px-5 py-2.5 rounded hover:bg-black transition-all shadow flex items-center justify-center gap-1.5 whitespace-nowrap active:scale-95">
+                        <span>Request Priority Pass</span>
+                        <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                    </button>
+                </form>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-3 font-data-mono text-[11px] text-on-surface-variant">
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                        BMA Building Code Checks &mdash; In Development
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                        Cloud Raytracing &mdash; In Development
+                    </span>
+                    <span class="flex items-center gap-1">
+                        <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                        Retail Material Integration &mdash; In Development
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- INTERACTIVE CAD STUDIO VIEWPORT -->
+        <!-- ========================================================================= -->
+        <section id="studio-viewport" class="my-6">
+            <div class="glass-panel-elevated rounded-lg overflow-hidden border border-outline-variant/40 shadow-2xl">
+                
+                <!-- Studio Window Titlebar -->
+                <div class="bg-surface-container-highest/80 border-b border-outline-variant/30 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs font-data-mono">
+                    <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F56] inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#27C93F] inline-block"></span>
+                        </div>
+                        <div class="h-3 w-px bg-outline-variant/40"></div>
+                        <span class="font-semibold text-primary flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[14px] text-architectural-blue">home</span>
+                            Villa_Sukhumvit_49.baan
+                        </span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant border border-outline-variant/30 hidden sm:inline-block">
+                            AUTOSAVED
+                        </span>
+                    </div>
+
+                    <div id="canvas-telemetry" class="hidden lg:flex items-center gap-4 text-on-surface-variant text-[11px]">
+                        <span>POS: <strong class="text-primary font-medium" id="coord-x">X: 14.850m</strong> <strong class="text-primary font-medium" id="coord-y">Y: 9.400m</strong></span>
+                        <span class="text-outline-variant">|</span>
+                        <span>GRID: <strong>100mm SNAP</strong></span>
+                        <span class="text-outline-variant">|</span>
+                        <span>SCALE: <strong>1:50 METRIC</strong></span>
+                    </div>
+
+                    <div class="flex items-center bg-surface-container-low p-1 rounded border border-outline-variant/40">
+                        <button onclick="setStudioMode('floorplan')" id="btn-mode-floorplan" class="px-2.5 py-1 rounded text-[11px] font-semibold bg-white text-primary shadow-xs transition-all flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px] text-architectural-blue">grid_view</span>
+                            <span>2D Floorplan</span>
+                        </button>
+                        <button onclick="setStudioMode('isometric')" id="btn-mode-isometric" class="px-2.5 py-1 rounded text-[11px] font-semibold text-on-surface-variant hover:text-primary transition-all flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">view_in_ar</span>
+                            <span>3D Isometric</span>
+                        </button>
+                        <button onclick="setStudioMode('raytrace')" id="btn-mode-raytrace" class="px-2.5 py-1 rounded text-[11px] font-semibold text-on-surface-variant hover:text-primary transition-all flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">photo_camera</span>
+                            <span>Raytrace</span>
+                        </button>
+                        <button onclick="setStudioMode('materials')" id="btn-mode-materials" class="px-2.5 py-1 rounded text-[11px] font-semibold text-on-surface-variant hover:text-primary transition-all flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">category</span>
+                            <span>Materials Spec</span>
+                        </button>
+                    </div>
                 </div>
 
-                <h1 class="font-display-lg text-display-lg text-primary md:text-[64px] leading-tight">
-                    Drafting the Future.<br>Defined by Precision.
-                </h1>
+                <div class="grid grid-cols-1 md:grid-cols-12 relative min-h-[540px] bg-warm-gray">
+                    
+                    <!-- Left Floating CAD Toolbar -->
+                    <div class="hidden md:flex md:col-span-1 border-r border-outline-variant/30 flex-col items-center py-4 gap-2 bg-surface-container-lowest/60 glass-blur z-10">
+                        <button onclick="selectTool('select')" id="tool-select" title="Select (V)" class="w-10 h-10 rounded flex items-center justify-center bg-architectural-blue text-white shadow-sm transition-all">
+                            <span class="material-symbols-outlined text-[18px]">near_me</span>
+                        </button>
+                        <button onclick="selectTool('wall')" id="tool-wall" title="Wall Drafting (W)" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-[18px]">polyline</span>
+                        </button>
+                        <button onclick="selectTool('dimension')" id="tool-dimension" title="Metric Dimensioning (D)" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-[18px]">straighten</span>
+                        </button>
+                        <button onclick="selectTool('door')" id="tool-door" title="Door / Window Placement (A)" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-[18px]">sensor_door</span>
+                        </button>
+                        <button onclick="selectTool('furniture')" id="tool-furniture" title="Furniture Catalog (F)" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-[18px]">chair</span>
+                        </button>
+                        <button onclick="selectTool('sun')" id="tool-sun" title="Bangkok Solar Path (S)" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-[18px]">sunny</span>
+                        </button>
+                        <div class="w-6 h-px bg-outline-variant/40 my-1"></div>
+                        <button onclick="triggerQuickRender()" title="Render Preview (R)" class="w-10 h-10 rounded flex items-center justify-center text-thai-gold-text hover:bg-thai-gold-accent/15 transition-all">
+                            <span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                        </button>
+                        <button onclick="openLeadModal('Studio Export DXF')" title="Export DXF / DWG" class="w-10 h-10 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-primary transition-all">
+                            <span class="material-symbols-outlined text-[18px]">file_download</span>
+                        </button>
+                    </div>
+
+                    <!-- Center Interactive Drawing Canvas -->
+                    <div class="md:col-span-8 lg:col-span-8 relative flex items-center justify-center p-4 sm:p-6 bg-drafting-canvas overflow-hidden cad-crosshair" id="main-canvas-container" onmousemove="updateCanvasCoordinates(event)">
+                        
+                        <!-- ================= MODE 1: 2D VECTOR FLOORPLAN ================= -->
+                        <div id="viewport-floorplan" class="w-full h-full flex flex-col items-center justify-center">
+                            <div class="relative w-full max-w-[620px] aspect-[4/3] bg-white border border-outline-variant/50 rounded shadow-md p-4 flex items-center justify-center">
+                                <svg viewBox="0 0 600 450" class="w-full h-full select-none" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="grid-sub" width="10" height="10" patternUnits="userSpaceOnUse">
+                                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#F1EDEC" stroke-width="0.5"/>
+                                        </pattern>
+                                        <pattern id="teak-pattern" width="8" height="8" patternUnits="userSpaceOnUse">
+                                            <path d="M 0 0 L 0 8 M 4 0 L 4 8" fill="none" stroke="#C5A059" stroke-width="0.6" stroke-opacity="0.35"/>
+                                        </pattern>
+                                        <pattern id="concrete-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                            <line x1="0" y1="0" x2="0" y2="12" stroke="#444748" stroke-width="0.6" stroke-opacity="0.25"/>
+                                        </pattern>
+                                    </defs>
+
+                                    <rect width="600" height="450" fill="url(#grid-sub)" />
+
+                                    <!-- Grid Lines -->
+                                    <line x1="30" y1="30" x2="30" y2="420" stroke="#747878" stroke-width="0.5" stroke-dasharray="4,4"/>
+                                    <line x1="570" y1="30" x2="570" y2="420" stroke="#747878" stroke-width="0.5" stroke-dasharray="4,4"/>
+                                    <line x1="30" y1="30" x2="570" y2="30" stroke="#747878" stroke-width="0.5" stroke-dasharray="4,4"/>
+                                    <line x1="30" y1="420" x2="570" y2="420" stroke="#747878" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+                                    <!-- Grid Bubbles -->
+                                    <g font-family="JetBrains Mono" font-size="9" fill="#444748" text-anchor="middle">
+                                        <circle cx="30" cy="18" r="8" fill="#F1EDEC" stroke="#747878" stroke-width="0.8"/>
+                                        <text x="30" y="21">A</text>
+                                        <circle cx="280" cy="18" r="8" fill="#F1EDEC" stroke="#747878" stroke-width="0.8"/>
+                                        <text x="280" y="21">B</text>
+                                        <circle cx="570" cy="18" r="8" fill="#F1EDEC" stroke="#747878" stroke-width="0.8"/>
+                                        <text x="570" y="21">C</text>
+                                        
+                                        <circle cx="16" cy="40" r="8" fill="#F1EDEC" stroke="#747878" stroke-width="0.8"/>
+                                        <text x="16" y="43">1</text>
+                                        <circle cx="16" cy="220" r="8" fill="#F1EDEC" stroke="#747878" stroke-width="0.8"/>
+                                        <text x="16" y="223">2</text>
+                                        <circle cx="16" cy="410" r="8" fill="#F1EDEC" stroke="#747878" stroke-width="0.8"/>
+                                        <text x="16" y="413">3</text>
+                                    </g>
+
+                                    <!-- ROOM 1: Living & Dining -->
+                                    <g id="room-living" onclick="selectRoom('living')" class="cursor-pointer group">
+                                        <rect x="50" y="50" width="230" height="240" fill="#FFFFFF" class="group-hover:fill-blue-50/50 transition-colors"/>
+                                        <rect x="50" y="50" width="230" height="240" fill="url(#concrete-hatch)" />
+                                        <rect id="highlight-living" x="50" y="50" width="230" height="240" fill="none" stroke="#0057FF" stroke-width="2" class="opacity-100 transition-opacity"/>
+                                        
+                                        <!-- Furniture -->
+                                        <rect x="90" y="80" width="80" height="40" rx="3" fill="#E5E2E1" stroke="#444748" stroke-width="0.8"/>
+                                        <circle cx="80" cy="90" r="4" fill="#C4C7C7"/>
+                                        <circle cx="80" cy="110" r="4" fill="#C4C7C7"/>
+                                        <circle cx="180" cy="90" r="4" fill="#C4C7C7"/>
+                                        <circle cx="180" cy="110" r="4" fill="#C4C7C7"/>
+
+                                        <path d="M 80 170 L 170 170 L 170 230 L 140 230 L 140 200 L 80 200 Z" fill="#E5E2E1" stroke="#444748" stroke-width="0.8"/>
+                                        <rect x="100" y="205" width="40" height="25" rx="2" fill="#F1EDEC" stroke="#747878" stroke-width="0.5"/>
+
+                                        <g font-family="Manrope" font-weight="600" font-size="11" fill="#1C1B1B" text-anchor="middle">
+                                            <text x="165" y="145">01 : LIVING / DINING</text>
+                                            <text x="165" y="158" font-family="JetBrains Mono" font-size="9" fill="#0057FF">54.00 m² (H=3.50m)</text>
+                                        </g>
+                                    </g>
+
+                                    <!-- ROOM 2: Master Teak Suite -->
+                                    <g id="room-master" onclick="selectRoom('master')" class="cursor-pointer group">
+                                        <rect x="290" y="50" width="260" height="170" fill="url(#teak-pattern)" class="group-hover:opacity-80 transition-opacity"/>
+                                        <rect id="highlight-master" x="290" y="50" width="260" height="170" fill="none" stroke="#747878" stroke-width="1" class="transition-all"/>
+                                        
+                                        <rect x="360" y="60" width="100" height="90" rx="3" fill="#FFFFFF" stroke="#444748" stroke-width="1"/>
+                                        <rect x="370" y="65" width="35" height="20" rx="2" fill="#E5E2E1" stroke="#747878" stroke-width="0.5"/>
+                                        <rect x="415" y="65" width="35" height="20" rx="2" fill="#E5E2E1" stroke="#747878" stroke-width="0.5"/>
+
+                                        <g font-family="Manrope" font-weight="600" font-size="11" fill="#1C1B1B" text-anchor="middle">
+                                            <text x="420" y="180">02 : MASTER TEAK SUITE</text>
+                                            <text x="420" y="193" font-family="JetBrains Mono" font-size="9" fill="#8A6A28">32.40 m² • FSC TEAK</text>
+                                        </g>
+                                    </g>
+
+                                    <!-- ROOM 3: Tropical Courtyard & Water Pool -->
+                                    <g id="room-courtyard" onclick="selectRoom('courtyard')" class="cursor-pointer group">
+                                        <rect x="50" y="300" width="230" height="110" fill="#E0F2FE" opacity="0.6" class="group-hover:opacity-90 transition-opacity"/>
+                                        <rect id="highlight-courtyard" x="50" y="300" width="230" height="110" fill="none" stroke="#747878" stroke-width="1"/>
+                                        
+                                        <rect x="70" y="320" width="120" height="70" rx="2" fill="#BAE6FD" stroke="#0284C7" stroke-width="0.8"/>
+                                        <circle cx="230" cy="355" r="16" fill="#D1FAE5" stroke="#059669" stroke-width="0.8"/>
+                                        <circle cx="230" cy="355" r="3" fill="#059669"/>
+
+                                        <g font-family="Manrope" font-weight="600" font-size="10" fill="#0369A1" text-anchor="middle">
+                                            <text x="165" y="315">03 : COURTYARD & POOL</text>
+                                            <text x="165" y="405" font-family="JetBrains Mono" font-size="8" fill="#0284C7">18.20 m² • PASSIVE COOLING</text>
+                                        </g>
+                                    </g>
+
+                                    <!-- ROOM 4: Ensuite Spa Bath -->
+                                    <g id="room-bath" onclick="selectRoom('bath')" class="cursor-pointer group">
+                                        <rect x="290" y="230" width="260" height="180" fill="#F8FAFC" class="group-hover:fill-slate-100 transition-colors"/>
+                                        <rect id="highlight-bath" x="290" y="230" width="260" height="180" fill="none" stroke="#747878" stroke-width="1"/>
+                                        
+                                        <ellipse cx="350" cy="320" rx="35" ry="20" fill="#FFFFFF" stroke="#444748" stroke-width="1"/>
+                                        <rect x="470" y="260" width="60" height="120" rx="2" fill="#E5E2E1" stroke="#444748" stroke-width="0.8"/>
+                                        <circle cx="500" cy="290" r="10" fill="#FFFFFF" stroke="#747878" stroke-width="0.5"/>
+                                        <circle cx="500" cy="350" r="10" fill="#FFFFFF" stroke="#747878" stroke-width="0.5"/>
+
+                                        <g font-family="Manrope" font-weight="600" font-size="10" fill="#1C1B1B" text-anchor="middle">
+                                            <text x="420" y="250">04 : ENSUITE SPA BATH</text>
+                                            <text x="420" y="263" font-family="JetBrains Mono" font-size="8" fill="#747878">21.60 m² • COTTO SANITARY</text>
+                                        </g>
+                                    </g>
+
+                                    <!-- Structural Walls -->
+                                    <g fill="#1C1B1B">
+                                        <rect x="45" y="45" width="510" height="8" />
+                                        <rect x="45" y="405" width="510" height="8" />
+                                        <rect x="45" y="45" width="8" height="368" />
+                                        <rect x="547" y="45" width="8" height="368" />
+                                        
+                                        <rect x="282" y="45" width="6" height="368" />
+                                        <rect x="45" y="292" width="243" height="6" />
+                                        <rect x="282" y="222" width="270" height="6" />
+                                    </g>
+
+                                    <!-- Doors -->
+                                    <g stroke="#0057FF" stroke-width="1" fill="none">
+                                        <path d="M 50 120 A 35 35 0 0 1 85 85" stroke-dasharray="2,2"/>
+                                        <line x1="50" y1="120" x2="50" y2="85" stroke="#1C1B1B" stroke-width="2"/>
+                                        <text x="70" y="110" font-family="JetBrains Mono" font-size="7" fill="#0057FF">D-01 (90°)</text>
+                                        
+                                        <path d="M 288 120 A 30 30 0 0 1 318 90" stroke-dasharray="2,2"/>
+                                        <line x1="288" y1="120" x2="288" y2="90" stroke="#1C1B1B" stroke-width="2"/>
+                                    </g>
+
+                                    <!-- Dimensions -->
+                                    <g font-family="JetBrains Mono" font-size="9" fill="#1C1B1B" font-weight="600">
+                                        <line x1="50" y1="36" x2="280" y2="36" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <line x1="50" y1="32" x2="50" y2="40" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <line x1="280" y1="32" x2="280" y2="40" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <text x="165" y="32" text-anchor="middle">7.50 m</text>
+
+                                        <line x1="285" y1="36" x2="550" y2="36" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <line x1="285" y1="32" x2="285" y2="40" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <line x1="550" y1="32" x2="550" y2="40" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <text x="417" y="32" text-anchor="middle">8.50 m</text>
+
+                                        <line x1="36" y1="50" x2="36" y2="295" stroke="#1C1B1B" stroke-width="0.8"/>
+                                        <line x1="32" y1="50" x2="40" y2="50" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <line x1="32" y1="295" x2="40" y2="295" stroke="#1C1B1B" stroke-width="1.2"/>
+                                        <text x="32" y="175" text-anchor="middle" transform="rotate(-90 32 175)">8.00 m</text>
+                                    </g>
+
+                                    <!-- North Arrow -->
+                                    <g transform="translate(530, 80)">
+                                        <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#444748" stroke-width="0.8"/>
+                                        <polygon points="0,-11 4,0 0,-2 -4,0" fill="#BA1A1A"/>
+                                        <polygon points="0,11 4,0 0,-2 -4,0" fill="#444748"/>
+                                        <text x="0" y="-14" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#BA1A1A" text-anchor="middle">N</text>
+                                    </g>
+                                </svg>
+
+                                <!-- HUD -->
+                                <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between pointer-events-none">
+                                    <div class="glass-panel px-2.5 py-1 rounded text-[10px] font-data-mono text-on-surface-variant flex items-center gap-2 pointer-events-auto shadow-xs">
+                                        <span class="text-architectural-blue font-bold">LAYERS:</span>
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" checked class="rounded text-architectural-blue focus:ring-0 w-3 h-3"> Walls
+                                        </label>
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" checked class="rounded text-architectural-blue focus:ring-0 w-3 h-3"> Dims
+                                        </label>
+                                        <label class="flex items-center gap-1 cursor-pointer">
+                                            <input type="checkbox" checked class="rounded text-architectural-blue focus:ring-0 w-3 h-3"> Furniture
+                                        </label>
+                                    </div>
+                                    <div class="glass-panel px-2.5 py-1 rounded text-[10px] font-data-mono text-thai-gold-text pointer-events-auto">
+                                        <span>TOTAL NET: <strong>126.20 m²</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= MODE 2: 3D ISOMETRIC VECTOR ================= -->
+                        <div id="viewport-isometric" class="w-full h-full hidden flex-col items-center justify-center">
+                            <div class="relative w-full max-w-[620px] aspect-[4/3] bg-white border border-outline-variant/50 rounded shadow-md p-4 flex flex-col items-center justify-center">
+                                <svg viewBox="0 0 600 400" class="w-full h-full select-none">
+                                    <g transform="translate(300, 180)">
+                                        <polygon points="0,-80 200,20 0,120 -200,20" fill="#F1EDEC" stroke="#444748" stroke-width="1.2"/>
+                                        <polygon points="-200,20 0,120 0,135 -200,35" fill="#E5E2E1" stroke="#444748" stroke-width="1.2"/>
+                                        <polygon points="0,120 200,20 200,35 0,135" fill="#DDD9D8" stroke="#444748" stroke-width="1.2"/>
+
+                                        <polygon points="-160,0 -40,-60 -40,40 -160,100" fill="rgba(0, 87, 255, 0.08)" stroke="#0057FF" stroke-width="1.5"/>
+                                        <polygon points="-180,-30 -20,-110 40,-80 -120,0" fill="rgba(197, 160, 89, 0.25)" stroke="#C5A059" stroke-width="1.2"/>
+
+                                        <polygon points="20,-30 160,40 160,-40 20,-110" fill="rgba(255, 255, 255, 0.9)" stroke="#1C1B1B" stroke-width="1.2"/>
+
+                                        <g stroke="#C5A059" stroke-width="1.5" stroke-dasharray="4,3">
+                                            <line x1="-120" y1="-160" x2="-40" y2="-60" />
+                                            <circle cx="-120" cy="-160" r="10" fill="#C5A059" fill-opacity="0.3"/>
+                                        </g>
+                                        <text x="-140" y="-175" font-family="JetBrains Mono" font-size="10" fill="#8A6A28" font-weight="600">JUNE SOLSTICE (78° SOLAR ALT)</text>
+
+                                        <line x1="-180" y1="-30" x2="-160" y2="0" stroke="#0057FF" stroke-width="1"/>
+                                        <text x="-210" y="-10" font-family="JetBrains Mono" font-size="9" fill="#0057FF">1.80m DEEP EAVE SHADING</text>
+                                    </g>
+                                </svg>
+                                <div class="absolute bottom-3 font-data-mono text-xs text-on-surface-variant">
+                                    <span>3D AXONOMETRIC SOLAR ANALYSIS • BANGKOK TROPICAL LATITUDE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ================= MODE 3: RAYTRACE BEFORE / AFTER SLIDER ================= -->
+                        <div id="viewport-raytrace" class="w-full h-full hidden flex-col items-center justify-center">
+                            <div class="relative w-full max-w-[620px] aspect-[4/3] rounded overflow-hidden shadow-lg border border-outline-variant/40 select-none group" id="slider-container">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Illustrative concept image of a teak villa interior" class="absolute inset-0 w-full h-full object-cover">
+                                
+                                <div id="slider-clipper" class="absolute inset-0 overflow-hidden" style="width: 50%;">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E" alt="Illustrative wireframe-style treatment of the same concept image" class="absolute inset-0 w-[620px] h-full object-cover max-w-none filter invert grayscale">
+                                    <div class="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
+                                    <div class="absolute top-3 left-3 bg-charcoal/90 text-white font-data-mono text-[10px] px-2.5 py-1 rounded">
+                                        2D CAD WIREFRAME
+                                    </div>
+                                </div>
+
+                                <div class="absolute top-3 right-3 bg-thai-gold-accent text-charcoal font-data-mono text-[10px] font-bold px-2.5 py-1 rounded shadow">
+                                    CLOUD RAYTRACE &mdash; IN DEVELOPMENT
+                                </div>
+
+                                <div id="slider-handle" class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize flex items-center justify-center shadow-lg" style="left: 50%;">
+                                    <div class="w-7 h-7 rounded-full bg-charcoal text-white border-2 border-white flex items-center justify-center shadow-md">
+                                        <span class="material-symbols-outlined text-[14px]">code</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="font-data-mono text-[11px] text-on-surface-variant mt-2 text-center max-w-[620px]">
+                                Illustrative concept images, not renders produced by the engine. Cloud raytracing is in development.
+                            </span>
+                        </div>
+
+                        <!-- ================= MODE 4: MATERIAL SPECIFICATION MATRIX ================= -->
+                        <div id="viewport-materials" class="w-full h-full hidden flex-col items-center justify-center">
+                            <div class="w-full max-w-[620px] bg-white border border-outline-variant/50 rounded shadow-md p-4 text-xs font-data-mono overflow-x-auto max-h-[380px]">
+                                <div class="flex justify-between items-center pb-2 mb-2 border-b border-outline-variant/30">
+                                    <span class="font-bold text-primary text-sm">RETAIL MATERIAL SPECIFICATION</span>
+                                    <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[10px]">IN DEVELOPMENT</span>
+                                </div>
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="bg-surface-container-low text-on-surface-variant text-[10px] uppercase">
+                                            <th class="p-1.5">Code</th>
+                                            <th class="p-1.5">Material & Specification</th>
+                                            <th class="p-1.5">Brand</th>
+                                            <th class="p-1.5 text-right">Coverage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-outline-variant/20 text-[11px]">
+                                        <tr>
+                                            <td class="p-1.5 text-outline">MAT-01</td>
+                                            <td class="p-1.5 font-medium text-primary">SCG Ready-Mixed Structural Concrete C25/30</td>
+                                            <td class="p-1.5">SCG Thailand</td>
+                                            <td class="p-1.5 text-right">48.5 m³</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1.5 text-outline">MAT-02</td>
+                                            <td class="p-1.5 font-medium text-primary">FSC Golden Teak Planks 18mm Tongue & Groove</td>
+                                            <td class="p-1.5">Thai Teak Timber</td>
+                                            <td class="p-1.5 text-right">86.4 m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1.5 text-outline">MAT-03</td>
+                                            <td class="p-1.5 font-medium text-primary">Hafele Slide-Line 55+ Anodized Hardware</td>
+                                            <td class="p-1.5">Hafele Thailand</td>
+                                            <td class="p-1.5 text-right">6 Sets</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1.5 text-outline">MAT-04</td>
+                                            <td class="p-1.5 font-medium text-primary">Double-Glazed Low-E Glass 6+12A+6mm</td>
+                                            <td class="p-1.5">AGC Flat Glass</td>
+                                            <td class="p-1.5 text-right">72.0 m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-1.5 text-outline">MAT-05</td>
+                                            <td class="p-1.5 font-medium text-primary">COTTO Spa Freestanding Acrylic Tub</td>
+                                            <td class="p-1.5">COTTO Thailand</td>
+                                            <td class="p-1.5 text-right">1 Unit</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="border-t-2 border-outline/30 bg-surface-container-low font-bold">
+                                            <td colspan="3" class="p-2 text-primary">ILLUSTRATIVE EXAMPLE &mdash; NOT A PARTNER CATALOG</td>
+                                            <td class="p-2 text-right text-on-surface-variant">5 EXAMPLE LINES</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <p class="mt-2 pt-2 border-t border-outline-variant/30 text-[10px] text-on-surface-variant font-body-md leading-relaxed">
+                                    Brand and product names above are illustrative examples of the specification format only. They do not
+                                    represent a commercial partnership, an integration, or dimensionally verified catalog data. Verified 1:1
+                                    retail catalog integration is in development.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Floating CAD Inspector Panel (320px) -->
+                    <div class="md:col-span-3 lg:col-span-3 border-l border-outline-variant/30 p-4 bg-surface-container-lowest/80 glass-blur flex flex-col justify-between font-data-mono text-xs z-10 space-y-4">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+                                <span class="font-semibold text-primary uppercase tracking-wider text-[11px]">SPATIAL INSPECTOR</span>
+                                <span class="w-2 h-2 rounded-full bg-architectural-blue"></span>
+                            </div>
+
+                            <!-- Selected Object Name -->
+                            <div class="bg-surface-container-low p-2.5 rounded border border-outline-variant/30">
+                                <div class="text-[10px] text-on-surface-variant uppercase">Selected Spatial Node</div>
+                                <div class="font-bold text-primary text-sm mt-0.5" id="inspector-room-name">01 : Living / Dining</div>
+                                <div class="text-[10px] text-architectural-blue mt-0.5" id="inspector-room-type">Primary Common Area</div>
+                            </div>
+
+                            <!-- Metrics Data Table -->
+                            <div class="space-y-1.5 text-[11px]">
+                                <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                    <span class="text-on-surface-variant">Net Floor Area:</span>
+                                    <strong class="text-primary" id="inspector-area">54.00 m²</strong>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                    <span class="text-on-surface-variant">Clear Ceiling Height:</span>
+                                    <strong class="text-primary" id="inspector-height">3.50 m (Double Height)</strong>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                    <span class="text-on-surface-variant">Flooring Spec:</span>
+                                    <strong class="text-primary text-right" id="inspector-material">Polished Microcement</strong>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                    <span class="text-on-surface-variant">BMA Code Compliance:</span>
+                                    <span class="text-on-surface-variant font-semibold flex items-center gap-0.5">
+                                        <span class="material-symbols-outlined text-[13px]">schedule</span>
+                                        In Development
+                                    </span>
+                                </div>
+                                <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                    <span class="text-on-surface-variant">Ventilation Ratio:</span>
+                                    <strong class="text-on-surface-variant">In Development</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Inspector Actions -->
+                        <div class="space-y-2 pt-2 border-t border-outline-variant/30">
+                            <button onclick="setStudioMode('materials')" class="w-full bg-surface-container-high hover:bg-surface-container-highest text-primary py-2 rounded text-[11px] font-semibold transition-colors flex items-center justify-center gap-1.5 border border-outline-variant/40">
+                                <span class="material-symbols-outlined text-[15px]">inventory_2</span>
+                                <span>Browse Material Catalog</span>
+                            </button>
+                            <button onclick="openLeadModal('Studio Inspect CTA')" class="w-full bg-charcoal hover:bg-black text-white py-2 rounded text-[11px] font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+                                <span class="material-symbols-outlined text-[15px]">flash_on</span>
+                                <span>Open in Full Studio (Beta)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Design Goals Strip -->
+        <section class="py-8 my-4 border-y border-outline-variant/30 bg-surface-container-lowest/60 glass-panel rounded-lg">
+            <div class="text-center font-data-mono text-[11px] text-on-surface-variant uppercase tracking-widest mb-5">
+                What We Are Building Toward
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-2">
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-primary">Millimetre<br>Precision</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Integer-millimetre vector snapping</div>
+                </div>
+                <div class="p-2 border-l border-outline-variant/30">
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-architectural-blue">Cloud<br>Rendering</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Raytracing without a local GPU</div>
+                </div>
+                <div class="p-2 border-l border-outline-variant/30">
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-primary">Thai Retail<br>Catalog</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Real supplier material specifications</div>
+                </div>
+                <div class="p-2 border-l border-outline-variant/30">
+                    <div class="font-display-lg text-xl sm:text-2xl font-bold text-primary">Thai Building<br>Codes</div>
+                    <div class="font-data-mono text-xs text-on-surface-variant mt-2">Code-aware drafting from the start</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- CORE ARCHITECTURAL CAPABILITIES (THE 4 PILLARS) -->
+        <!-- ========================================================================= -->
+        <section id="capabilities" class="py-16">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 border-b border-outline-variant/30 pb-4 gap-4">
+                <div>
+                    <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold mb-1">ENGINE ARCHITECTURE</div>
+                    <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Engineered for Technical Mastery</h2>
+                </div>
+                <div class="font-data-mono text-xs text-on-surface-variant">
+                    FOUR FOUNDATIONAL CAPABILITIES
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-                    Smart architectural design for Thai spaces. From technical floorplans to photorealistic 4K renders—built with 1:1 retail accuracy and professional structural integrity.
+                <!-- Pillar 1 -->
+                <div class="glass-panel p-8 rounded-lg border border-outline-variant/30 hover:border-architectural-blue/50 transition-all group relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded bg-architectural-blue/10 flex items-center justify-center text-architectural-blue group-hover:bg-architectural-blue group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-[26px]">polyline</span>
+                        </div>
+                        <span class="font-data-mono text-2xl font-bold text-outline-variant/40">01</span>
+                    </div>
+                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Continuous Vector Snap Engine</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
+                        Draft floorplans with high precision. The engine enforces continuous wall geometry, parametric thickness (100mm/200mm), and automatic alignment to standard architectural grid lines.
+                    </p>
+                    <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                            <span>Planned: auto-snapping to structural columns & grids</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">schedule</span>
+                            <span>Planned: DXF, DWG and IFC 4.3 BIM export</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-panel p-8 rounded-lg border border-outline-variant/30 hover:border-architectural-blue/50 transition-all group relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded bg-thai-gold-accent/15 flex items-center justify-center text-thai-gold-text group-hover:bg-thai-gold-accent group-hover:text-charcoal transition-colors">
+                            <span class="material-symbols-outlined text-[26px]">category</span>
+                        </div>
+                        <span class="font-data-mono text-2xl font-bold text-outline-variant/40">02</span>
+                    </div>
+                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Retail Material Catalog</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
+                        The plan is to link every material specification to verified manufacturer product catalogs, so teak flooring, anodized aluminum frames and low-E double glazing can be populated from leading Thai suppliers. Supplier partnerships are not yet in place.
+                    </p>
+                    <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-thai-gold-text text-[14px]">schedule</span>
+                            <span>Planned: dimensionally verified supplier catalog data</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-thai-gold-text text-[14px]">schedule</span>
+                            <span>Planned: physical PBR texture & lighting parameters</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-panel p-8 rounded-lg border border-outline-variant/30 hover:border-architectural-blue/50 transition-all group relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded bg-emerald-100 flex items-center justify-center text-emerald-800 group-hover:bg-emerald-700 group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-[26px]">wb_sunny</span>
+                        </div>
+                        <span class="font-data-mono text-2xl font-bold text-outline-variant/40">03</span>
+                    </div>
+                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Tropical Climate & Solar Path Simulator</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
+                        Designed from the ground up for Southeast Asian latitudes. The simulator will model sun-shadow angles at Bangkok's latitude (13.7°N), monsoon wind cross-ventilation corridors, and overhang eave depth.
+                    </p>
+                    <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-700 text-[14px]">schedule</span>
+                            <span>Planned: hour-by-hour solar azimuth & daylight penetration</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-700 text-[14px]">schedule</span>
+                            <span>Planned: BMA natural light & ventilation ratio checks</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="glass-panel p-8 rounded-lg border border-outline-variant/30 hover:border-architectural-blue/50 transition-all group relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 rounded bg-charcoal/10 flex items-center justify-center text-primary group-hover:bg-charcoal group-hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-[26px]">cloud_sync</span>
+                        </div>
+                        <span class="font-data-mono text-2xl font-bold text-outline-variant/40">04</span>
+                    </div>
+                    <h3 class="font-display-lg text-xl font-bold text-primary mb-2">Cloud Raytracing Pipeline</h3>
+                    <p class="font-body-md text-on-surface-variant leading-relaxed mb-4">
+                        Photorealistic lighting and material shaders without heating up your drafting laptop. A serverless GPU cluster will handle global illumination raytracing so nothing renders locally.
+                    </p>
+                    <ul class="space-y-1.5 font-data-mono text-xs text-on-surface-variant border-t border-outline-variant/20 pt-4">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[14px]">schedule</span>
+                            <span>Planned: physically-based rendering (PBR) of Teak, Marble, Low-E Glass</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[14px]">check</span>
+                            <span>Planned: multi-angle camera batch queues</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 3D SPATIAL FURNITURE & FIXTURES SHOWCASE (LIVE GLB MODELS) -->
+        <!-- ========================================================================= -->
+        <section id="furniture" class="py-16 border-t border-outline-variant/30">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 border-b border-outline-variant/30 pb-4 gap-4">
+                <div>
+                    <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold mb-1">INTERACTIVE 3D GLB ASSETS</div>
+                    <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Live 3D Furniture &amp; Spatial Models</h2>
+                </div>
+                <div class="font-data-mono text-xs text-on-surface-variant flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 rounded-full bg-outline-variant"></span>
+                    <span>360° WEBGL ORBIT &bull; PLACEHOLDER GEOMETRY</span>
+                </div>
+            </div>
+
+            <p class="font-body-md text-on-surface-variant max-w-3xl mb-8 leading-relaxed">
+                Rotate, zoom and inspect 3D models directly in your browser. These are <strong>placeholder assets used to demonstrate the viewer</strong>, not catalog products: the geometry is third-party, its licensing is unconfirmed, and the dimensions below are read from the mesh rather than from a manufacturer specification.
+            </p>
+
+            <!-- Interactive 3D Furniture Studio Stage -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left 3D Interactive Model Stage (7 cols) -->
+                <div class="lg:col-span-7 glass-panel-elevated rounded-lg overflow-hidden border border-outline-variant/40 shadow-xl flex flex-col">
+                    
+                    <!-- Stage Titlebar -->
+                    <div class="bg-surface-container-highest/80 border-b border-outline-variant/30 px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs font-data-mono">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-architectural-blue animate-pulse"></span>
+                            <span class="font-semibold text-primary" id="f-stage-title">Modern Plywood Rocking Chair</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container-low text-on-surface-variant border border-outline-variant/30" id="f-stage-brand">Living / Seating</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant border border-outline-variant/30 text-[10px] font-bold" id="f-stage-badge">PLACEHOLDER ASSET</span>
+                        </div>
+                    </div>
+
+                    <!-- 3D WebGL Model Viewer Container -->
+                    <div class="relative w-full aspect-[4/3] bg-drafting-canvas flex items-center justify-center select-none overflow-hidden" id="furniture-canvas-wrapper">
+                        
+                        <!-- Live Model Viewer -->
+                        <model-viewer
+                            id="glb-viewer"
+                            src="./assets/Modern%20Plywood%20Rocking%20Chair%203D%20Model.glb"
+                            alt="3D Parametric Furniture Model"
+                            auto-rotate
+                            rotation-per-second="20deg"
+                            camera-controls
+                            touch-action="pan-y"
+                            shadow-intensity="1.4"
+                            shadow-softness="0.7"
+                            exposure="1.0"
+                            environment-image="neutral"
+                            interaction-prompt="auto"
+                            class="w-full h-full min-h-[380px] bg-transparent focus:outline-none cursor-grab active:cursor-grabbing"
+                        >
+                            <div slot="poster" class="w-full h-full flex flex-col items-center justify-center bg-drafting-canvas text-on-surface-variant font-data-mono text-xs">
+                                <span class="w-6 h-6 border-2 border-architectural-blue border-t-transparent rounded-full animate-spin mb-2"></span>
+                                <span>Loading 3D WebGL Geometry...</span>
+                            </div>
+                        </model-viewer>
+
+                        <!-- HUD Floating Hint -->
+                        <div class="absolute bottom-3 left-3 pointer-events-none">
+                            <div class="glass-panel px-2.5 py-1 rounded text-[10px] font-data-mono text-on-surface-variant flex items-center gap-1.5 shadow-xs">
+                                <span class="material-symbols-outlined text-[13px] text-architectural-blue">3d_rotation</span>
+                                <span>Drag to Orbit 360° &bull; Scroll to Zoom</span>
+                            </div>
+                        </div>
+
+                        <!-- Top Right Camera Presets -->
+                        <div class="absolute top-3 right-3 flex items-center gap-1.5">
+                            <button onclick="resetModelCamera('front')" title="Front View" class="glass-panel hover:bg-white text-primary text-[10px] font-data-mono px-2 py-1 rounded shadow-xs transition-colors">
+                                Front
+                            </button>
+                            <button onclick="resetModelCamera('isometric')" title="Isometric 3D" class="glass-panel hover:bg-white text-primary text-[10px] font-data-mono px-2 py-1 rounded shadow-xs transition-colors">
+                                3D Iso
+                            </button>
+                            <button onclick="resetModelCamera('top')" title="Top View" class="glass-panel hover:bg-white text-primary text-[10px] font-data-mono px-2 py-1 rounded shadow-xs transition-colors">
+                                Top
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stage Controls & Technical Telemetry Footer -->
+                    <div class="bg-surface-container-lowest p-4 border-t border-outline-variant/30 font-data-mono text-xs flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-4 text-on-surface-variant text-[11px]">
+                            <label class="flex items-center gap-1.5 cursor-pointer">
+                                <input type="checkbox" id="chk-auto-rotate" checked onchange="toggleAutoRotate()" class="rounded text-architectural-blue focus:ring-0 w-3.5 h-3.5">
+                                <span>Turntable Auto-Rotate</span>
+                            </label>
+                            <span class="text-outline-variant">|</span>
+                            <span class="text-architectural-blue font-semibold" id="f-stage-dims">668 &times; 1,003 &times; 874 mm</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-on-surface-variant text-[11px]" id="f-stage-mesh">201,520 Vertices &bull; 13.0 MB GLB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Model Selector & Specification Sheet (5 cols) -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Selected Spec Card -->
+                    <div class="glass-panel p-5 rounded-lg border border-outline-variant/30 space-y-4 font-data-mono text-xs">
+                        <div class="flex justify-between items-start border-b border-outline-variant/20 pb-3">
+                            <div>
+                                <span class="text-[10px] text-architectural-blue uppercase font-bold tracking-wider" id="f-spec-category">Living / Accent Seating</span>
+                                <h3 class="font-display-lg text-lg font-bold text-primary mt-0.5" id="f-spec-name">Modern Plywood Rocking Chair</h3>
+                                <div class="text-[11px] text-on-surface-variant truncate max-w-[220px]" id="f-spec-file">Modern Plywood Rocking Chair 3D Model.glb</div>
+                            </div>
+                            <span class="px-2 py-1 bg-surface-container-low rounded border border-outline-variant/30 text-[10px] text-on-surface-variant font-bold" id="f-spec-size">13.0 MB</span>
+                        </div>
+
+                        <!-- Technical Grid -->
+                        <div class="space-y-2 text-[11px]">
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Mesh Bounding Box:</span>
+                                <strong class="text-primary" id="f-spec-dims">668 &times; 1,003 &times; 874 mm</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Clearance Envelope:</span>
+                                <strong class="text-architectural-blue font-semibold" id="f-spec-clearance">600 mm (Rocking Radius Buffer)</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Material Shading:</span>
+                                <strong class="text-primary text-right" id="f-spec-mat">Molded Birch Plywood &amp; Powder-Coated Steel</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Mesh Complexity:</span>
+                                <span class="text-primary text-right" id="f-spec-mesh">201,520 Vertices &bull; WebGL PBR</span>
+                            </div>
+                        </div>
+
+                        <p class="font-body-md text-xs text-on-surface-variant leading-relaxed pt-1" id="f-spec-desc">
+                            Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification.
+                        </p>
+
+                        <p class="font-body-md text-[10px] text-on-surface-variant leading-relaxed pt-3 border-t border-outline-variant/30">
+                            <strong>Asset provenance:</strong> third-party geometry, licence unconfirmed and pending review. Not
+                            licensed for redistribution or reuse. Dimensions are derived from the mesh bounding box, carry no
+                            manufacturer warranty, and must not be used for procurement or construction.
+                        </p>
+                    </div>
+
+                    <!-- Interactive 5-GLB Quick Selector Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 font-data-mono text-[11px]">
+                        
+                        <!-- Model 1: Rocking Chair -->
+                        <button onclick="selectGlbModel('rocking_chair')" id="btn-glb-rocking_chair" class="p-2.5 rounded-lg border-2 border-architectural-blue bg-white shadow-sm text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-architectural-blue font-bold uppercase">13.0 MB</span>
+                                <div class="font-bold text-primary truncate">Rocking Chair</div>
+                                <div class="text-[10px] text-on-surface-variant">Plywood Seating</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">668&times;1003 mm</div>
+                        </button>
+
+                        <!-- Model 2: Upholstered Bed -->
+                        <button onclick="selectGlbModel('bed')" id="btn-glb-bed" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">12.0 MB</span>
+                                <div class="font-bold text-primary truncate">Scalloped Bed</div>
+                                <div class="text-[10px] text-on-surface-variant">Bedroom Bed</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">1003&times;893 mm</div>
+                        </button>
+
+                        <!-- Model 3: Fridge -->
+                        <button onclick="selectGlbModel('fridge')" id="btn-glb-fridge" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">0.64 MB</span>
+                                <div class="font-bold text-primary truncate">Refrigerator</div>
+                                <div class="text-[10px] text-on-surface-variant">Studio Kitchen</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">421&times;417 mm</div>
+                        </button>
+
+                        <!-- Model 4: Tropical Rattan Plant -->
+                        <button onclick="selectGlbModel('plant')" id="btn-glb-plant" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-emerald-700 uppercase font-semibold">21.0 MB</span>
+                                <div class="font-bold text-primary truncate">Rattan Plant</div>
+                                <div class="text-[10px] text-on-surface-variant">Biophilic Flora</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">700&times;610 mm</div>
+                        </button>
+
+                        <!-- Model 5: Ladder Bookshelf -->
+                        <button onclick="selectGlbModel('bookshelf')" id="btn-glb-bookshelf" class="p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-on-surface-variant uppercase">14.6 MB</span>
+                                <div class="font-bold text-primary truncate">Ladder Bookshelf</div>
+                                <div class="text-[10px] text-on-surface-variant">Natural Wood</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">558&times;201 mm</div>
+                        </button>
+
+                        <!-- Model 6: Custom Ingest -->
+                        <button onclick="openLeadModal('Custom GLB Import CTA')" class="p-2.5 rounded-lg border border-dashed border-outline-variant/60 bg-surface-container-low/50 hover:bg-white hover:border-architectural-blue text-left transition-all flex flex-col justify-between group">
+                            <div>
+                                <span class="text-[9px] text-architectural-blue font-bold uppercase">+ Ingest Model</span>
+                                <div class="font-bold text-primary truncate">Upload GLB</div>
+                                <div class="text-[10px] text-on-surface-variant">Import Custom</div>
+                            </div>
+                            <div class="text-[9px] text-outline mt-2">Draco Pipeline</div>
+                        </button>
+
+                    </div>
+
+                    <!-- Direct CAD Placement Action -->
+                    <button onclick="openLeadModal('3D Furniture Catalog CTA')" class="w-full bg-charcoal hover:bg-black text-white py-3 rounded font-data-mono text-xs transition-colors flex items-center justify-center gap-2 shadow">
+                        <span>Insert 3D Model into Studio Floorplan (Beta)</span>
+                        <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- ARCHITECTURAL SHOWCASE & CURATED CASE STUDIES -->
+        <!-- ========================================================================= -->
+        <section id="showcase" class="py-16">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 border-b border-outline-variant/30 pb-4 gap-4">
+                <div>
+                    <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold mb-1">ILLUSTRATIVE CONCEPTS</div>
+                    <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Design Concepts in Tropical Precision</h2>
+                    <p class="font-body-md text-sm text-on-surface-variant mt-2 max-w-2xl">Hypothetical briefs illustrating the kinds of project BAAN/ING is being built for. These are not delivered projects, client work, or renders produced by the engine.</p>
+                </div>
+                <!-- Case Tabs -->
+                <div class="flex gap-2 font-data-mono text-xs">
+                    <button onclick="setCaseStudy(0)" id="tab-case-0" class="px-3 py-1.5 rounded bg-charcoal text-white font-medium transition-all">
+                        01: Bangkok Villa
+                    </button>
+                    <button onclick="setCaseStudy(1)" id="tab-case-1" class="px-3 py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:text-primary transition-all">
+                        02: Chiang Mai Loft
+                    </button>
+                    <button onclick="setCaseStudy(2)" id="tab-case-2" class="px-3 py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:text-primary transition-all">
+                        03: Phuket Pavilion
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Case Study Detail Box -->
+            <div class="glass-panel rounded-lg overflow-hidden border border-outline-variant/40 shadow-xl grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Left Visual Image Display -->
+                <div class="lg:col-span-7 relative h-[380px] lg:h-auto bg-surface-container overflow-hidden group">
+                    <img id="case-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Illustrative concept image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                        <div class="text-white space-y-1">
+                            <span class="font-data-mono text-[10px] px-2 py-0.5 rounded bg-black/40 uppercase tracking-wider" id="case-badge">
+                                RESIDENTIAL ARCHITECTURE • 340 M²
+                            </span>
+                            <h3 class="font-display-lg text-2xl font-bold" id="case-title">Baan Sukhumvit 49</h3>
+                            <p class="font-body-md text-sm text-outline-variant" id="case-subtitle">Private Tropical Residence with Passive Monsoon Cooling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Case Metrics & Specification Data -->
+                <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-surface-container-lowest font-data-mono text-xs">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+                            <span class="text-outline uppercase text-[11px]">ILLUSTRATIVE BRIEF</span>
+                            <span class="text-architectural-blue font-bold" id="case-id">PROJ-2026-BKK</span>
+                        </div>
+
+                        <div class="space-y-2.5">
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Location:</span>
+                                <strong class="text-primary" id="case-loc">Sukhumvit, Bangkok</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Site Footprint:</span>
+                                <strong class="text-primary" id="case-area">340.00 m² (2-Story)</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Primary Materiality:</span>
+                                <strong class="text-primary" id="case-mat">FSC Teak & Fair-Faced RC</strong>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-outline-variant/15">
+                                <span class="text-on-surface-variant">Passive Shading Depth:</span>
+                                <strong class="text-primary">2.40 m Cantilever Eaves</strong>
+                            </div>
+                        </div>
+
+                        <p class="font-body-md text-on-surface-variant leading-relaxed text-xs pt-2" id="case-desc">
+                            Designed with 2.4m cantilever eaves to deflect tropical afternoon monsoon downpours while maintaining unobstructed daylight into the central double-height living room.
+                        </p>
+                    </div>
+
+                    <div class="pt-4 border-t border-outline-variant/30">
+                        <button onclick="openLeadModal('Showcase Case Study CTA')" class="w-full bg-charcoal text-white hover:bg-black py-3 rounded font-data-mono text-xs transition-colors flex items-center justify-center gap-2 shadow">
+                            <span>Join the Early Access Waitlist</span>
+                            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- PLANNED PRICING TIERS (5 CANONICAL TIERS PER MONETIZATION PLAN §5.1) -->
+        <!-- ========================================================================= -->
+        <section id="pricing" class="py-16 border-t border-outline-variant/30">
+            <div class="text-center mb-12 space-y-3">
+                <div class="inline-block bg-thai-gold-accent/15 text-thai-gold-text font-data-mono text-xs px-3 py-1 rounded uppercase tracking-wider font-bold">
+                    Planned Pricing Tiers
+                </div>
+                <h2 class="font-display-lg text-3xl sm:text-4xl font-bold text-primary">Tailored for Every Scale of Practice</h2>
+                <p class="font-body-md text-on-surface-variant max-w-xl mx-auto">
+                    From independent architectural draftsmen to multi-seat design studios. Join the waitlist for early-bird launch pricing.
                 </p>
 
-                <!-- High-Converting Waitlist Form -->
-                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-4 rounded-lg shadow-md max-w-lg">
-                    <form onsubmit="handleHeroSubmit(event)" class="flex flex-col sm:flex-row gap-2.5">
-                        <div class="relative flex-1">
-                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">mail</span>
-                            <input type="email" id="hero-email" required placeholder="Enter work email for early access..." class="w-full pl-9 pr-3 py-2.5 bg-surface-container-lowest border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue">
-                        </div>
-                        <button type="submit" class="bg-charcoal text-white font-data-mono text-data-mono px-5 py-2.5 rounded hover:opacity-90 transition-opacity shadow flex items-center justify-center gap-1.5 whitespace-nowrap">
-                            <span>Request Access</span>
-                            <span class="material-symbols-outlined text-[16px]">flash_on</span>
-                        </button>
-                    </form>
-                    <div class="flex items-center gap-6 mt-3 px-1 font-label-sm text-label-sm text-on-surface-variant">
-                        <div class="flex items-center gap-1">
-                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">info</span>
-                            <span>Limited Early Cohort Invites</span>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <span class="material-symbols-outlined text-architectural-blue text-[14px]">lock</span>
-                            <span>No Spam Guarantee</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product Guarantees / Highlights -->
-                <div class="pt-2 flex flex-wrap gap-4 text-on-surface-variant font-data-mono text-label-sm">
-                    <div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded border border-outline-variant/20">
-                        <span class="material-symbols-outlined text-architectural-blue text-[16px]">verified</span>
-                        <span>Engineered for Thai Building Codes</span>
-                    </div>
-                    <div class="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded border border-outline-variant/20">
-                        <span class="material-symbols-outlined text-architectural-blue text-[16px]">bolt</span>
-                        <span>Zero Local GPU Required</span>
-                    </div>
+                <!-- Billing Cycle Toggle -->
+                <div class="pt-4 flex items-center justify-center gap-3 font-data-mono text-xs">
+                    <span class="text-primary font-semibold transition-colors" id="label-monthly">Monthly</span>
+                    <button onclick="toggleBillingCycle()" type="button" class="w-12 h-6 bg-charcoal rounded-full p-1 transition-colors relative flex items-center" id="billing-toggle" aria-label="Toggle annual billing">
+                        <div class="w-4 h-4 rounded-full bg-white transition-transform transform translate-x-0" id="billing-toggle-knob"></div>
+                    </button>
+                    <span class="text-on-surface-variant font-medium transition-colors" id="label-annual">Annually</span>
                 </div>
             </div>
 
-            <!-- Hero Visual Preview Card -->
-            <div class="relative h-[600px] w-full bg-surface-container-lowest/50 border border-outline-variant/30 rounded-xl overflow-hidden shadow-lg backdrop-blur-sm group">
-                <img alt="BAANING UI with Thai Floor Planning" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0t32wgDQLMlEFyaT-rXRHWJcytwbmSaD21G4DW-93JBvPAFuGptMzIpRvr5FeCbU67_I5X7n1O3izElcN5URLY1eN_KWpb5DHDHQf5WlQkZNmbBUfCbkDIICa5WMkZ2fwKLSceEKUN9WavE_--EavJS-sch_Lr7i8FKtyRgVjsBnL3e2i3089I_HsaJS0N89uJtafyilvw5lgxTssroYz2lzMr8nPk-uWU_Bc9XaHJrvaXH8knf-Z52lW3cB_MQWHe9E">
-                <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            <!-- 5 Tiers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch">
                 
-                <div class="absolute top-4 left-4 bg-thai-gold-accent text-white font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider shadow">
-                    Coming Soon • Beta Preview
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Specs Banner -->
-        <section class="py-12 border-y border-outline-variant/30 bg-surface-container-lowest/40 backdrop-blur-sm my-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="font-headline-lg text-headline-lg text-primary">Vector CAD</div>
-                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">Engine Architecture</div>
-                </div>
-                <div>
-                    <div class="font-headline-lg text-headline-lg text-architectural-blue">99.4%</div>
-                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">Metric Grid Accuracy</div>
-                </div>
-                <div>
-                    <div class="font-headline-lg text-headline-lg text-primary">&lt; 60s</div>
-                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">4K Raytracing Speed</div>
-                </div>
-                <div>
-                    <div class="font-headline-lg text-headline-lg text-thai-gold-accent">100%</div>
-                    <div class="font-data-mono text-data-mono text-on-surface-variant mt-1">Thai BOQ Standard</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Grid -->
-        <section id="features" class="py-24">
-            <div class="flex justify-between items-end mb-12 border-b border-outline-variant/30 pb-4">
-                <div>
-                    <h2 class="font-headline-lg text-headline-lg text-primary">Core Capabilities</h2>
-                    <p class="font-body-md text-on-surface-variant mt-1">Features currently in development for our initial launch.</p>
-                </div>
-                <span class="font-data-mono text-label-sm text-thai-gold-accent uppercase tracking-widest font-bold">In Development</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 font-data-mono text-[80px] leading-none select-none">01</div>
-                    <span class="material-symbols-outlined text-[48px] text-architectural-blue mb-6 block" style="font-variation-settings: 'FILL' 0;">architecture</span>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-3">Vector Floorplan Scanner</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
-                        Transform rough sketches into CAD-ready plans instantly. Our engine reads dimensions and walls, adhering strictly to technical snap-grids.
-                    </p>
-                    <button onclick="openLeadModal('Feature Waitlist: Vector Scan')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:gap-2 transition-all">
-                        Join Feature Waitlist <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                    </button>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 font-data-mono text-[80px] leading-none select-none">02</div>
-                    <span class="material-symbols-outlined text-[48px] text-architectural-blue mb-6 block" style="font-variation-settings: 'FILL' 0;">chair</span>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-3">1:1 Retail Integration</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
-                        Design with real furniture from premium brands. Real dimensions, real textures, and automated BOQ generation mapped to Thai Baht.
-                    </p>
-                    <button onclick="openLeadModal('Feature Waitlist: Retail BOQ')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:gap-2 transition-all">
-                        Join Feature Waitlist <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                    </button>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="bg-glass-bg backdrop-blur-md border border-outline-variant/30 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 font-data-mono text-[80px] leading-none select-none">03</div>
-                    <span class="material-symbols-outlined text-[48px] text-architectural-blue mb-6 block" style="font-variation-settings: 'FILL' 0;">view_in_ar</span>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-3">4K Cloud Rendering</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">
-                        Achieve photorealistic visualization at the click of a button. Leverage event-driven microservices for high-performance, low-latency raytracing.
-                    </p>
-                    <button onclick="openLeadModal('Feature Waitlist: 4K Render')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:gap-2 transition-all">
-                        Join Feature Waitlist <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Community Showcase Bento Grid -->
-        <section id="showcase" class="py-24">
-            <div class="flex justify-between items-end mb-12 border-b border-outline-variant/30 pb-4">
-                <div>
-                    <h2 class="font-headline-lg text-headline-lg text-primary">Community Showcase</h2>
-                    <p class="font-body-md text-on-surface-variant mt-1">Concept renders generated during engine development.</p>
-                </div>
-                <button onclick="openLeadModal('Showcase View Gallery')" class="font-data-mono text-data-mono text-architectural-blue flex items-center gap-1 hover:opacity-80">
-                    View Gallery <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[600px]">
-                <!-- Large Feature -->
-                <div class="md:col-span-2 md:row-span-2 relative rounded-xl overflow-hidden group border border-outline-variant/20 shadow-sm bg-surface-container">
-                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ" alt="Minimalist Teak Villa">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                        <div class="text-white">
-                            <div class="font-data-mono text-[12px] opacity-80 mb-1">RENDER_01 :: TROPICAL MODERN</div>
-                            <div class="font-headline-md text-[20px]">Minimalist Teak Villa | Bangkok</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Top Right -->
-                <div class="md:col-span-2 md:row-span-1 relative rounded-xl overflow-hidden group border border-outline-variant/20 shadow-sm bg-surface-container">
-                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ZCa0bs3667YX-iHb6qWnhYJfODjWbeZyE_bGtz62YCy4zuQRV2eRlG0dIZtCedk7v3-gxNvDEJUvqfOCinA0Kmm9rC_lfDriMhFnEKMlavHRq6iYFimyVvw2hsFUIf0jZO7YVhIfXM1kKNQBHg06lxaSFK_Ueg_pl_qjoUep-m-1a7E4LeqmOsgrdV_Hhc8rGUW9Glab8KxTZp7gjN-ftEQcyP0IJELRnHASlVmjm1qF_cSvBR9xbA" alt="Modern Loft Workspace">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <div class="text-white">
-                            <div class="font-data-mono text-[10px] opacity-80">RENDER_02 :: EXTERIOR</div>
-                            <div class="font-headline-md text-[16px]">Modern Loft Workspace | Chiang Mai</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Small Bottom Right 1 -->
-                <div class="md:col-span-1 md:row-span-1 relative rounded-xl overflow-hidden group border border-outline-variant/20 shadow-sm bg-surface-container">
-                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHvw9lbb61D2DTBtAoZ_PayHHn529r8n3VEsQRtQGJy2Kv5CUPgpF0y1hkzk0-1svmnZd9c4aLTuUk-Zk7E-UFkFmCs7S_RIYPb_Crcc0up-8NvMO-gMcGFDXZe7CotdKsBNEYKoyPUl95A4d8uWGyC9y8F5Heibh2_2Wn8sKqRb3DsMO6uHN3uACDMCITyK-3kR4kxZGKOieBpFaZ_PyZ0QEU9tbKN-0_UDS8rzJpaz7hQodiDv0EbA" alt="Architectural Detail">
-                </div>
-
-                <!-- Small Bottom Right 2 -->
-                <div onclick="openLeadModal('Showcase Submit')" class="md:col-span-1 md:row-span-1 relative rounded-xl overflow-hidden flex flex-col items-center justify-center bg-architectural-blue/5 border border-architectural-blue/20 cursor-pointer hover:bg-architectural-blue/10 transition-colors group">
-                    <span class="material-symbols-outlined text-[40px] text-architectural-blue mb-2 group-hover:scale-110 transition-transform">add_circle</span>
-                    <span class="font-data-mono text-data-mono text-architectural-blue">Join Beta Creator List</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Plans (4 Tiers: Free Tier, Creator, Professional, Enterprise) -->
-        <section id="pricing" class="py-16 border-t border-outline-variant/30">
-            <div class="text-center mb-12">
-                <div class="inline-block bg-thai-gold-accent/15 text-thai-gold-accent font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider font-bold mb-3">
-                    Launching Soon
-                </div>
-                <h2 class="font-headline-lg text-headline-lg text-primary text-center mb-4">Planned Pricing Tiers</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant text-center max-w-2xl mx-auto">Select the plan tailored for your architectural practice. Join the waitlist for early-bird discounts.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-                <!-- Tier 1: Free Tier -->
-                <div class="bg-glass-bg backdrop-blur-md p-6 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                <!-- Tier 1: Free -->
+                <div class="glass-panel p-5 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="font-data-mono text-label-sm text-on-surface-variant uppercase mb-2">Starter / Student</div>
-                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Free Tier</h4>
-                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">฿0 <span class="font-body-md text-xs text-on-surface-variant">/ forever</span></div>
-                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Up to 3 Active Projects</span>
+                        <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">STUDENTS & PROSUMERS</div>
+                        <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Free</h3>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                ฿0 <span class="font-data-mono text-[10px] font-normal text-on-surface-variant">/ forever</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4">
+                                Free forever
+                            </div>
+                        </div>
+                        <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>3 Active Project Slots</span>
                             </li>
-                            <li class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>2D CAD Floorplan Exporter</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>2 Cloud 4K Renders / mo</span>
                             </li>
-                            <li class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Standard Component Catalog</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>2D/3D Canvas & Full Catalog</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>PNG & PDF Export (Watermarked)</span>
                             </li>
                         </ul>
                     </div>
-                    <button onclick="openLeadModal('Pricing Waitlist: Free Tier')" class="w-full bg-glass-bg border border-outline-variant/40 hover:bg-surface-container-low font-data-mono text-data-mono text-primary py-2.5 rounded transition-colors text-xs">
-                        Join Waitlist Free
+                    <button onclick="openLeadModal('Pricing: Free')" class="w-full glass-panel border border-outline-variant/50 hover:bg-surface-container font-data-mono text-[11px] text-primary py-2 rounded transition-all">
+                        Join Free Roster
                     </button>
                 </div>
 
                 <!-- Tier 2: Creator -->
-                <div class="bg-glass-bg backdrop-blur-md p-6 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                <div class="glass-panel p-5 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="font-data-mono text-label-sm text-on-surface-variant uppercase mb-2">Individual Designers</div>
-                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Creator</h4>
-                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">฿490 <span class="font-body-md text-xs text-on-surface-variant">/ month</span></div>
-                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Up to 10 Active Projects</span>
+                        <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">INDIVIDUAL CREATORS</div>
+                        <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Creator</h3>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                <span id="price-creator">฿490</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-creator">/ mo</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4" id="sub-creator">
+                                Billed monthly
+                            </div>
+                        </div>
+                        <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>10 Active Projects</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Vector Floorplan Scanner (10/mo)</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>10 Cloud 4K Renders / mo</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>3D Isometric Workspace</span>
+                            <li class="flex items-start gap-1.5 font-semibold text-primary">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Clean CAD DXF Export</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Material Catalog Integration</span>
                             </li>
                         </ul>
                     </div>
-                    <button onclick="openLeadModal('Pricing Waitlist: Creator')" class="w-full bg-glass-bg border border-outline-variant/40 hover:bg-surface-container-low font-data-mono text-data-mono text-primary py-2.5 rounded transition-colors text-xs">
-                        Reserve Creator Tier
+                    <button onclick="openLeadModal('Pricing: Creator')" class="w-full glass-panel border border-outline-variant/50 hover:bg-surface-container font-data-mono text-[11px] text-primary py-2 rounded transition-all">
+                        Reserve Creator
                     </button>
                 </div>
 
-                <!-- Tier 3: Professional (Highlighted) -->
-                <div class="bg-surface-container-lowest p-6 rounded-lg border-2 border-architectural-blue shadow-xl flex flex-col justify-between relative scale-105 z-10">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-architectural-blue text-white font-data-mono text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap">
-                        Most Popular For Architects
+                <!-- Tier 3: Professional (Featured) -->
+                <div class="bg-surface-container-lowest p-5 rounded-lg border-2 border-architectural-blue shadow-xl flex flex-col justify-between relative scale-[1.02] z-10">
+                    <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-architectural-blue text-white font-data-mono text-[9px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap shadow">
+                        POPULAR FOR ARCHITECTS
                     </div>
                     <div>
-                        <div class="font-data-mono text-label-sm text-architectural-blue uppercase mb-2">Architects & Firms</div>
-                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Professional</h4>
-                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">฿1,490 <span class="font-body-md text-xs text-on-surface-variant">/ month</span></div>
-                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
-                            <li class="flex items-center gap-1.5 font-bold text-primary">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
+                        <div class="font-data-mono text-[10px] text-architectural-blue font-semibold uppercase mb-1">SOLO ARCHITECTS</div>
+                        <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Professional</h3>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                <span id="price-pro">฿1,490</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-pro">/ seat/mo</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4" id="sub-pro">
+                                Billed monthly
+                            </div>
+                        </div>
+                        <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
+                            <li class="flex items-start gap-1.5 font-semibold text-primary">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
                                 <span>Unlimited Active Projects</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Unlimited Vector Floorplan Scanner</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>50 4K Renders / seat/mo</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Automated Thai BOQ (THB + VAT)</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>IFC BIM & Batch Export</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>4K Cloud Raytracing Renders</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Tropical Climate & Solar Simulation</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Branded Custom Title Block</span>
                             </li>
                         </ul>
                     </div>
-                    <button onclick="openLeadModal('Pricing Waitlist: Professional')" class="w-full bg-charcoal text-white font-data-mono text-data-mono py-2.5 rounded hover:opacity-90 transition-opacity shadow text-xs">
-                        Reserve Pro Discount
+                    <button onclick="openLeadModal('Pricing: Professional')" class="w-full bg-charcoal text-white font-data-mono text-[11px] py-2 rounded hover:bg-black transition-all shadow active:scale-95">
+                        Reserve Pro Tier
                     </button>
                 </div>
 
-                <!-- Tier 4: Enterprise -->
-                <div class="bg-glass-bg backdrop-blur-md p-6 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                <!-- Tier 4: Team -->
+                <div class="glass-panel p-5 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="font-data-mono text-label-sm text-on-surface-variant uppercase mb-2">Studios & Developers</div>
-                        <h4 class="font-headline-md text-headline-md text-primary mb-3">Enterprise</h4>
-                        <div class="font-display-lg text-3xl font-bold text-primary mb-6">Custom</div>
-                        <ul class="space-y-2.5 font-body-md text-xs text-on-surface-variant mb-6">
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Multi-seat Team Licenses</span>
+                        <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">DESIGN STUDIOS</div>
+                        <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Team</h3>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                <span id="price-team">฿2,990</span> <span class="font-data-mono text-[10px] font-normal text-on-surface-variant" id="period-team">/ mo (5 seats)</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4" id="sub-team">
+                                Billed monthly
+                            </div>
+                        </div>
+                        <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
+                            <li class="flex items-start gap-1.5 font-semibold text-primary">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Includes 5 Full Seats</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Custom Material Catalog Import</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Shared Studio Projects</span>
                             </li>
-                            <li class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span>
-                                <span>Dedicated Cloud Render Queue</span>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>250 Pooled 4K Renders / mo</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Client Review Presentation Portal</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Priority Queue & Support</span>
                             </li>
                         </ul>
                     </div>
-                    <button onclick="openLeadModal('Pricing Waitlist: Enterprise')" class="w-full bg-glass-bg border border-outline-variant/40 hover:bg-surface-container-low font-data-mono text-data-mono text-primary py-2.5 rounded transition-colors text-xs">
-                        Inquire Enterprise Access
+                    <button onclick="openLeadModal('Pricing: Team')" class="w-full glass-panel border border-outline-variant/50 hover:bg-surface-container font-data-mono text-[11px] text-primary py-2 rounded transition-all">
+                        Reserve Team Seats
                     </button>
                 </div>
+
+                <!-- Tier 5: Enterprise -->
+                <div class="glass-panel p-5 rounded-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="font-data-mono text-[10px] text-on-surface-variant uppercase mb-1">DEVELOPERS & FIRMS</div>
+                        <h3 class="font-display-lg text-lg font-bold text-primary mb-1">Enterprise</h3>
+                        <div class="mb-4">
+                            <div class="font-display-lg text-2xl font-extrabold text-primary">
+                                Custom <span class="font-data-mono text-[10px] font-normal text-on-surface-variant">/ firm</span>
+                            </div>
+                            <div class="font-data-mono text-[10px] text-on-surface-variant mt-1 h-4">
+                                Annual custom agreement
+                            </div>
+                        </div>
+                        <ul class="space-y-2 font-body-md text-[11px] text-on-surface-variant mb-6">
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Unlimited Pooled Seats</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>Dedicated Cloud GPU Cluster</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>White-label & API Integration</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <span class="material-symbols-outlined text-emerald-700 text-[14px] mt-0.5">check</span>
+                                <span>SAML / SSO & Dedicated CSM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openLeadModal('Pricing: Enterprise')" class="w-full glass-panel border border-outline-variant/50 hover:bg-surface-container font-data-mono text-[11px] text-primary py-2 rounded transition-all">
+                        Inquire Enterprise
+                    </button>
+                </div>
+
             </div>
         </section>
 
-        <!-- Final CTA Banner -->
-        <section class="py-12">
-            <div class="bg-charcoal text-white rounded-lg p-10 sm:p-16 text-center space-y-6 shadow-xl relative overflow-hidden">
-                <div class="inline-block bg-white/10 text-thai-gold-accent font-data-mono text-label-sm px-3 py-1 rounded uppercase tracking-wider font-bold">
-                    Launching Soon
+        <!-- ========================================================================= -->
+        <!-- TECHNICAL FREQUENTLY ASKED QUESTIONS -->
+        <!-- ========================================================================= -->
+        <section id="faq" class="py-16 max-w-4xl mx-auto">
+            <div class="text-center mb-10 space-y-2">
+                <div class="font-data-mono text-xs text-architectural-blue uppercase tracking-widest font-semibold">TECHNICAL CLARIFICATIONS</div>
+                <h2 class="font-display-lg text-3xl font-bold text-primary">Frequently Answered Questions</h2>
+            </div>
+
+            <div class="space-y-3 font-body-md text-sm">
+                
+                <!-- FAQ 1 -->
+                <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
+                        <span>How does BAAN/ING adhere to Thailand Building Control Acts and BMA regulations?</span>
+                        <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-1">expand_more</span>
+                    </button>
+                    <div id="faq-content-1" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
+                        <p>BAAN/ING is being built around structural rule algorithms aligned with Thailand's Building Control Act (พระราชบัญญัติควบคุมอาคาร พ.ศ. 2522) and Bangkok Metropolitan Administration (BMA) municipal bylaws. The planned checks cover minimum ceiling clearance heights, setback distances from property boundaries, and minimum natural light/ventilation aperture ratios (min 10% of floor area for habitable rooms). Automated code checking is in development and is not yet available.</p>
+                    </div>
                 </div>
-                <h3 class="font-headline-lg text-headline-lg text-white max-w-2xl mx-auto">Be First to Experience Next-Gen Architectural Design</h3>
-                <p class="font-body-lg text-body-lg text-outline-variant max-w-xl mx-auto">Join our early access waitlist today and get notified as soon as BAAN/ING launches.</p>
+
+                <!-- FAQ 2 -->
+                <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
+                        <span>Can I export my designs into AutoCAD (DWG/DXF), SketchUp, and Revit?</span>
+                        <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-2">expand_more</span>
+                    </button>
+                    <div id="faq-content-2" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
+                        <p>Yes. BAAN/ING provides native vector export to standard 2D DXF/DWG layer files with standardized architectural line weights, dimension styles, and block definitions. 3D spatial models can be exported as IFC 4.3 (OpenBIM), OBJ, or glTF for seamless import into SketchUp, Revit, Rhino, and Archicad.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
+                        <span>How will the retail material catalog work?</span>
+                        <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-3">expand_more</span>
+                    </button>
+                    <div id="faq-content-3" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
+                        <p>The material catalog is in development. The goal is dimensionally verified SKUs from major Thai construction and interior suppliers, each carrying physical rendering properties (diffuse, roughness, normal maps) and precise dimensional constraints. No supplier partnership or catalog integration is in place yet, and any brand names shown elsewhere on this page are illustrative examples of the specification format.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
+                    <button onclick="toggleFaq(4)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
+                        <span>Do I need an expensive dedicated workstation GPU to generate raytraced renders?</span>
+                        <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-4">expand_more</span>
+                    </button>
+                    <div id="faq-content-4" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
+                        <p>No. Photorealistic lighting calculations, global illumination and texture baking are designed to run on BAAN/ING's cloud GPU infrastructure rather than your machine, so the drafting studio is intended to run on a lightweight MacBook Air, iPad or standard office laptop. Cloud rendering is in development.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="glass-panel rounded-lg border border-outline-variant/30 overflow-hidden">
+                    <button onclick="toggleFaq(5)" class="w-full p-5 text-left flex justify-between items-center font-display-lg font-semibold text-primary">
+                        <span>Who owns the copyright and intellectual property of uploaded architectural designs?</span>
+                        <span class="material-symbols-outlined text-outline text-[20px] transition-transform" id="faq-icon-5">expand_more</span>
+                    </button>
+                    <div id="faq-content-5" class="hidden p-5 pt-0 text-on-surface-variant border-t border-outline-variant/20 space-y-2 leading-relaxed">
+                        <p>You retain 100% intellectual property ownership of all floorplans and 3D models created on BAAN/ING. We do not sell your blueprints or share private client projects. All telemetry is encrypted under Thailand PDPA (B.E. 2562) standards.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Final Architectural Action Callout -->
+        <section class="my-12">
+            <div class="bg-charcoal text-white rounded-lg p-8 sm:p-14 text-center space-y-6 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-architectural-blue/20 filter blur-3xl pointer-events-none"></div>
+                
+                <!-- Gold type on charcoal: #C5A059 is 6.16:1 here and passes AA; #8A6A28 would be 3.01:1 and fail. See plan/decisions.md D30. -->
+                <div class="inline-block bg-white/10 text-thai-gold-accent font-data-mono text-xs px-3 py-1 rounded uppercase tracking-wider font-bold">
+                    CLOSED BETA BATCH 01
+                </div>
+                
+                <h2 class="font-display-lg text-3xl sm:text-4xl font-extrabold max-w-2xl mx-auto leading-tight">
+                    Ready to Draft with Architectural Precision?
+                </h2>
+                
+                <p class="font-body-lg text-base sm:text-lg text-outline-variant max-w-xl mx-auto">
+                    Join practicing architects and interior studios across Bangkok, Chiang Mai, and Phuket on the early access priority list.
+                </p>
+
                 <div class="pt-4 flex justify-center">
-                    <button onclick="openLeadModal('Bottom Waitlist CTA')" class="bg-architectural-blue text-white font-data-mono text-data-mono px-8 py-4 rounded hover:bg-opacity-90 transition-all shadow-lg flex items-center gap-2">
-                        <span>Join Early Access Waitlist</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
+                    <button onclick="openLeadModal('Bottom CTA Callout')" class="bg-architectural-blue text-white font-data-mono text-sm px-8 py-3.5 rounded hover:bg-blue-600 transition-all shadow-lg flex items-center gap-2 active:scale-95">
+                        <span>Request Architectural Priority Pass</span>
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </button>
                 </div>
             </div>
@@ -473,87 +1475,591 @@
     </main>
 
     <!-- Telemetry Status Bar Footer -->
-    <footer class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-8 bg-surface-container-lowest/80 backdrop-blur-sm border-t border-outline-variant/10 cursor-default select-none">
+    <footer class="fixed bottom-0 left-0 w-full z-40 flex justify-between items-center px-4 sm:px-8 h-8 glass-panel border-t border-outline-variant/20 cursor-default select-none text-[11px] font-data-mono text-on-surface-variant">
         <div class="flex items-center gap-4">
-            <img src="https://lh3.googleusercontent.com/aida/AEtjO1UBMRaLb4zFmOsLRBpcmD2jSHlaBcF7pv-HWJ3CVYB5bIBVQG8r37uNanFD7zLR4aUXnGXYkQDGQMMPKHaeKhpOft8ReglvmJgxQ-8qsSUcz4foQPqhvdFqZIdglMZH1OraylyKYIHQ-Gebwt5P_b8_nHWPOPc5k-9O4Jwy2EN6SDXDjNc_V6T_LC6NFQSvQgdIbJQdFt0EvbmkkAqODS1MFIDnwV-Tuw-yWEwknyLw4SxreabBrr175sl3" alt="BAAN/ING" class="h-4 object-contain">
-            <span class="font-data-mono text-label-sm text-on-surface-variant hidden md:inline">© 2026 BAAN/ING. Smart design. Real spaces.</span>
+            <span class="flex items-center gap-1.5 font-semibold text-primary">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                BAAN/ING
+            </span>
+            <span class="hidden md:inline text-outline-variant">|</span>
+            <span class="hidden md:inline">© 2026 BAAN/ING. Smart design. Real spaces.</span>
         </div>
-        <div class="flex gap-6 items-center">
-            <a href="/privacy.html" class="font-data-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="/terms.html" class="font-data-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors">Terms of Service</a>
-            <a href="/security.html" class="font-data-mono text-label-sm text-on-surface-variant hover:text-primary transition-colors">Data Security</a>
-            <span class="font-data-mono text-label-sm text-architectural-blue">Metric</span>
+        <div class="flex gap-4 sm:gap-6 items-center">
+            <a href="/privacy.html" class="hover:text-primary transition-colors">Privacy</a>
+            <a href="/terms.html" class="hover:text-primary transition-colors">Terms</a>
+            <a href="/security.html" class="hover:text-primary transition-colors">Security</a>
+            <span class="text-architectural-blue hidden sm:inline">PDPA COMPLIANT</span>
         </div>
     </footer>
 
-    <!-- Lead Capture Modal (Waitlist Focus) -->
-    <div id="lead-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-surface-container-lowest max-w-md w-full p-8 rounded-lg shadow-2xl relative border border-outline-variant/30">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary">
+    <!-- ========================================================================= -->
+    <!-- BESPOKE ARCHITECTURAL PRIORITY PASS MODAL -->
+    <!-- ========================================================================= -->
+    <div id="lead-modal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
+        <div class="glass-panel-elevated max-w-lg w-full p-6 sm:p-8 rounded-lg shadow-2xl relative border border-outline-variant/40">
+            
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors">
                 <span class="material-symbols-outlined text-[20px]">close</span>
             </button>
             
-            <div class="space-y-3 mb-6">
-                <div class="w-10 h-10 rounded bg-architectural-blue/10 flex items-center justify-center text-architectural-blue">
-                    <span class="material-symbols-outlined text-[24px]">rocket_launch</span>
+            <!-- Modal Header -->
+            <div class="space-y-1.5 mb-6" id="modal-header-block">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-architectural-blue/10 text-architectural-blue font-data-mono text-[10px] font-semibold uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-architectural-blue"></span>
+                    <span>Early Access Cohort 01</span>
                 </div>
-                <h4 class="font-headline-md text-headline-md text-primary">Join Early Access Waitlist</h4>
-                <p class="font-body-md text-sm text-on-surface-variant">Be among the first architects and interior designers invited to test BAAN/ING.</p>
+                <h3 class="font-display-lg text-2xl font-bold text-primary">Request Architectural Priority Pass</h3>
+                <p class="font-body-md text-xs text-on-surface-variant">
+                    Receive your bespoke invitation token and early access credentials as soon as platform onboarding commences.
+                </p>
             </div>
 
-            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+            <!-- Waitlist Form -->
+            <form onsubmit="handleModalSubmit(event)" id="modal-form" class="space-y-3.5">
                 <div>
-                    <label class="block font-data-mono text-label-sm text-primary uppercase mb-1">Full Name</label>
-                    <input type="text" required placeholder="e.g. Niti Somchai" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue">
+                    <label class="block font-data-mono text-[11px] text-primary uppercase mb-1 font-semibold">Full Name</label>
+                    <input type="text" id="pass-name" required placeholder="e.g. Niti Somchai, AIA" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-body-md text-xs focus:outline-none focus:border-architectural-blue">
                 </div>
                 <div>
-                    <label class="block font-data-mono text-label-sm text-primary uppercase mb-1">Work Email</label>
-                    <input type="email" required placeholder="niti@studio-niti.co.th" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-body-md text-sm focus:outline-none focus:border-architectural-blue">
+                    <label class="block font-data-mono text-[11px] text-primary uppercase mb-1 font-semibold">Work Email</label>
+                    <input type="email" id="pass-email" required placeholder="e.g. niti@studio-niti.co.th" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-body-md text-xs focus:outline-none focus:border-architectural-blue">
                 </div>
-                <button type="submit" class="w-full bg-charcoal text-white font-data-mono text-data-mono py-3 rounded shadow hover:opacity-90 transition-opacity">
-                    Request Priority Invite
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-data-mono text-[11px] text-primary uppercase mb-1 font-semibold">Professional Role</label>
+                        <select id="pass-role" class="w-full px-2.5 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-data-mono text-xs focus:outline-none focus:border-architectural-blue">
+                            <option value="Principal Architect">Principal Architect</option>
+                            <option value="Interior Designer">Interior Designer</option>
+                            <option value="Property Developer">Property Developer</option>
+                            <option value="Structural Engineer">Structural Engineer</option>
+                            <option value="Architecture Student">Architecture Student</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-data-mono text-[11px] text-primary uppercase mb-1 font-semibold">Studio Location</label>
+                        <select id="pass-city" class="w-full px-2.5 py-2 bg-surface-container-low border border-outline-variant/50 rounded font-data-mono text-xs focus:outline-none focus:border-architectural-blue">
+                            <option value="Bangkok">Bangkok</option>
+                            <option value="Chiang Mai">Chiang Mai</option>
+                            <option value="Phuket">Phuket</option>
+                            <option value="Other / International">Other / International</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-charcoal hover:bg-black text-white font-data-mono text-xs py-3 rounded shadow transition-all active:scale-95 mt-2 flex items-center justify-center gap-2">
+                    <span>Generate Priority Pass</span>
+                    <span class="material-symbols-outlined text-[15px]">badge</span>
                 </button>
             </form>
 
-            <div id="modal-success" class="hidden text-center py-6 space-y-3">
-                <span class="material-symbols-outlined text-[48px] text-emerald-600">check_circle</span>
-                <h5 class="font-headline-md text-headline-md text-primary">You're On The List!</h5>
-                <p class="font-data-mono text-label-sm text-on-surface-variant">We'll email you as soon as early access cohort opens.</p>
+            <!-- Success Pass Display -->
+            <div id="modal-success" class="hidden text-center py-4 space-y-4">
+                <div class="p-4 bg-charcoal text-white rounded-lg text-left font-data-mono text-xs space-y-3 border border-white/20 shadow-xl">
+                    <div class="flex justify-between items-center border-b border-white/15 pb-2">
+                        <!-- Gold type on charcoal: see plan/decisions.md D30. -->
+                        <span class="text-thai-gold-accent font-bold">BAAN/ING PRIORITY CAD PASS</span>
+                        <span class="text-[10px] text-outline-variant">BATCH 01</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-outline-variant block">PASS HOLDER</span>
+                        <strong class="text-sm text-white" id="issued-name">Niti Somchai</strong>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div>
+                            <span class="text-[10px] text-outline-variant block">TOKEN ID</span>
+                            <span class="text-architectural-blue font-bold" id="issued-token">BAAN-ARCH-2026-0842</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-outline-variant block">QUEUE POSITION</span>
+                            <span class="text-emerald-400 font-bold">#142 in Priority Queue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <h4 class="font-display-lg text-lg font-bold text-primary">You're on the Priority Roster!</h4>
+                    <p class="font-body-md text-xs text-on-surface-variant">We've reserved your cohort position and sent confirmation to your email.</p>
+                </div>
+
+                <button onclick="closeLeadModal()" class="w-full glass-panel border border-outline-variant/40 hover:bg-surface-container text-primary font-data-mono text-xs py-2.5 rounded transition-all">
+                    Done
+                </button>
             </div>
+
         </div>
     </div>
 
-    <!-- Script Logic -->
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE JAVASCRIPT CONTROLLER -->
+    <!-- ========================================================================= -->
     <script>
+        // --- 1. Studio Viewport Controller ---
+        let currentStudioMode = 'floorplan';
+        const roomData = {
+            living: {
+                name: "01 : Living / Dining",
+                type: "Primary Common Area",
+                area: "54.00 m²",
+                height: "3.50 m (Double Height)",
+                material: "Polished Microcement"
+            },
+            master: {
+                name: "02 : Master Teak Suite",
+                type: "Private Master Quarters",
+                area: "32.40 m²",
+                height: "3.00 m (Recessed Teak Tray)",
+                material: "Grade-A FSC Golden Teak"
+            },
+            courtyard: {
+                name: "03 : Courtyard & Pool",
+                type: "Microclimate Passive Cooling",
+                area: "18.20 m²",
+                height: "Open Sky (Courtyard)",
+                material: "Sukabumi Green Stone & Water"
+            },
+            bath: {
+                name: "04 : Ensuite Spa Bath",
+                type: "Wet Area & Dressing",
+                area: "21.60 m²",
+                height: "2.80 m (Moisture Resistant)",
+                material: "Italian Travertine Porcelain"
+            }
+        };
+
+        function setStudioMode(mode) {
+            currentStudioMode = mode;
+            ['floorplan', 'isometric', 'raytrace', 'materials'].forEach(m => {
+                const vp = document.getElementById('viewport-' + m);
+                const btn = document.getElementById('btn-mode-' + m);
+                if (vp && btn) {
+                    if (m === mode) {
+                        vp.classList.remove('hidden');
+                        vp.classList.add('flex');
+                        btn.classList.add('bg-white', 'text-primary', 'shadow-xs');
+                        btn.classList.remove('text-on-surface-variant');
+                    } else {
+                        vp.classList.add('hidden');
+                        vp.classList.remove('flex');
+                        btn.classList.remove('bg-white', 'text-primary', 'shadow-xs');
+                        btn.classList.add('text-on-surface-variant');
+                    }
+                }
+            });
+        }
+
+        function selectRoom(roomId) {
+            const data = roomData[roomId];
+            if (!data) return;
+            document.getElementById('inspector-room-name').innerText = data.name;
+            document.getElementById('inspector-room-type').innerText = data.type;
+            document.getElementById('inspector-area').innerText = data.area;
+            document.getElementById('inspector-height').innerText = data.height;
+            document.getElementById('inspector-material').innerText = data.material;
+
+            ['living', 'master', 'courtyard', 'bath'].forEach(r => {
+                const hl = document.getElementById('highlight-' + r);
+                if (hl) {
+                    if (r === roomId) {
+                        hl.setAttribute('stroke', '#0057FF');
+                        hl.setAttribute('stroke-width', '2.5');
+                    } else {
+                        hl.setAttribute('stroke', '#747878');
+                        hl.setAttribute('stroke-width', '1');
+                    }
+                }
+            });
+        }
+
+        function selectTool(toolName) {
+            ['select', 'wall', 'dimension', 'door', 'furniture', 'sun'].forEach(t => {
+                const el = document.getElementById('tool-' + t);
+                if (el) {
+                    if (t === toolName) {
+                        el.classList.add('bg-architectural-blue', 'text-white');
+                        el.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+                    } else {
+                        el.classList.remove('bg-architectural-blue', 'text-white');
+                        el.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+                    }
+                }
+            });
+        }
+
+        function triggerQuickRender() {
+            setStudioMode('raytrace');
+        }
+
+        function updateCanvasCoordinates(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width * 20).toFixed(3);
+            const y = ((e.clientY - rect.top) / rect.height * 15).toFixed(3);
+            const elX = document.getElementById('coord-x');
+            const elY = document.getElementById('coord-y');
+            if (elX && elY) {
+                elX.innerText = 'X: ' + x + 'm';
+                elY.innerText = 'Y: ' + y + 'm';
+            }
+        }
+
+        // --- 2. Raytrace Slider Drag Interaction ---
+        let isSliding = false;
+        const sliderContainer = document.getElementById('slider-container');
+        const sliderClipper = document.getElementById('slider-clipper');
+        const sliderHandle = document.getElementById('slider-handle');
+
+        if (sliderContainer) {
+            const onSlide = (e) => {
+                if (!isSliding) return;
+                const rect = sliderContainer.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                let offset = clientX - rect.left;
+                if (offset < 0) offset = 0;
+                if (offset > rect.width) offset = rect.width;
+                const pct = (offset / rect.width) * 100;
+                sliderClipper.style.width = pct + '%';
+                sliderHandle.style.left = pct + '%';
+            };
+
+            sliderContainer.addEventListener('mousedown', () => { isSliding = true; });
+            sliderContainer.addEventListener('touchstart', () => { isSliding = true; });
+            window.addEventListener('mouseup', () => { isSliding = false; });
+            window.addEventListener('touchend', () => { isSliding = false; });
+            window.addEventListener('mousemove', onSlide);
+            window.addEventListener('touchmove', onSlide);
+        }
+
+        // --- 3. Case Studies Showcase Controller ---
+        const caseData = [
+            {
+                id: "PROJ-2026-BKK",
+                badge: "RESIDENTIAL ARCHITECTURE • 340 M²",
+                title: "Baan Sukhumvit 49",
+                subtitle: "Private Tropical Residence with Passive Monsoon Cooling",
+                loc: "Sukhumvit, Bangkok",
+                area: "340.00 m² (2-Story)",
+                mat: "FSC Teak & Fair-Faced RC",
+                desc: "Designed with 2.4m cantilever eaves to deflect tropical afternoon monsoon downpours while maintaining unobstructed daylight into the central double-height living room.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCqa9ioe8CHGw7OMPMINbYC08OArfiTc__tdNupD3lxXptpi1Z-bDvgouZ5zOpgYAexxSUsNHNpKyrZ1hd6V_IImaOMU8R_BLHjs2Wjiz8iAGrW1TX38YnXtZ0q6wN9wAWHE3tjaGxwL1NbtITnb_tBxN63wB8KSNHkQSilhQfJf1t49s0U0tcF_yOybobrvYiMGNGwd9oH4GenkFYLO_2S3mlrqNVSyyku1IBdNUwejwwh8xJwzgmaoQ"
+            },
+            {
+                id: "PROJ-2026-CNX",
+                badge: "COMMERCIAL ADAPTIVE RE-USE • 180 M²",
+                title: "Nimman Creative Work-Loft",
+                subtitle: "Exposed Northern Teak & Acoustic Microcement",
+                loc: "Nimmanhaemin, Chiang Mai",
+                area: "180.00 m² (Mezzanine Loft)",
+                mat: "Salvaged Teak & Steel Framing",
+                desc: "An adaptive transformation of a traditional 1980s Chiang Mai commercial shophouse into an open-plan acoustic architectural studio featuring integrated high-lux natural daylight shafts.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB7ZCa0bs3667YX-iHb6qWnhYJfODjWbeZyE_bGtz62YCy4zuQRV2eRlG0dIZtCedk7v3-gxNvDEJUvqfOCinA0Kmm9rC_lfDriMhFnEKMlavHRq6iYFimyVvw2hsFUIf0jZO7YVhIfXM1kKNQBHg06lxaSFK_Ueg_pl_qjoUep-m-1a7E4LeqmOsgrdV_Hhc8rGUW9Glab8KxTZp7gjN-ftEQcyP0IJELRnHASlVmjm1qF_cSvBR9xbA"
+            },
+            {
+                id: "PROJ-2026-HKT",
+                badge: "HOSPITALITY PAVILION • 520 M²",
+                title: "Cape Yamu Ocean Pavilion",
+                subtitle: "Clifftop Horizon Villa with Marine-Grade Fenestrations",
+                loc: "Cape Yamu, Phuket",
+                area: "520.00 m² (Single Level)",
+                mat: "Marine Anodized Aluminum & Travertine",
+                desc: "Maximizes panoramic Andaman sea views with 6.5m frameless structural glass panels engineered for coastal tropical storm wind loads and zero salt-corrosion degradation.",
+                image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDHvw9lbb61D2DTBtAoZ_PayHHn529r8n3VEsQRtQGJy2Kv5CUPgpF0y1hkzk0-1svmnZd9c4aLTuUk-Zk7E-UFkFmCs7S_RIYPb_Crcc0up-8NvMO-gMcGFDXZe7CotdKsBNEYKoyPUl95A4d8uWGyC9y8F5Heibh2_2Wn8sKqRb3DsMO6uHN3uACDMCITyK-3kR4kxZGKOieBpFaZ_PyZ0QEU9tbKN-0_UDS8rzJpaz7hQodiDv0EbA"
+            }
+        ];
+
+        function setCaseStudy(index) {
+            const c = caseData[index];
+            if (!c) return;
+            document.getElementById('case-id').innerText = c.id;
+            document.getElementById('case-badge').innerText = c.badge;
+            document.getElementById('case-title').innerText = c.title;
+            document.getElementById('case-subtitle').innerText = c.subtitle;
+            document.getElementById('case-loc').innerText = c.loc;
+            document.getElementById('case-area').innerText = c.area;
+            document.getElementById('case-mat').innerText = c.mat;
+            document.getElementById('case-desc').innerText = c.desc;
+            document.getElementById('case-image').src = c.image;
+
+            [0, 1, 2].forEach(i => {
+                const tab = document.getElementById('tab-case-' + i);
+                if (tab) {
+                    if (i === index) {
+                        tab.className = "px-3 py-1.5 rounded bg-charcoal text-white font-medium transition-all";
+                    } else {
+                        tab.className = "px-3 py-1.5 rounded bg-surface-container-low text-on-surface-variant hover:text-primary transition-all";
+                    }
+                }
+            });
+        }
+
+        // --- 4. Billing Cycle Toggle ---
+        let isAnnual = false;
+        function toggleBillingCycle() {
+            isAnnual = !isAnnual;
+            const knob = document.getElementById('billing-toggle-knob');
+            const lblM = document.getElementById('label-monthly');
+            const lblA = document.getElementById('label-annual');
+
+            const priceCreator = document.getElementById('price-creator');
+            const periodCreator = document.getElementById('period-creator');
+            const subCreator = document.getElementById('sub-creator');
+
+            const pricePro = document.getElementById('price-pro');
+            const periodPro = document.getElementById('period-pro');
+            const subPro = document.getElementById('sub-pro');
+
+            const priceTeam = document.getElementById('price-team');
+            const periodTeam = document.getElementById('period-team');
+            const subTeam = document.getElementById('sub-team');
+
+            if (isAnnual) {
+                knob.classList.add('translate-x-6');
+                knob.classList.remove('translate-x-0');
+
+                if (priceCreator) priceCreator.innerText = '฿408';
+                if (periodCreator) periodCreator.innerText = '/ mo';
+                if (subCreator) subCreator.innerText = '฿4,900 / yr (billed annually)';
+
+                if (pricePro) pricePro.innerText = '฿1,242';
+                if (periodPro) periodPro.innerText = '/ seat/mo';
+                if (subPro) subPro.innerText = '฿14,900 / seat/yr (billed annually)';
+
+                if (priceTeam) priceTeam.innerText = '฿2,492';
+                if (periodTeam) periodTeam.innerText = '/ mo';
+                if (subTeam) subTeam.innerText = '฿29,900 / yr (billed annually)';
+
+                if (lblA) {
+                    lblA.classList.add('text-primary', 'font-bold');
+                    lblA.classList.remove('text-on-surface-variant');
+                }
+                if (lblM) {
+                    lblM.classList.remove('text-primary', 'font-bold');
+                    lblM.classList.add('text-on-surface-variant');
+                }
+            } else {
+                knob.classList.remove('translate-x-6');
+                knob.classList.add('translate-x-0');
+
+                if (priceCreator) priceCreator.innerText = '฿490';
+                if (periodCreator) periodCreator.innerText = '/ mo';
+                if (subCreator) subCreator.innerText = 'Billed monthly';
+
+                if (pricePro) pricePro.innerText = '฿1,490';
+                if (periodPro) periodPro.innerText = '/ seat/mo';
+                if (subPro) subPro.innerText = 'Billed monthly';
+
+                if (priceTeam) priceTeam.innerText = '฿2,990';
+                if (periodTeam) periodTeam.innerText = '/ mo (5 seats)';
+                if (subTeam) subTeam.innerText = 'Billed monthly';
+
+                if (lblM) {
+                    lblM.classList.add('text-primary', 'font-bold');
+                    lblM.classList.remove('text-on-surface-variant');
+                }
+                if (lblA) {
+                    lblA.classList.remove('text-primary', 'font-bold');
+                    lblA.classList.add('text-on-surface-variant');
+                }
+            }
+        }
+
+        // --- 4b. Interactive 3D GLB Models Controller ---
+        const glbModels = {
+            rocking_chair: {
+                file: "Modern Plywood Rocking Chair 3D Model.glb",
+                src: "./assets/Modern%20Plywood%20Rocking%20Chair%203D%20Model.glb",
+                brand: "Living / Seating",
+                name: "Modern Plywood Rocking Chair",
+                category: "Living / Accent Seating",
+                size: "13.0 MB",
+                dims: "668 × 1,003 × 874 mm",
+                clearance: "600 mm (Rocking Radius Buffer)",
+                material: "Molded Birch Plywood & Powder-Coated Steel",
+                mesh: "201,520 Vertices • WebGL PBR",
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
+            },
+            bed: {
+                file: "Scalloped Upholstered Bed 3D Model.glb",
+                src: "./assets/Scalloped%20Upholstered%20Bed%203D%20Model.glb",
+                brand: "Bedroom / Suites",
+                name: "Scalloped Upholstered Bed",
+                category: "Bedroom / Luxury Beds",
+                size: "12.0 MB",
+                dims: "1,003 × 893 × 436 mm",
+                clearance: "700 mm (Bedside Circulation Buffer)",
+                material: "Textured Velvet & Solid Oak Internal Frame",
+                mesh: "204,104 Vertices • High PBR Textures",
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
+            },
+            fridge: {
+                file: "Fridge.glb",
+                src: "./assets/Fridge.glb",
+                brand: "Kitchen / Appliances",
+                name: "Compact Studio Refrigerator",
+                category: "Kitchen / Refrigeration",
+                size: "0.64 MB",
+                dims: "421 × 417 × 1,001 mm",
+                clearance: "600 mm (Door Swing & Vent Clearance)",
+                material: "Brushed Stainless Steel & Internal LED",
+                mesh: "10,628 Vertices • Lightweight Draco",
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
+            },
+            plant: {
+                file: "Tropical Rattan Plant 3D Model.glb",
+                src: "./assets/Tropical%20Rattan%20Plant%203D%20Model.glb",
+                brand: "Biophilic & Flora",
+                name: "Tropical Rattan Plant Planter",
+                category: "Landscape & Biophilic Flora",
+                size: "21.0 MB",
+                dims: "700 × 610 × 1,003 mm",
+                clearance: "450 mm (Perimeter Growth Buffer)",
+                material: "Handwoven Natural Rattan Basket & Tropical Foliage",
+                mesh: "290,809 Vertices • WebGL PBR",
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
+            },
+            bookshelf: {
+                file: "Natural Wood Ladder Bookshelf 3D Model.glb",
+                src: "./assets/Natural%20Wood%20Ladder%20Bookshelf%203D%20Model.glb",
+                brand: "Living / Storage",
+                name: "Natural Wood Ladder Bookshelf",
+                category: "Living / Bookshelves",
+                size: "14.6 MB",
+                dims: "558 × 201 × 1,002 mm",
+                clearance: "400 mm (Front Buffer)",
+                material: "Solid Plantation Teak / Natural Oak",
+                mesh: "178,780 Vertices • WebGL PBR",
+                desc: "Placeholder geometry demonstrating the 3D viewer. Not a catalog product and not dimensionally verified against any manufacturer specification."
+            }
+        };
+
+        function selectGlbModel(key) {
+            const data = glbModels[key];
+            if (!data) return;
+
+            const viewer = document.getElementById('glb-viewer');
+            if (viewer) {
+                viewer.src = data.src;
+                viewer.dismissPoster();
+            }
+
+            // Update Header & Spec Card
+            const titleEl = document.getElementById('f-stage-title');
+            const brandEl = document.getElementById('f-stage-brand');
+            const dimsEl = document.getElementById('f-stage-dims');
+            const meshEl = document.getElementById('f-stage-mesh');
+
+            const specCat = document.getElementById('f-spec-category');
+            const specName = document.getElementById('f-spec-name');
+            const specFile = document.getElementById('f-spec-file');
+            const specSize = document.getElementById('f-spec-size');
+            const specDims = document.getElementById('f-spec-dims');
+            const specClear = document.getElementById('f-spec-clearance');
+            const specMat = document.getElementById('f-spec-mat');
+            const specMesh = document.getElementById('f-spec-mesh');
+            const specDesc = document.getElementById('f-spec-desc');
+
+            if (titleEl) titleEl.innerText = data.name;
+            if (brandEl) brandEl.innerText = data.brand;
+            if (dimsEl) dimsEl.innerHTML = data.dims.replace(/×/g, '&times;');
+            if (meshEl) meshEl.innerText = data.mesh.split('•')[0].trim() + ' • ' + data.size;
+
+            if (specCat) specCat.innerText = data.category;
+            if (specName) specName.innerText = data.name;
+            if (specFile) specFile.innerText = data.file;
+            if (specSize) specSize.innerText = data.size;
+            if (specDims) specDims.innerHTML = data.dims.replace(/×/g, '&times;');
+            if (specClear) specClear.innerText = data.clearance;
+            if (specMat) specMat.innerText = data.material;
+            if (specMesh) specMesh.innerText = data.mesh;
+            if (specDesc) specDesc.innerText = data.desc;
+
+            // Highlight Active Button
+            ['rocking_chair', 'bed', 'fridge', 'plant', 'bookshelf'].forEach(k => {
+                const btnBox = document.getElementById('btn-glb-' + k);
+                if (btnBox) {
+                    if (k === key) {
+                        btnBox.className = "p-2.5 rounded-lg border-2 border-architectural-blue bg-white shadow-sm text-left transition-all flex flex-col justify-between group";
+                    } else {
+                        btnBox.className = "p-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-white hover:border-architectural-blue/50 text-left transition-all flex flex-col justify-between group";
+                    }
+                }
+            });
+        }
+
+        function toggleAutoRotate() {
+            const viewer = document.getElementById('glb-viewer');
+            const chk = document.getElementById('chk-auto-rotate');
+            if (viewer && chk) {
+                if (chk.checked) {
+                    viewer.setAttribute('auto-rotate', '');
+                } else {
+                    viewer.removeAttribute('auto-rotate');
+                }
+            }
+        }
+
+        function resetModelCamera(view) {
+            const viewer = document.getElementById('glb-viewer');
+            if (!viewer) return;
+            if (view === 'front') {
+                viewer.cameraOrbit = '0deg 75deg 105%';
+            } else if (view === 'isometric') {
+                viewer.cameraOrbit = '45deg 55deg 105%';
+            } else if (view === 'top') {
+                viewer.cameraOrbit = '0deg 0deg 105%';
+            }
+        }
+
+        // --- 5. FAQ Accordion ---
+        function toggleFaq(num) {
+            const content = document.getElementById('faq-content-' + num);
+            const icon = document.getElementById('faq-icon-' + num);
+            if (content && icon) {
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            }
+        }
+
+        // --- 6. Modal & Lead Capture ---
         function openLeadModal(source) {
             console.log('Lead modal opened from:', source);
-            document.getElementById('lead-modal').classList.remove('hidden');
-            document.getElementById('lead-modal').classList.add('flex');
+            const modal = document.getElementById('lead-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('modal-form').classList.remove('hidden');
+            document.getElementById('modal-header-block').classList.remove('hidden');
+            document.getElementById('modal-success').classList.add('hidden');
         }
 
         function closeLeadModal() {
-            document.getElementById('lead-modal').classList.add('hidden');
-            document.getElementById('lead-modal').classList.remove('flex');
+            const modal = document.getElementById('lead-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         }
 
         function handleHeroSubmit(e) {
             e.preventDefault();
             const email = document.getElementById('hero-email').value;
             if (email) {
-                openLeadModal('Hero Form: ' + email);
+                document.getElementById('pass-email').value = email;
+                openLeadModal('Hero Form');
             }
         }
 
         function handleModalSubmit(e) {
             e.preventDefault();
-            document.querySelector('#lead-modal form').classList.add('hidden');
+            const name = document.getElementById('pass-name').value || 'Niti Somchai';
+            const role = document.getElementById('pass-role').value;
+            const randomId = Math.floor(1000 + Math.random() * 9000);
+
+            document.getElementById('issued-name').innerText = name + ' (' + role + ')';
+            document.getElementById('issued-token').innerText = 'BAAN-ARCH-2026-' + randomId;
+
+            document.getElementById('modal-form').classList.add('hidden');
+            document.getElementById('modal-header-block').classList.add('hidden');
             document.getElementById('modal-success').classList.remove('hidden');
-            setTimeout(() => {
-                closeLeadModal();
-                alert('Thank you! You are registered on the BAAN/ING Early Access Waitlist.');
-                document.querySelector('#lead-modal form').classList.remove('hidden');
-                document.getElementById('modal-success').classList.add('hidden');
-            }, 1800);
         }
     </script>
 </body>
